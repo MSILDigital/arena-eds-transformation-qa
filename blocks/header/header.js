@@ -80,7 +80,7 @@ export default async function decorate(block) {
       <div class="right" id="nav-right">
         <div class="location">Gurgaon &#9662;</div>
         <div class="language">EN &#9662;</div>
-        <img id="user-img" src="../../icons/user.svg" alt="user" />
+        <img id="user-img" src="../../../icons/user.svg" alt="user" />
         ${userDropdown.outerHTML}
       </div>
       <div class="car">${carIcon}</div>
@@ -91,9 +91,9 @@ export default async function decorate(block) {
   const mobileHeader = `
     <div id="menu" class="menu menu-arena">
       <div class="menu-header">
-        <div class="back-arrow"><img src="../../icons/chevron_left.svg" alt="back" /></div>
+        <div class="back-arrow"><img src="../../../icons/chevron_left.svg" alt="back" /></div>
         <span class="menu-title">Menu</span>
-        <span class="close-icon"><img src="../../icons/close.svg" alt="close" /></span>
+        <span class="close-icon"><img src="../../../icons/close.svg" alt="close" /></span>
       </div>
       <ul class="menu-list"></ul>
     </div>
