@@ -79,6 +79,7 @@ export default async function decorate(block) {
       <div class="links"></div>
       <div class="right" id="nav-right">
         <div class="location">Gurgaon &#9662;</div>
+        <div class="language">EN &#9662;</div>
         <img id="user-img" src="../../../icons/user.svg" alt="user" />
         ${userDropdown.outerHTML}
       </div>
