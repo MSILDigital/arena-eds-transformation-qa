@@ -87,6 +87,15 @@ h4,
   font-size: 18px;
   line-height: 22px; /* 122.222% */
 }
+/* teaser link button style */
+.button.primary__btn {
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  padding: inherit;
+  background-color: var(--secondary-gray-50);
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" fill="black" fill-opacity="0.05"/><path d="M11.1075 39L9 36.8925L31.8925 14H18V11H37V30H34V16.1075L11.1075 39Z" fill="%231C1D1F"/></svg>');
+}
 
 @media (min-width: 999px) {
   h1,
