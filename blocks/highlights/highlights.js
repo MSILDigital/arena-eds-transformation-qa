@@ -38,7 +38,7 @@ export default function decorate(block) {
       }
 
       const pretitle = pretitleEl?.textContent?.trim();
-      const title = titleEl?.textContent?.trim();
+      const title = titleEl?.querySelector(':is(h1,h2,h3,h4,h5,h6)');
       const description = Array.from(descriptionEl.querySelectorAll('p'))
         .map((p) => p.outerHTML)
         .join('');
@@ -59,6 +59,9 @@ export default function decorate(block) {
         `;
       }
 
+      title.removeAttribute("id");
+      title.classList.add("highlight__title");
+
       child.innerHTML = '';
       child.insertAdjacentHTML(
         'beforeend',
@@ -67,7 +70,7 @@ export default function decorate(block) {
           <div class="highlight__content">
             <div class="highlight__info">
               ${pretitle ? `<div class="highlight__pretitle"><p>${pretitle}</p></div>` : ''}
-              ${title ? `<h4 class="highlight__title">${title}</h4>` : ''}
+              ${(title) ? `${title.outerHTML}` : ''}
               ${description ? `<div class="highlight__description">${description}</div>` : ''}
             </div>
             ${ctaHtml}
