@@ -35,7 +35,8 @@
       "link-grid",
       "sign-in",
       "icontitle",
-      "highlights"
+      "highlights",
+      "finance-options"
     ]
   },
   {
@@ -60,6 +61,12 @@
     "id": "highlights",
     "components": [
       "highlight"
+    ]
+  },
+  {
+    "id": "finance-options",
+    "components": [
+      "teaser"
     ]
   }
 ]
