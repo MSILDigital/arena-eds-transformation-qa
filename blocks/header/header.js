@@ -91,7 +91,7 @@ export default async function decorate(block) {
   const mobileHeader = `
     <div id="menu" class="menu menu-arena">
       <div class="menu-header">
-      <div class="back-arrow"></div>
+        <div class="back-arrow"></div>
         <span class="menu-title">Menu</span>
         <span class="close-icon"></span>
       </div>
