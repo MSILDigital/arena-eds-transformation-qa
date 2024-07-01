@@ -59,8 +59,8 @@ export default function decorate(block) {
         `;
       }
 
-      title.removeAttribute("id");
-      title.classList.add("highlight__title");
+      title.removeAttribute('id');
+      title.classList.add('highlight__title');
 
       child.innerHTML = '';
       child.insertAdjacentHTML(
