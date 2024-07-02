@@ -14,8 +14,8 @@ function convertToLakh(number) {
 }
 
 export default async function decorate(block) {
-  // const { publishDomain } = await fetchPlaceholders();
-  const publishDomain  = 'https://publish-p135331-e1341966.adobeaemcloud.com/'
+  const { publishDomain } = await fetchPlaceholders();
+  // const publishDomain  = 'https://publish-p135331-e1341966.adobeaemcloud.com/'
   const carResponse = await fetchCar(publishDomain);
   const isDesktop = window.innerWidth > 998;
   let currentIndex = 0;
