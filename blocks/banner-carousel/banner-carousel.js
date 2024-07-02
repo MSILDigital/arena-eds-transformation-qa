@@ -1,6 +1,5 @@
 import ctaUtils from '../../utility/ctaUtils.js';
 import { fetchPlaceholders } from '../../scripts/aem.js';
-// eslint no-underscore-dangle: 0
 
 async function fetchCar(domain) {
   const car = await fetch(
@@ -17,6 +16,11 @@ function convertToLakh(number) {
 export default async function decorate(block) {
   const { publishDomain } = await fetchPlaceholders();
   const carResponse = await fetchCar(publishDomain);
+  const isDesktop = window.innerWidth > 998;
+  let currentIndex = 0;
+  const cardsPerPage = isDesktop ? 3 : 1;
+  let highlightedSidebar = null;
+
   const carsObject = carResponse?.data?.carModelList?.items?.reduce(
     (acc, car) => {
       acc[car.modelId] = car;
@@ -125,49 +129,33 @@ export default async function decorate(block) {
   const preBtn = document.querySelector('.pre-btn');
   preBtn.disabled = true;
 
-  const isDesktop = window.innerWidth > 998;
   const cards = document.querySelectorAll('.car-container');
   const cardCount = cards.length;
-  let currentIndex = 0;
-  const cardsPerPage = isDesktop ? 3 : 1;
-  let highlightedSidebar = null;
 
   if (cardCount - cardsPerPage === 0) {
     nxtBtn.disabled = true;
   }
 
-  function addBGToSlider(indexSidebar, sideBarItem) {
-    if (indexSidebar === 0) {
-      sideBarItem.classList.add('left_sidebar');
-      const img = document.createElement('img');
-      img.src = '../../icons/title_cover_blue.svg';
-      sideBarItem.querySelector('.text-container').prepend(img);
-    } else if (indexSidebar === 1) {
-      sideBarItem.classList.add('mid_sidebar');
-      const img = document.createElement('img');
-      img.src = '../../icons/title_cover_yellow.svg';
-      sideBarItem.querySelector('.text-container').prepend(img);
-    } else if (indexSidebar === 2) {
-      sideBarItem.classList.add('right_sidebar');
-      const img = document.createElement('img');
-      img.src = '../../icons/title_cover_yellow.svg';
-      sideBarItem.querySelector('.text-container').prepend(img);
-    }
-  }
-
   function addImgToTitleDesktop(indexSidebar, sideBarItem) {
-    if (indexSidebar === 0) {
-      const img = document.createElement('img');
-      img.src = '../../icons/title_cover_blue.svg';
-      sideBarItem.querySelector('.text-container').prepend(img);
-    } else if (indexSidebar === 1) {
-      const img = document.createElement('img');
-      img.src = '../../icons/title_cover_yellow.svg';
-      sideBarItem.querySelector('.text-container').prepend(img);
-    } else if (indexSidebar === 2) {
-      const img = document.createElement('img');
-      img.src = '../../icons/title_cover_yellow.svg';
-      sideBarItem.querySelector('.text-container').prepend(img);
+    const img = document.createElement('img');
+    switch (indexSidebar) {
+      case 0:
+        sideBarItem.classList.add('left_sidebar');
+        img.src = '../../icons/title_cover_blue.svg';
+        sideBarItem.querySelector('.text-container').prepend(img);
+        break;
+      case 1:
+        sideBarItem.classList.add('mid_sidebar');
+        img.src = '../../icons/title_cover_yellow.svg';
+        sideBarItem.querySelector('.text-container').prepend(img);
+        break;
+      case 2:
+        sideBarItem.classList.add('right_sidebar');
+        img.src = '../../icons/title_cover_yellow.svg';
+        sideBarItem.querySelector('.text-container').prepend(img);
+        break;
+      default:
+        break;
     }
   }
 
@@ -215,7 +203,6 @@ export default async function decorate(block) {
       const indexSidebar = i - index;
       const sideBarItem = card.querySelector('.sidebar');
       if (isDesktop) {
-        addBGToSlider(indexSidebar, sideBarItem);
         addImgToTitleDesktop(indexSidebar, sideBarItem);
       } else {
         addImgToTitleMobile(sideBarItem);
