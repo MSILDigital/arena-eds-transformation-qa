@@ -3,7 +3,7 @@ import { fetchPlaceholders } from '../../scripts/aem.js';
 
 async function fetchCar(domain) {
   const car = await fetch(
-    `${domain}/graphql/execute.json/msil-platform/arenaBannerList?q=123`,
+    `${domain}/graphql/execute.json/msil-platform/arenaBannerList?q=123134354656`,
   );
   return car.json();
 }
@@ -14,7 +14,8 @@ function convertToLakh(number) {
 }
 
 export default async function decorate(block) {
-  const { publishDomain } = await fetchPlaceholders();
+  // const { publishDomain } = await fetchPlaceholders();
+  const publishDomain  = 'https://publish-p135331-e1341966.adobeaemcloud.com/'
   const carResponse = await fetchCar(publishDomain);
   const isDesktop = window.innerWidth > 998;
   let currentIndex = 0;
@@ -58,13 +59,13 @@ export default async function decorate(block) {
       primaryCtaLinkEl,
       primaryCtaTextEl,
       primaryCtaTargetEl,
-      'primary__btn',
+      '',
     );
     const secondaryCta = ctaUtils.getLink(
       secondaryCtaLinkEl,
       secondaryCtaTextEl,
       secondaryCtaTargetEl,
-      'secondary__btn',
+      '',
     );
     /* eslint no-underscore-dangle: 0 */
     carContainersWrapper.innerHTML += `
@@ -116,8 +117,8 @@ export default async function decorate(block) {
     <div class="hero_banner_container_wrapper">
       ${bgImg.outerHTML}
       <div class="hero_banner_container">
-        <button class="pre-btn"><img src="../../icons/arrow_backward.svg" alt="previous" /></button>
-        <button class="nxt-btn"><img src="../../icons/arrow_forward.svg" alt="next" /></button>
+        <button class="pre-btn"><img src="../../../icons/arrow_backward.svg" alt="previous" /></button>
+        <button class="nxt-btn"><img src="../../../icons/arrow_forward.svg" alt="next" /></button>
         ${carContainersWrapper.innerHTML}
       </div>
     </div>
@@ -141,17 +142,17 @@ export default async function decorate(block) {
     switch (indexSidebar) {
       case 0:
         sideBarItem.classList.add('left_sidebar');
-        img.src = '../../icons/title_cover_blue.svg';
+        img.src = '../../../icons/title_cover_blue.svg';
         sideBarItem.querySelector('.text-container').prepend(img);
         break;
       case 1:
         sideBarItem.classList.add('mid_sidebar');
-        img.src = '../../icons/title_cover_yellow.svg';
+        img.src = '../../../icons/title_cover_yellow.svg';
         sideBarItem.querySelector('.text-container').prepend(img);
         break;
       case 2:
         sideBarItem.classList.add('right_sidebar');
-        img.src = '../../icons/title_cover_yellow.svg';
+        img.src = '../../../icons/title_cover_yellow.svg';
         sideBarItem.querySelector('.text-container').prepend(img);
         break;
       default:
