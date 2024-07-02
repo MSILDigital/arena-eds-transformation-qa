@@ -35,6 +35,7 @@
       "link-grid",
       "sign-in",
       "icontitle",
+      "banner-carousel",
       "highlights",
       "finance-options",
       "slider"
@@ -56,6 +57,12 @@
     "id": "sign-in",
     "components": [
       "ctaWithIcon"
+    ]
+  },
+  {
+    "id": "banner-carousel",
+    "components": [
+      "banner-carousel-car"
     ]
   },
   {
