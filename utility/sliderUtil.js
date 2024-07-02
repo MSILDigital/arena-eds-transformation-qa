@@ -70,11 +70,14 @@ const slider = {
         // Horizontal swipe
         if (diffX > 50) {
           // Swiped left
-          currentIndex = currentIndex < totalBoxes - visibleBoxes ? currentIndex + 3 : 0;
+          currentIndex = currentIndex < totalBoxes - visibleBoxes ? currentIndex + 1 : 0;
+          if (currentIndex >= totalBoxes - 2) currentIndex = totalBoxes - 1;
         } else if (diffX < -50) {
           // Swiped right
-          currentIndex = currentIndex > 0 ? currentIndex - 3 : totalBoxes - visibleBoxes;
+          currentIndex = currentIndex > 0 ? currentIndex - 1 : totalBoxes - visibleBoxes;
+          if (currentIndex === 0) currentIndex = 0;
         }
+
         updateSlider();
       }
     };
