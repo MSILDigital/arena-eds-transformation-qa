@@ -35,7 +35,9 @@
       "link-grid",
       "sign-in",
       "icontitle",
-      "banner-carousel"
+      "banner-carousel",
+      "highlights",
+      "finance-options"
     ]
   },
   {
@@ -60,6 +62,18 @@
     "id": "banner-carousel",
     "components": [
       "banner-carousel-car"
+    ]
+  },
+  {
+    "id": "highlights",
+    "components": [
+      "highlight"
+    ]
+  },
+  {
+    "id": "finance-options",
+    "components": [
+      "teaser"
     ]
   }
 ]

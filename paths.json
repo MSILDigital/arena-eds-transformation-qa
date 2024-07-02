@@ -1,5 +1,6 @@
 {
   "mappings": [
-    "/content/msil-eds-transformation/:/"
+    "/content/arena-eds-transformation/:/",
+    "/content/arena-eds-transformation/metadata:/metadata.json"
   ]
 }
