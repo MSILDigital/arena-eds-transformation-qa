@@ -37,7 +37,8 @@
       "icontitle",
       "banner-carousel",
       "highlights",
-      "finance-options"
+      "finance-options",
+      "slider"
     ]
   },
   {
@@ -72,6 +73,12 @@
   },
   {
     "id": "finance-options",
+    "components": [
+      "teaser"
+    ]
+  },
+  {
+    "id": "slider",
     "components": [
       "teaser"
     ]
