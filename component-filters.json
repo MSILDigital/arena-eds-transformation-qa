@@ -34,7 +34,8 @@
       "contact",
       "link-grid",
       "sign-in",
-      "icontitle"
+      "icontitle",
+      "banner-carousel"
     ]
   },
   {
@@ -53,6 +54,12 @@
     "id": "sign-in",
     "components": [
       "ctaWithIcon"
+    ]
+  },
+  {
+    "id": "banner-carousel",
+    "components": [
+      "banner-carousel-car"
     ]
   }
 ]
