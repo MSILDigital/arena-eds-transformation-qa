@@ -70,7 +70,7 @@ export default async function decorate(block) {
     carContainersWrapper.innerHTML += `
       <div class="car-container">
           <img
-            src=${carObjectItem?.carImage._publishUrl || ''}
+            src=${carObjectItem?.carImage?._publishUrl || ''}
             alt=${carObjectItem?.carName || ''}
             class="sidebar-car--image"
           />
@@ -80,7 +80,7 @@ export default async function decorate(block) {
                 <span>${firstLetterTitle || ''} ${restTitle || ''}</span>
               </div>
               <img
-                src=${carObjectItem?.carLogoImage._publishUrl || ''}
+                src=${carObjectItem?.carLogoImage?._publishUrl || ''}
                 alt=${carObjectItem?.carName || ''}
                 class="sidebar-car--logo"
               />
