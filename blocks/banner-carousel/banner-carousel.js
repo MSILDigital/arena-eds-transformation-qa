@@ -3,7 +3,7 @@ import { fetchPlaceholders } from '../../scripts/aem.js';
 
 async function fetchCar(domain) {
   const car = await fetch(
-    `${domain}/graphql/execute.json/msil-platform/arenaBannerList?q=123134354656`,
+    `${domain}/graphql/execute.json/msil-platform/arenaBannerList`,
   );
   return car.json();
 }
