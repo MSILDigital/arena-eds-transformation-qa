@@ -83,13 +83,15 @@ export default function decorate(block) {
   block.insertAdjacentHTML('beforeend', utility.sanitizeHtml(newHtml));
 
   const actionCTA = document.querySelector('.button-container a');
-  actionCTA.setAttribute('target', targetEl.innerText);
-  actionCTA.setAttribute('name', actionCtaLabel?.firstElementChild?.innerText);
+  actionCTA?.setAttribute('target', targetEl.innerText);
+  actionCTA?.setAttribute('name', actionCtaLabel?.firstElementChild?.innerText);
 
   const headings = document.querySelectorAll('.left__content h2');
-  headings.forEach((heading, index) => {
-    heading.classList.add(`heading${index + 1}`);
-  });
+  if (headings.length > 0) {
+    headings.forEach((heading, index) => {
+      heading.classList.add(`heading${index + 1}`);
+    });
+  }
 
   const carouselItems = document.querySelectorAll(
     '.right__content .car__carousel .image-container',
@@ -97,26 +99,34 @@ export default function decorate(block) {
 
   // Adding Logo alt text
   const logoAltText = [car1LogoAlt, car2LogoAlt, car3LogoAlt];
-  logoAltText.forEach((logotext, index) => {
-    const imageItem = carouselItems.item(index);
-    const logoTag = imageItem.querySelector('picture img');
-    logoTag.setAttribute('alt', logotext?.firstElementChild?.innerText);
-  });
+  if (logoAltText.length > 0) {
+    logoAltText.forEach((logotext, index) => {
+      const imageItem = carouselItems.item(index);
+      const logoTag = imageItem.querySelector('picture img');
+      logoTag?.setAttribute('alt', logotext?.firstElementChild?.innerText);
+    });
+  }
 
   // Adding car alt text
   const carAltText = [car1ImgAlt, car2ImgAlt, car3ImgAlt];
-  carAltText.forEach((carText, index) => {
-    const imageItem = carouselItems.item(index);
-    const carTag = imageItem.querySelectorAll('picture img').length > 0
-      && imageItem.querySelectorAll('picture img')[1];
-    carTag.setAttribute('alt', carText?.firstElementChild?.innerText);
-  });
+  if (carAltText.length > 0) {
+    carAltText.forEach((carText, index) => {
+      const imageItem = carouselItems.item(index);
+      const carTag = imageItem.querySelectorAll('picture img').length > 0
+        && imageItem.querySelectorAll('picture img')[1];
+      carTag?.setAttribute('alt', carText?.firstElementChild?.innerText);
+    });
+  }
 
-  carouselItems.forEach((imageContainer) => {
-    const imageTag = imageContainer.querySelectorAll('picture');
-    imageTag[0].classList.add('carLogo');
-    imageTag[1].classList.add('carImage');
-  });
+  if (carouselItems.length > 0) {
+    carouselItems.forEach((imageContainer) => {
+      const imageTag = imageContainer.querySelectorAll('picture');
+      if (imageTag.length > 0) {
+        imageTag[0]?.classList.add('carLogo');
+        imageTag[1]?.classList.add('carImage');
+      }
+    });
+  }
 
   let currentIndex = 0;
   const totalItems = carouselItems.length;

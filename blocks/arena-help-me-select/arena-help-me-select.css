@@ -79,7 +79,7 @@
 }
 
 .image-container {
-  width: 300px;
+  width: 260px;
   height: 180px;
   display: block;
 }
@@ -284,7 +284,7 @@
 
   .helpme-select .right__content .dummy__text {
     position: absolute;
-    bottom: 4%;
+    bottom: 2%;
     color: #FFF;
     font-size: 16px;
     font-style: normal;
@@ -308,7 +308,7 @@
   }
 
   .image-container.active {
-    transform: scale(2.0);
+    transform: scale(1.8);
     position: absolute;
     left: 12%;
     bottom: 28%;
