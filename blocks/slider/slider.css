@@ -43,7 +43,11 @@
 .container__slider .teaser__actions {
   margin-top: 7px;
 }
-
+.container__slider .teaser__actions .button.primary__btn {
+  width: inherit;
+  height: inherit;
+  background: none;
+}
 .container__slider .teaser__actions a {
   display: inline-block;
   color: #000;
