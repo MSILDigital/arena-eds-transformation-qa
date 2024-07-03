@@ -33,9 +33,9 @@ export default function decorate(block) {
 
   block.innerHTML = '';
   block.insertAdjacentHTML('beforeend', utility.sanitizeHtml(newHtml));
-  const sliderContainer = document.querySelector('.teaser__cards');
-  const prevButton = document.querySelector('.prev');
-  const nextButton = document.querySelector('.next');
-  const boxes = document.querySelectorAll('.teaser__card');
+  const sliderContainer = block.querySelector('.teaser__cards');
+  const prevButton = block.querySelector('.prev');
+  const nextButton = block.querySelector('.next');
+  const boxes = block.querySelectorAll('.teaser__card');
   slider.initSlider(sliderContainer, prevButton, nextButton, boxes);
 }
