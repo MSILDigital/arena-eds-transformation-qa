@@ -5,7 +5,8 @@ async function fetchCar(domain) {
   const car = await fetch(
     `${domain}/graphql/execute.json/msil-platform/arenaBannerList`,
   );
-  return car.json();
+  // eslint-disable-next-line
+  return await car.json();
 }
 
 function convertToLakh(number) {
