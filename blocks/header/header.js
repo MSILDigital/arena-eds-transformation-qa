@@ -3,8 +3,6 @@ import utility from '../../utility/utility.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 const list = [];
-const currentURL = window.location.href;
-const isNexa = currentURL.includes('nexa');
 
 function toggleMenu() {
   document.getElementById('menu').classList.toggle('hidden');
@@ -32,39 +30,39 @@ export default async function decorate(block) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
-  Array.from(
-    nav.querySelectorAll('nav > div.section:not(:first-child):not(:last-child):not(:nth-last-child(2))'),
-  ).forEach((el) => {
-    const heading = el.querySelector('.icontitle :is(h1,h2,h3,h4,h5,h6)');
-    const icon = el.querySelector('.icon');
-    const iconClicked = el.querySelector('.iconClicked');
-    const [content] = Array.from(el.children).slice(1);
-    let teaserWrappers;
-    let combinedTeaserHTML = '';
-    let teaser;
-    if (content?.classList.contains('car-filter-wrapper')) {
-      teaserWrappers = el.querySelectorAll('.teaser-wrapper');
-      teaserWrappers.forEach((teaserWrapper) => {
-        combinedTeaserHTML += teaserWrapper.innerHTML;
-      });
+  Array
+    .from(nav.children)
+    .slice(1, nav.children.length - 1).forEach((el) => {
+      const heading = el.querySelector('.icontitle :is(h1,h2,h3,h4,h5,h6)');
+      const icon = el.querySelector('.icon');
+      const iconClicked = el.querySelector('.iconClicked');
+      const [content] = Array.from(el.children).slice(1);
+      let teaserWrappers;
+      let combinedTeaserHTML = '';
+      let teaser;
+      if (content?.classList.contains('car-filter-wrapper')) {
+        teaserWrappers = el.querySelectorAll('.teaser-wrapper');
+        teaserWrappers.forEach((teaserWrapper) => {
+          combinedTeaserHTML += teaserWrapper.innerHTML;
+        });
 
-      el.querySelector('.card-list-teaser')?.insertAdjacentHTML(
-        'beforeend',
-        utility.sanitizeHtml(
-          `<div class="teaser-list">${combinedTeaserHTML}</div>`,
-        ),
-      );
-    } else {
-      teaser = el.querySelector('.teaser-wrapper');
-    }
-    list.push({
-      heading: heading?.textContent,
-      icon: icon?.innerHTML,
-      iconClicked: iconClicked?.innerHTML,
-      content: content?.firstChild,
-      teaser: teaser?.firstChild ?? '',
+        el.querySelector('.card-list-teaser')?.insertAdjacentHTML(
+          'beforeend',
+          utility.sanitizeHtml(
+            `<div class="teaser-list">${combinedTeaserHTML}</div>`,
+          ),
+        );
+      } else {
+        teaser = el.querySelector('.teaser-wrapper');
+      }
+      list.push({
+        heading: heading?.textContent,
+        icon: icon?.innerHTML,
+        iconClicked: iconClicked?.innerHTML,
+        content: content?.firstChild,
+        teaser: teaser?.firstChild ?? '',
+      });
     });
-  });
   const logo = nav.querySelector('.logo-wrapper');
   const carIcon = nav.children[1].querySelector('.icon')?.innerHTML;
   const carFilter = nav.querySelector('.car-filter');
@@ -76,12 +74,11 @@ export default async function decorate(block) {
   const userDropdown = nav.querySelector('.sign-in-wrapper');
   userDropdown.classList.add('hidden');
   const userAccountLinkItems = userDropDownDiv.querySelectorAll('.user__account>a');
-  const signInTeaser = nav.querySelector('.sign-in-teaser');
   const locationHtml = nav.querySelector('.location-wrapper');
 
   const desktopHeader = `
-    <div class="navbar ${isNexa ? 'navbar-nexa' : 'navbar-arena'}">
-      <div class="nav-hamburger ${isNexa && 'nav-hamburger-nexa'}">
+    <div class="navbar navbar-arena">
+      <div class="nav-hamburger">
       <button type="button" aria-controls="nav" aria-label="Open navigation">
         <span class="nav-hamburger-icon"></span>
       </button>
@@ -91,37 +88,35 @@ export default async function decorate(block) {
       <div class="right" id="nav-right">
         <div class="location">Gurgaon &#9662;</div>
         <div class="language">EN &#9662;</div>
-        <img id="user-img" src="../../../icons/user.svg" alt="user" />
+        <div id="user-img"></div>
         ${userDropdown.outerHTML}
       </div>
       <div class="car-icon">${carIcon}</div>
     </div>
-    <div class="car-filter-menu hidden ${
-  isNexa ? 'car-filter-nexa' : 'car-filter-arena'
-}" id="carFilterMenu">
+    <div class="car-filter-menu hidden car-filter-arena" id="carFilterMenu">
     <div class="car-panel-header">
       <div></div>
       <span class="car-text">Cars</span>
-      <span class="car-filter-close"><img src="../../icons/${
-  isNexa ? 'close_white' : 'close'
-}.svg" alt="close" /></span>
+      <span class="car-filter-close"><img src="../../../icons/close.svg" alt="close" /></span>
     </div>
       </div>
   `;
 
   const mobileHeader = `
-    <div id="menu" class="menu menu-arena">
+    <div id="menu" class="menu hidden menu-arena">
       <div class="menu-header">
-        <div class="back-arrow"><img src="../../../icons/chevron_left.svg" alt="back" /></div>
+        <div class="back-arrow"></div>
         <span class="menu-title">Menu</span>
-        <span class="close-icon"><img src="../../../icons/close.svg" alt="close" /></span>
+        <span class="close-icon"></span>
       </div>
       <ul class="menu-list"></ul>
     </div>
   `;
   const navWrapper = document.createElement('div');
   navWrapper.innerHTML = desktopHeader + mobileHeader;
-  navWrapper.querySelector('.right').insertAdjacentElement('afterbegin', locationHtml);
+  if (locationHtml) {
+    navWrapper.querySelector('.right').insertAdjacentElement('afterbegin', locationHtml);
+  }
   block.append(navWrapper);
   const navHamburger = document.querySelector('.nav-hamburger');
   const backArrow = document.querySelector('.back-arrow');
@@ -141,8 +136,6 @@ export default async function decorate(block) {
 
   const linkEl = document.querySelector('.links');
   const menuList = document.querySelector('.menu-list');
-
-  if (isNexa) menuList.innerHTML += `<li>${signInTeaser.outerHTML}</li>`;
 
   list.forEach((el, i) => {
     const linkTitle = document.createElement('div');
@@ -179,10 +172,7 @@ export default async function decorate(block) {
     block.querySelector('.car-filter-menu')?.append(carFilter);
   }
 
-  (isNexa
-    ? Array.from(userAccountLinkItems).slice(1)
-    : userAccountLinkItems
-  ).forEach((el) => {
+  userAccountLinkItems?.forEach((el) => {
     menuList.innerHTML += `<li>${el.outerHTML}</li>`;
   });
 
@@ -191,7 +181,7 @@ export default async function decorate(block) {
   const acc = document.getElementsByClassName('accordion');
 
   for (let i = 0; i < acc.length; i += 1) {
-    acc[i].addEventListener('click', () => {
+    acc[i].addEventListener('click', function eventHandler() {
       this.classList.toggle('active');
       const index = parseInt(this.getAttribute('id').split('-')[2], 10);
       const menuListIconWrapper = this.querySelector('.icon');

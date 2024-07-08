@@ -36,7 +36,12 @@
       "sign-in",
       "icontitle",
       "location",
-      "car-filter"
+      "car-filter",
+      "banner-carousel",
+      "highlights",
+      "finance-options",
+      "slider",
+      "arena-help-me-select"
     ]
   },
   {
@@ -55,6 +60,30 @@
     "id": "sign-in",
     "components": [
       "ctaWithIcon"
+    ]
+  },
+  {
+    "id": "banner-carousel",
+    "components": [
+      "banner-carousel-car"
+    ]
+  },
+  {
+    "id": "highlights",
+    "components": [
+      "highlight"
+    ]
+  },
+  {
+    "id": "finance-options",
+    "components": [
+      "teaser"
+    ]
+  },
+  {
+    "id": "slider",
+    "components": [
+      "teaser"
     ]
   }
 ]

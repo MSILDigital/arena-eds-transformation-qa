@@ -1,5 +1,7 @@
 {
   "mappings": [
-    "/content/msil-eds-transformation/:/"
+    "/content/arena-eds-transformation/:/",
+    "/content/arena-eds-transformation/metadata:/metadata.json",
+    "/content/arena-eds-transformation/placeholders:/placeholders.json"
   ]
 }
