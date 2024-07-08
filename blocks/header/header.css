@@ -110,6 +110,12 @@
   margin-right: 24px;
 }
 
+.navbar-arena .links .link-title:hover {
+  color: #171d9b;
+  font-weight: 600;
+  border-bottom: 3px solid #171d9b;
+}
+
 .navbar .right {
   display: flex;
   align-items: center;
@@ -279,6 +285,18 @@ body {
   }
   .car-filter-close img {
     vertical-align: middle;
+  }
+}
+
+.car-filter-arena .car-panel-header {
+  background-color: white;
+  .car-text {
+    color: #171d9b;
+    font-family: "Anek Latin";
+    font-feature-settings: "clig" off, "liga" off;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px; /* 133.333% */
   }
 }
 
@@ -475,24 +493,17 @@ body {
 
 
 @media (min-width: 999px) {
-  .nexa.panel,
   .arena.panel {
     padding: 32px 64px;
     background-color: var(--nav-background-color);
   }
-  .nexa.panel .link-grid-column .links-container,
   .arena.panel .link-grid-column .links-container {
     flex-direction: row;
     gap: 56px;
   }
-  .nexa.panel .link-grid-column .links-container a,
   .arena.panel .link-grid-column .links-container a {
     color: black;
     min-height: auto;
-  }
-
-  .navbar-nexa .user__account > a {
-    border-bottom: 1px solid #f2f2f2f2;
   }
 }
 
@@ -522,6 +533,10 @@ body {
 @media (min-width: 999px) {
   .navbar-arena .panel {
     background-color: #f4f4f4;
+    &.cars {
+      background-color: white;
+      padding: 0;
+    }
   }
 
   .navbar-arena .panel .link-grid {

@@ -30,39 +30,39 @@ export default async function decorate(block) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
-  Array.from(
-    nav.querySelectorAll('nav > div.section:not(:first-child):not(:last-child):not(:nth-last-child(2))'),
-  ).forEach((el) => {
-    const heading = el.querySelector('.icontitle :is(h1,h2,h3,h4,h5,h6)');
-    const icon = el.querySelector('.icon');
-    const iconClicked = el.querySelector('.iconClicked');
-    const [content] = Array.from(el.children).slice(1);
-    let teaserWrappers;
-    let combinedTeaserHTML = '';
-    let teaser;
-    if (content?.classList.contains('car-filter-wrapper')) {
-      teaserWrappers = el.querySelectorAll('.teaser-wrapper');
-      teaserWrappers.forEach((teaserWrapper) => {
-        combinedTeaserHTML += teaserWrapper.innerHTML;
-      });
+  Array
+    .from(nav.children)
+    .slice(1, nav.children.length - 1).forEach((el) => {
+      const heading = el.querySelector('.icontitle :is(h1,h2,h3,h4,h5,h6)');
+      const icon = el.querySelector('.icon');
+      const iconClicked = el.querySelector('.iconClicked');
+      const [content] = Array.from(el.children).slice(1);
+      let teaserWrappers;
+      let combinedTeaserHTML = '';
+      let teaser;
+      if (content?.classList.contains('car-filter-wrapper')) {
+        teaserWrappers = el.querySelectorAll('.teaser-wrapper');
+        teaserWrappers.forEach((teaserWrapper) => {
+          combinedTeaserHTML += teaserWrapper.innerHTML;
+        });
 
-      el.querySelector('.card-list-teaser')?.insertAdjacentHTML(
-        'beforeend',
-        utility.sanitizeHtml(
-          `<div class="teaser-list">${combinedTeaserHTML}</div>`,
-        ),
-      );
-    } else {
-      teaser = el.querySelector('.teaser-wrapper');
-    }
-    list.push({
-      heading: heading?.textContent,
-      icon: icon?.innerHTML,
-      iconClicked: iconClicked?.innerHTML,
-      content: content?.firstChild,
-      teaser: teaser?.firstChild ?? '',
+        el.querySelector('.card-list-teaser')?.insertAdjacentHTML(
+          'beforeend',
+          utility.sanitizeHtml(
+            `<div class="teaser-list">${combinedTeaserHTML}</div>`,
+          ),
+        );
+      } else {
+        teaser = el.querySelector('.teaser-wrapper');
+      }
+      list.push({
+        heading: heading?.textContent,
+        icon: icon?.innerHTML,
+        iconClicked: iconClicked?.innerHTML,
+        content: content?.firstChild,
+        teaser: teaser?.firstChild ?? '',
+      });
     });
-  });
   const logo = nav.querySelector('.logo-wrapper');
   const carIcon = nav.children[1].querySelector('.icon')?.innerHTML;
   const carFilter = nav.querySelector('.car-filter');
@@ -74,7 +74,6 @@ export default async function decorate(block) {
   const userDropdown = nav.querySelector('.sign-in-wrapper');
   userDropdown.classList.add('hidden');
   const userAccountLinkItems = userDropDownDiv.querySelectorAll('.user__account>a');
-  const signInTeaser = nav.querySelector('.sign-in-teaser');
   const locationHtml = nav.querySelector('.location-wrapper');
 
   const desktopHeader = `
@@ -115,7 +114,7 @@ export default async function decorate(block) {
   `;
   const navWrapper = document.createElement('div');
   navWrapper.innerHTML = desktopHeader + mobileHeader;
-  if(locationHtml) {
+  if (locationHtml) {
     navWrapper.querySelector('.right').insertAdjacentElement('afterbegin', locationHtml);
   }
   block.append(navWrapper);
@@ -137,8 +136,6 @@ export default async function decorate(block) {
 
   const linkEl = document.querySelector('.links');
   const menuList = document.querySelector('.menu-list');
-
-  if (isNexa) menuList.innerHTML += `<li>${signInTeaser.outerHTML}</li>`;
 
   list.forEach((el, i) => {
     const linkTitle = document.createElement('div');
@@ -175,10 +172,7 @@ export default async function decorate(block) {
     block.querySelector('.car-filter-menu')?.append(carFilter);
   }
 
-  (isNexa
-    ? Array.from(userAccountLinkItems).slice(1)
-    : userAccountLinkItems
-  ).forEach((el) => {
+  userAccountLinkItems?.forEach((el) => {
     menuList.innerHTML += `<li>${el.outerHTML}</li>`;
   });
 
@@ -187,7 +181,7 @@ export default async function decorate(block) {
   const acc = document.getElementsByClassName('accordion');
 
   for (let i = 0; i < acc.length; i += 1) {
-    acc[i].addEventListener('click', () => {
+    acc[i].addEventListener('click', function eventHandler() {
       this.classList.toggle('active');
       const index = parseInt(this.getAttribute('id').split('-')[2], 10);
       const menuListIconWrapper = this.querySelector('.icon');
