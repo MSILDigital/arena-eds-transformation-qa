@@ -760,5 +760,444 @@
         ]
       }
     ]
+  },
+  {
+    "id": "banner-carousel",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "bannerImage",
+        "label": "Banner Image",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "banner-carousel-car",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "pretitle",
+        "label": "Pretitle"
+      },
+      {
+        "component": "text",
+        "name": "model-id",
+        "label": "Model ID",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "fuelType",
+        "label": "Fuel Type"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "onRoadPrice",
+        "label": "On Road Price"
+      },
+      {
+        "component": "text-input",
+        "name": "primaryText",
+        "label": "Primary CTA Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "primaryLink",
+        "label": "Primary CTA Link"
+      },
+      {
+        "component": "select",
+        "name": "primaryTarget",
+        "value": "",
+        "label": "Open Primary Link in New Page ?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "_blank"
+          },
+          {
+            "name": "No",
+            "value": "_self"
+          }
+        ]
+      },
+      {
+        "component": "text-input",
+        "name": "secondaryText",
+        "label": "Secondary CTA Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "secondaryLink",
+        "label": "Secondary CTA Link"
+      },
+      {
+        "component": "select",
+        "name": "secondaryTarget",
+        "value": "",
+        "label": "Open Secondary Link in New Page ?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "_blank"
+          },
+          {
+            "name": "No",
+            "value": "_self"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "highlight",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "backgroundImage",
+        "label": "Background Image",
+        "multi": false
+      },
+      {
+        "component": "text-input",
+        "name": "backgroundAlt",
+        "value": "",
+        "label": "Background Image Alt Text",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "foregroundImage",
+        "label": "Foreground Image",
+        "multi": false
+      },
+      {
+        "component": "text-input",
+        "name": "foregroundAlt",
+        "value": "",
+        "label": "Foreground Image Alt Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text-input",
+        "name": "pretitle",
+        "value": "",
+        "label": "Pretitle",
+        "valueType": "string"
+      },
+      {
+        "component": "text-input",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "value": "h4",
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "ctaLink",
+        "label": "CTA Link"
+      },
+      {
+        "component": "select",
+        "name": "ctaTarget",
+        "value": "",
+        "label": "Open Link in New Page ?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "_blank"
+          },
+          {
+            "name": "No",
+            "value": "_self"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "backgroundColor",
+        "value": "",
+        "label": "Select Highlight Background Color",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Blue",
+            "value": "blue"
+          },
+          {
+            "name": "Red",
+            "value": "red"
+          },
+          {
+            "name": "Yellow",
+            "value": "yellow"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "slider",
+    "fields": [
+      {
+        "component": "text-input",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "value": "h2",
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "arena-help-me-select",
+    "fields": [
+      {
+        "component": "tab",
+        "label": "Properties",
+        "name": "col1"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "preTitle",
+        "value": "",
+        "label": "PreTitle"
+      },
+      {
+        "component": "richtext",
+        "name": "rteLhs",
+        "label": "Rich Text LHS",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "rteRhs",
+        "label": "Rich Text RHS",
+        "valueType": "string"
+      },
+      {
+        "component": "text-input",
+        "name": "primaryText",
+        "label": "CTA Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "primaryLink",
+        "label": "CTA Link"
+      },
+      {
+        "component": "select",
+        "name": "primaryTarget",
+        "value": "",
+        "label": "Open Link in New Page ?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "_blank"
+          },
+          {
+            "name": "No",
+            "value": "_self"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "interval",
+        "value": "3",
+        "label": "Spotlight Interval"
+      },
+      {
+        "component": "tab",
+        "label": "Asset 1",
+        "name": "col2"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logoReference1",
+        "label": "Logo",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "logoAlt1",
+        "value": "Default alt",
+        "label": "Logo Alt Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carReference1",
+        "label": "Car Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "carAlt1",
+        "value": "Default alt",
+        "label": "Car Alt Text"
+      },
+      {
+        "component": "tab",
+        "label": "Asset 2",
+        "name": "col3"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logoReference2",
+        "label": "Logo",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "logoAlt2",
+        "value": "Default alt",
+        "label": "Logo Alt Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carReference2",
+        "label": "Car Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "carAlt2",
+        "value": "Default alt",
+        "label": "Car Alt Text"
+      },
+      {
+        "component": "tab",
+        "label": "Asset 3",
+        "name": "col4"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logoReference3",
+        "label": "Logo",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "logoAlt3",
+        "value": "Default alt",
+        "label": "Logo Alt Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carReference3",
+        "label": "Car Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "carAlt3",
+        "value": "Default alt",
+        "label": "Car Alt Text"
+      }
+    ]
   }
 ]
