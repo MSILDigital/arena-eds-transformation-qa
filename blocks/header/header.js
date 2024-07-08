@@ -3,8 +3,6 @@ import utility from '../../utility/utility.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 const list = [];
-const currentURL = window.location.href;
-const isNexa = currentURL.includes('nexa');
 
 function toggleMenu() {
   document.getElementById('menu').classList.toggle('hidden');
@@ -80,8 +78,8 @@ export default async function decorate(block) {
   const locationHtml = nav.querySelector('.location-wrapper');
 
   const desktopHeader = `
-    <div class="navbar ${isNexa ? 'navbar-nexa' : 'navbar-arena'}">
-      <div class="nav-hamburger ${isNexa && 'nav-hamburger-nexa'}">
+    <div class="navbar navbar-arena">
+      <div class="nav-hamburger">
       <button type="button" aria-controls="nav" aria-label="Open navigation">
         <span class="nav-hamburger-icon"></span>
       </button>
@@ -96,15 +94,11 @@ export default async function decorate(block) {
       </div>
       <div class="car-icon">${carIcon}</div>
     </div>
-    <div class="car-filter-menu hidden ${
-  isNexa ? 'car-filter-nexa' : 'car-filter-arena'
-}" id="carFilterMenu">
+    <div class="car-filter-menu hidden car-filter-arena" id="carFilterMenu">
     <div class="car-panel-header">
       <div></div>
       <span class="car-text">Cars</span>
-      <span class="car-filter-close"><img src="../../icons/${
-  isNexa ? 'close_white' : 'close'
-}.svg" alt="close" /></span>
+      <span class="car-filter-close"><img src="../../../icons/close.svg" alt="close" /></span>
     </div>
       </div>
   `;
@@ -121,7 +115,9 @@ export default async function decorate(block) {
   `;
   const navWrapper = document.createElement('div');
   navWrapper.innerHTML = desktopHeader + mobileHeader;
-  navWrapper.querySelector('.right').insertAdjacentElement('afterbegin', locationHtml);
+  if(locationHtml) {
+    navWrapper.querySelector('.right').insertAdjacentElement('afterbegin', locationHtml);
+  }
   block.append(navWrapper);
   const navHamburger = document.querySelector('.nav-hamburger');
   const backArrow = document.querySelector('.back-arrow');
