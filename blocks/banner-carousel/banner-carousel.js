@@ -36,9 +36,9 @@ export default async function decorate(block) {
   const [bGImgContainer, ...carList] = block.children;
 
   const bgImg = bGImgContainer.querySelector('picture');
-  const img = bgImg.querySelector('img');
-  img.setAttribute('width','100%');
-  img.removeAttribute('height');
+  const imgEl = bgImg.querySelector('img');
+  imgEl.setAttribute('width', '100%');
+  imgEl.removeAttribute('height');
 
   carList.forEach((element) => {
     const [
