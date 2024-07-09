@@ -36,14 +36,6 @@ export default function decorate(block) {
     car3ImgAlt,
   ] = filteredTeasers;
 
-  const titleNode = title.querySelector('p');
-  titleNode.classList.add('title');
-  const subtitle = content.querySelector('p');
-  subtitle.classList.add('subtitle');
-  const primaryCta = document.querySelector('.button-container a');
-  primaryCta.classList.add('primary__btn');
-  primaryCta.innerText = '';
-
   const newHtml = `
     <div class="helpme-select">
       <div class="content__container">
@@ -81,6 +73,14 @@ export default function decorate(block) {
 
   block.innerHTML = '';
   block.insertAdjacentHTML('beforeend', utility.sanitizeHtml(newHtml));
+
+  const titleNode = title.querySelector('p');
+  titleNode.classList.add('title');
+  const subtitle = content.querySelector('p');
+  subtitle.classList.add('subtitle');
+  const primaryCta = document.querySelector('.button-container a');
+  primaryCta.classList.add('primary__btn');
+  primaryCta.innerText = '';
 
   const actionCTA = document.querySelector('.button-container a');
   actionCTA?.setAttribute('target', targetEl.innerText);
