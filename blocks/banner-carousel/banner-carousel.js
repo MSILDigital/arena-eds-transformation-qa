@@ -166,7 +166,7 @@ export default async function decorate(block) {
 
   function addImgToTitleMobile(sideBarItem) {
     const img = document.createElement('img');
-    img.src = '../../icons/title_cover_yellow.svg';
+    img.src = '../../../icons/title_cover_yellow.svg';
     sideBarItem.querySelector('.text-container').prepend(img);
   }
 
