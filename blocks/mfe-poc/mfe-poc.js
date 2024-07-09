@@ -46,7 +46,6 @@ export default function decorate(block) {
             // Store the access token to localstorage
             const data = await response.json();
             localStorage.setItem("apimToken",data);
-            console.log('Data from API:', data);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -77,7 +76,6 @@ export default function decorate(block) {
 
     const myElement = document.querySelector("common-dealer-locator");
         myElement?.addEventListener("common-dealer-locator", (event) => {
-        console.log("")
     });
 
     // replace block html with component
