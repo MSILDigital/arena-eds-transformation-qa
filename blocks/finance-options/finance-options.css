@@ -2,7 +2,7 @@
   padding-top: 30px;
   padding-bottom: 30px;
 }
-.finance__heading > h1,h2,h3,h4,h5,h6{
+.finance__heading h2{
   font-size: 24px;
   font-style: normal;
   font-weight: 800;
@@ -80,13 +80,14 @@
   color: #ffffff;
   padding: 20px;
 }
-.finance-options-container .teaser__title h3 {
+.finance-options-container .teaser__title h2 {
   font-size: 24px;
   line-height: 20px; /* 83.333% */
   text-transform: capitalize;
   border-bottom: 1px solid #ffffff;
   padding-bottom: 18px;
-  margin: 4px 0;
+  margin: 4px 0 !important;
+  font-weight:400
 }
 
 .finance-options-container .teaser__actions {
@@ -95,14 +96,27 @@
 .finance-options-container .button.primary__btn {
   background-color: rgba(255, 255, 255, 0.2);
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" fill="black" fill-opacity="0.05"/><path d="M11.1075 39L9 36.8925L31.8925 14H18V11H37V30H34V16.1075L11.1075 39Z" fill="white"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1;
+  transition: all 0.3s linear;
+  height:40px;
+  width:40px;
 }
+
 @media (min-width: 999px) {
   .finance-options-container {
     padding-top: 60px;
     padding-bottom: 120px;
   }
 
-  .finance__heading > h1,h2,h3,h4,h5,h6 {
+  .finance-options-container .teaser__title h2 {
+    font-size: 32px;
+    line-height: normal;
+    /* 83.333% */
+  }
+
+  .finance__heading h2 {
     font-size: 40px;
     line-height: 44px; /* 110% */
     margin-bottom: 40px;
@@ -112,12 +126,8 @@
     gap: 17px;
   }
   .finance-options-container .teaser__card {
+    width:33.333%;
     height: 240px;
-  }
-  .finance-options-container .button.primary__btn {
-    background-color: var(--primary-blue-700);
-    opacity: 0;
-    transition: all 0.3s linear;
   }
   .finance-options-container .teaser__card:nth-child(1)::before {
     background-position: right top;
@@ -142,6 +152,12 @@
   .finance-options-container .teaser__card:nth-child(3):hover::before {
     background-color: rgba(23, 29, 155, 0.8);
     background-image: none;
+  }
+  .finance-options-container .button.primary__btn {
+    background-color: var(--primary-blue-700);
+    height:84px;
+    width:84px;
+    opacity:0;
   }
   .finance-options-container .teaser__card:hover .button.primary__btn {
     opacity: 1;

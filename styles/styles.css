@@ -121,14 +121,13 @@
    align-items: center;
    gap: 10px;
    text-decoration: none;
-   text-align: center;
+   /* text-align: center; */
    font-family: Roboto;
    font-size: 14px;
    font-style: normal;
    font-weight: 500;
    line-height: 18px; /* 128.571% */
-   letter-spacing: 1.12px;
-   text-transform: uppercase;
+   /*text-transform: uppercase; */
    transition: all 0.3s linear;
    position: relative !important;
  }
@@ -137,6 +136,9 @@
    background-color: var(--primary-blue-700);
    color: var(--secondary-white);
    border: 1px solid var(--primary-blue-700);
+   text-transform: uppercase;
+   text-align: center;
+   letter-spacing: 1.12px;
  }
  .button-primary-light:hover {
    border: 1px solid var(--primary-blue-700);
@@ -335,7 +337,7 @@
    width: 64px;
    padding: inherit;
    background-color: var(--secondary-gray-300);
-   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" fill="white" fill-opacity="0.2"/><path d="M14.81 52.0001L12 49.1901L42.5233 18.6667H24V14.6667H49.3333V40.0001H45.3333V21.4767L14.81 52.0001Z" fill="black"/></svg>');
+   /* background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" fill="white" fill-opacity="0.2"/><path d="M14.81 52.0001L12 49.1901L42.5233 18.6667H24V14.6667H49.3333V40.0001H45.3333V21.4767L14.81 52.0001Z" fill="black"/></svg>'); */
  }
  
  @media (min-width: 999px) {
