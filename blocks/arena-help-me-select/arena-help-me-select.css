@@ -350,8 +350,6 @@
 
   .image-container.active {
     position: absolute;
-    /* left: 12%;
-    bottom: 28%; */
     top: auto;
 
     .carLogo {
@@ -362,16 +360,12 @@
 
   .image-container.next {
     position: absolute;
-    /* right: 12%;
-    bottom: 42%; */
     top: auto;
 
   }
 
   .image-container.prev {
     position: absolute;
-    /* right: 0;
-    bottom: 12%; */
   }
 
 
