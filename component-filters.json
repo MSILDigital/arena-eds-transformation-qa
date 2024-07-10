@@ -41,7 +41,8 @@
       "highlights",
       "finance-options",
       "slider",
-      "arena-help-me-select"
+      "arena-help-me-select",
+      "mfe-poc"
     ]
   },
   {
@@ -85,5 +86,9 @@
     "components": [
       "teaser"
     ]
+  },
+  {
+    "id": "mfe-poc",
+    "components": []
   }
 ]
