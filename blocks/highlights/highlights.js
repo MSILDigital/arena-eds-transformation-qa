@@ -58,10 +58,10 @@ export default function decorate(block) {
           </div>
         `;
       }
-
-      title.removeAttribute('id');
-      title.classList.add('highlight__title');
-
+      if (title) {
+        title.removeAttribute('id');
+        title.classList.add('highlight__title');
+      }
       child.innerHTML = '';
       child.insertAdjacentHTML(
         'beforeend',

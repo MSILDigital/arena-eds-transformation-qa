@@ -1199,5 +1199,17 @@
         "label": "Car Alt Text"
       }
     ]
+  },
+  {
+    "id": "finance-options",
+    "fields": [
+      {
+        "component": "text-input",
+        "name": "heading",
+        "value": "",
+        "label": "Heading",
+        "valueType": "string"
+      }
+    ]
   }
 ]
