@@ -42,6 +42,7 @@
       "finance-options",
       "slider",
       "arena-help-me-select",
+      "best-deals",
       "mfe-poc"
     ]
   },
@@ -83,6 +84,12 @@
   },
   {
     "id": "slider",
+    "components": [
+      "teaser"
+    ]
+  },
+  {
+    "id": "best-deals",
     "components": [
       "teaser"
     ]
