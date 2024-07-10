@@ -13,7 +13,7 @@ function generateVariantList(carData) {
   if (!carData || !carData.data) {
     return '';
   }
-  const variantItems = carData.data.carModelList.items.slice(0, 4).map((car) => `
+  const variantItems = carData.data.variantList.items.map((car) => `
       <li>
         <p>${car.variantName}</p>
         <p>${car.mileage}</p>
