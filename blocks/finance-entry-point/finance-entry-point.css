@@ -1,0 +1,91 @@
+.finance-entry-point {
+    background: #F7F7F7;
+}
+
+.finance-entry-point .teaser-content .teaser__card {
+    padding: 25px 20px;
+}
+
+.finance-entry-point .teaser-content .teaser__card .teaser__image {
+    padding-left: 24px;
+}
+
+.finance-entry-point .teaser-content .teaser__card .teaser__content .teaser__info {
+    padding-left: 24px;
+}
+
+.finance-entry-point .teaser-content .teaser__card .teaser__content .teaser__actions {
+    display: flex;
+    align-items: center;
+}
+
+.finance-entry-point .teaser-content .teaser__card .teaser__content .teaser__actions::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("../../icons/blue-arrow.svg");
+}
+
+.finance-entry-point .teaser-content .teaser__card .teaser__content {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.finance-entry-point .teaser-content .teaser__cards .teaser__card:not(:last-child) {
+    border-bottom: 0.2px solid #000000;
+}
+
+.finance-entry-point .teaser-content .teaser__card .teaser__content .teaser__actions a {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    text-transform: uppercase;
+}
+
+.finance-entry-point .teaser-content .teaser__card .teaser__content .teaser__info .teaser__description p {
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 16px;
+}
+
+@media (min-width: 1023px) {
+    .finance-entry-point .teaser-content .teaser__cards {
+        display: flex;
+    }
+
+    .finance-entry-point .teaser-content .teaser__cards .teaser__card {
+        padding: 45px 64px;
+    }
+
+    .finance-entry-point .teaser-content .teaser__cards .teaser__card:not(:last-child) {
+        border-bottom: none;
+        border-right: .1px solid #000000;
+
+    }
+
+    .finance-entry-point .teaser-content .teaser__card .teaser__image picture img {
+        height: 32px;
+        width: 32px;
+    }
+
+    .finance-entry-point .teaser-content .teaser__card .teaser__content .teaser__actions a {
+        color: #171D9B;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 140%;
+    }
+
+    .finance-entry-point .teaser-content .teaser__card .teaser__content .teaser__info .teaser__description p {
+        color: #000;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 20px;
+    }
+}
