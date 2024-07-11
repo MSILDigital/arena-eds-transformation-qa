@@ -117,26 +117,19 @@ export default async function decorate(block) {
   );
   block.classList.add("container");
 
-  // Select all <li> elements under ".car-detail-feature.feature-performance .feature__variant ul"
   const listItems = document.querySelectorAll(
     ".car-detail-feature.feature-performance .feature__variant ul li"
   );
 
-  // Loop through each <li> element
   listItems.forEach((li) => {
-    // Select all <p> elements within the current <li>
     const paragraphs = li.querySelectorAll("p");
 
-    // Get the last <p> element within the current <li>
     const lastParagraph = paragraphs[paragraphs.length - 1];
 
-    // Check if there is a last <p> element and it doesn't already contain a <span>
     if (lastParagraph && !lastParagraph.querySelector("span")) {
-      // Create a <span> element
       const spanElement = document.createElement("span");
-      spanElement.textContent = " km/l"; // Add text content to the <span> element
+      spanElement.textContent = " km/l";
 
-      // Append the <span> element to the last <p> element
       lastParagraph.appendChild(spanElement);
     }
   });
