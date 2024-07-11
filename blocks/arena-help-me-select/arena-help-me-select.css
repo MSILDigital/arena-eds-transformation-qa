@@ -59,23 +59,17 @@
 }
 
 .image-container.active {
-  /* left: 8%;
-  top: 0; */
   position: absolute;
   animation: diagonal-move-active 1s linear normal forwards;
 }
 
 .image-container.next {
   position: absolute;
-  /* right: 14%;
-  top: 44%; */
   animation: diagonal-move-next 1s linear normal forwards;
 }
 
 .image-container.prev {
   position: absolute;
-  /* bottom: -28px;
-  right: 0; */
   animation: diagonal-move-prev 1s linear normal forwards;
 }
 
