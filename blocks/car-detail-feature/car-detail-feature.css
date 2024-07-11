@@ -5,12 +5,13 @@
 .car-detail-feature.feature-performance.container .feature__card .feature__image picture img {
   max-width: 400px;
   width: 100%;
+  height: auto;
 }
 
 .car-detail-feature.feature-performance.container .feature__card .feature__image {
   position: absolute;
-  left: auto;
-  top: 39%;
+  top: 28%;
+  z-index: 3;
 }
 
 .car-detail-feature.feature-performance.container .feature__card {
@@ -39,7 +40,7 @@
 }
 
 .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li {
-  padding: 0 32px;
+  padding: 10px 18px;
 }
 
 .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li:nth-child(odd) {
@@ -53,14 +54,77 @@
 .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__info {
   order: 1;
 }
-.car-detail-feature-wrapper {
+
+
+.car-detail-feature.feature-performance.container .feature__content .feature__title h2 {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+
+.car-detail-feature.feature-performance.container .feature__content .feature__info .feature__description p {
+  color: #000;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 16px;
+}
+
+.car-detail-feature.feature-performance.container .feature__content .cta__actions .button-primary-light {
+  color: #000000;
+  padding-left: 25px;
+  font-weight: 600;
+}
+
+.car-detail-feature.feature-performance.container .feature__content .cta__actions .button-primary-light::before {
+  content: "";
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14.6537 12.0001L10.25 16.4038L10.25 7.59631L14.6537 12.0001Z" fill="black"/></svg>');
+}
+
+.car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li p:first-child {
+  color: #969696;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  margin: 0;
+}
+
+.car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li p:not(:first-child) {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  margin: 2px 0 15px;
+}
+
+.car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li p span {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.car-detail-feature.feature-interior.container,
+.car-detail-feature.feature-safety.container,
+.car-detail-feature.feature-suzuki-connect.container {
   position: relative;
   height: 100vh;
 }
+
 .car-detail-feature-wrapper .feature__image {
   position: absolute;
   inset: 0;
 }
+
 .car-detail-feature-wrapper .feature__image img {
   height: 100%;
   width: 100%;
@@ -68,15 +132,18 @@
   object-position: center;
   position: relative;
 }
+
 .car-detail-feature-wrapper .car-detail-feature {
   height: 100%;
   display: flex;
 }
+
 .car-detail-feature-wrapper .car-detail-feature .feature__card {
   height: 100%;
   width: 100%;
   padding: 20px 0 42px;
 }
+
 .car-detail-feature-wrapper .feature__content {
   height: 100%;
 
@@ -87,65 +154,63 @@
   flex-direction: column;
   justify-content: end;
 }
+
 .car-detail-feature-wrapper .feature__content .feature__title {
   font-size: 24px;
   font-style: normal;
   font-weight: 800;
-  line-height: 28px; /* 116.667% */
+  line-height: 28px;
   text-transform: uppercase;
 }
+
 /* feature-safety card style */
-.car-detail-feature-wrapper
-  .car-detail-feature.feature-safety
-  .feature__content {
+.car-detail-feature-wrapper .car-detail-feature.feature-safety .feature__content {
   display: flex;
 }
-.car-detail-feature-wrapper
-  .car-detail-feature.feature-safety
-  .feature__content
-  .feature__info {
+
+.car-detail-feature-wrapper .car-detail-feature.feature-safety .feature__content .feature__info {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.car-detail-feature-wrapper
-  .car-detail-feature.feature-interior
-  .feature__image::after {
+
+.car-detail-feature-wrapper .car-detail-feature.feature-interior .feature__image::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
   background: linear-gradient(286deg, rgba(0, 0, 0, 0) 57.65%, #000 92.02%);
 }
-.car-detail-feature-wrapper
-  .car-detail-feature.feature-safety
-  .feature__image::after {
+
+.car-detail-feature-wrapper .car-detail-feature.feature-safety .feature__image::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
   background: linear-gradient(180deg, #000 -49.24%, rgba(0, 0, 0, 0) 100%);
 }
-.car-detail-feature-wrapper
-  .car-detail-feature.feature-suzuki-connect
-  .feature__image::after {
+
+.car-detail-feature-wrapper .car-detail-feature.feature-suzuki-connect .feature__image::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
   background: linear-gradient(115deg, rgba(0, 0, 0, 0) 49.93%, #000 89.42%);
 }
+
 /* button style override */
 .button-primary-light {
   background-color: inherit;
   border: inherit;
 }
+
 .button-primary-light:hover {
   background-color: inherit;
   border: inherit;
   color: var(--secondary-white);
 }
+
 .button-primary-light::before {
   content: "";
   position: absolute;
@@ -154,166 +219,178 @@
   left: 0;
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14.6537 12.0001L10.25 16.4038L10.25 7.59631L14.6537 12.0001Z" fill="white"/></svg>');
 }
+
 @media (min-width: 999px) {
   .car-detail-feature-wrapper .feature__content .feature__title {
     font-size: 40px;
     font-style: normal;
     font-weight: 800;
-    line-height: 40px; /* 100% */
+    line-height: 40px;
     text-transform: inherit;
   }
+
   .car-detail-feature-wrapper .feature__content .feature__info,
   .car-detail-feature-wrapper .feature__content .cta__actions {
     width: 400px;
   }
-  .car-detail-feature-wrapper
-    .car-detail-feature.feature-safety
-    .feature__content
-    .feature__info {
+
+  .car-detail-feature-wrapper .car-detail-feature.feature-safety .feature__content .feature__info {
     justify-content: inherit;
   }
-  .car-detail-feature-wrapper
-    .car-detail-feature.feature-suzuki-connect
-    .feature__content {
+
+  .car-detail-feature-wrapper .car-detail-feature.feature-suzuki-connect .feature__content {
     align-items: flex-end;
   }
+
   .button-primary-light {
     background-color: var(--primary-blue-700);
     color: var(--secondary-white);
     border: 1px solid var(--primary-blue-700);
   }
+
   .button-primary-light:hover {
     color: var(--primary-blue-700);
     background-color: var(--secondary-white);
     border: 1px solid var(--primary-blue-700);
   }
+
   .button-primary-light::before {
     display: none;
   }
-   .car-detail-feature.feature-performance.container {
-      padding: 120px 64px;
-    }
 
-    .car-detail-feature.feature-performance.container .feature__card {
-      flex-direction: row-reverse;
-      display: block;
-    }
+  .car-detail-feature.feature-performance.container {
+    padding: 120px 64px;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant {
-      max-width: 200px;
-      width: 100%;
-      padding-top: unset;
-      margin-top: unset;
-      background-color: transparent;
-    }
+  .car-detail-feature.feature-performance.container .feature__card {
+    flex-direction: row-reverse;
+    display: block;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul {
-      list-style-type: none;
-      padding: 0;
-      display: block;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant {
+    max-width: 200px;
+    width: 100%;
+    padding-top: unset;
+    margin-top: 80px;
+    background-color: transparent;
+  }
 
-
-    .car-detail-feature.feature-performance.container .feature__card .feature__content {
-      padding-top: 50px;
-      display: block;
-    }
-
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li:nth-child(odd) {
-      border-right: none;
-    }
-
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li:nth-child(-n+2) {
-      border-bottom: none;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul {
+    list-style-type: none;
+    padding: 0;
+    display: block;
+  }
 
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__image {
-      position: absolute;
-      left: 40%;
-      top: 15%;
-      z-index: 1;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .feature__content {
+    padding-top: 50px;
+    display: block;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .bottom__image {
-      background-image: url("/icons/oval-shadow.png");
-      width: 42%;
-      height: 117px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: absolute;
-      left: 38%;
-      top: 65%;
-      z-index: 0;
-      background-position: center;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li:nth-child(odd) {
+    border-right: none;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__info .feature__title {
-      position: absolute;
-      top: -140px;
-      max-width: 440px;
-      left: 35%;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li:nth-child(-n+2) {
+    border-bottom: none;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__info .feature__title h2 {
-      text-align: center;
-      font-size: 48px;
-      font-weight: 800;
-      line-height: 48px;
-      background: linear-gradient(180deg, #171C8F -37.5%, #1961D3 141.15%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .cta__actions {
-      display: flex;
-      justify-content: center;
-      position: absolute;
-      bottom: -20%;
-      left: 46%;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .feature__image {
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    z-index: 1;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__info .feature__description {
-      max-width: 380px;
-      position: absolute;
-      left: 40%;
-      bottom: -10%;
-    }
+  .car-detail-feature.feature-performance.container .feature__content .cta__actions .button-primary-light {
+    color: #FFF;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__info .feature__title {
-      position: absolute;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li:last-child {
+    border-bottom: 2px solid #FFD85C;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__info .feature__description p {
-      color: #000;
-      text-align: center;
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 20px;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .bottom__image {
+    background-image: url("/icons/oval-shadow.png");
+    width: 42%;
+    height: 117px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 36%;
+    top: 65%;
+    z-index: 0;
+    background-position: center;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li {
-      border-top: 2px solid #FFD85C;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__info .feature__title {
+    position: absolute;
+    top: -12%;
+    max-width: 440px;
+    left: 35%;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li p {
-      margin: 0;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__info .feature__title h2 {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 48px;
+    background: linear-gradient(180deg, #171C8F -37.5%, #1961D3 141.15%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li p:first-child {
-      color: #969696;
-      font-size: 12px;
-      font-weight: 700;
-      line-height: 18px;
-      margin-top: 16px;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .cta__actions {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: -30%;
+    left: 40%;
+  }
 
-    .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li p:not(:first-child) {
-      color: #000;
-      font-size: 40px;
-      font-weight: 600;
-      line-height: 140%;
-      margin-bottom: 16px;
-    }
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__info .feature__description {
+    max-width: 380px;
+    position: absolute;
+    left: 40%;
+    bottom: -20%;
+  }
+
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__info .feature__description p {
+    color: #000;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+  }
+
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li {
+    border-top: 2px solid #FFD85C;
+  }
+
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li p {
+    margin: 0;
+  }
+
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li p:first-child {
+    color: #969696;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    margin-top: 16px;
+  }
+
+  .car-detail-feature.feature-performance.container .feature__card .feature__content .feature__variant ul li p:not(:first-child) {
+    color: #000;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 140%;
+    margin-bottom: 16px;
+  }
 }
