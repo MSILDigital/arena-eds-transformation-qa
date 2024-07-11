@@ -161,5 +161,5 @@ export default function decorate(block) {
 
   setInterval(() => {
     moveCarousel('next');
-  }, 3000);
+  }, 10000);
 }
