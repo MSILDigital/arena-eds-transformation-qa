@@ -1,4 +1,4 @@
-export default function decorate(block) {
+export default async function decorate(block) {
   // load the Script
   function loadScript(url) {
     return new Promise((resolve, reject) => {
@@ -24,6 +24,8 @@ export default function decorate(block) {
     });
   }
 
+  const component = document.createElement('common-dealer-locator');
+
   // function to fetch refreshed access token
   async function fetchData() {
     const endpoint = 'https://api.preprod.developersatmarutisuzuki.in/auth/consumers/gettoken';
@@ -46,31 +48,28 @@ export default function decorate(block) {
         throw new Error('Network response was not ok');
       }
       // Store the access token to localstorage
-      const data = await response.json();
-      localStorage.setItem('apimToken', data);
+        const data = await response.json();
+        localStorage.setItem('apimToken', data);
+        const { apimToken } = localStorage;
+        component.inpAuthConfig = {
+          apimAuthKey: '3Oa87EBtBK9k4QQa87eYDaTB2CcLnbp7aqd00kqH',
+          apimToken,
+          mapMyIndiaToken: 'b8287d26a87b590b66877b85e7cf7075',
+          mayMyIndiaAuthKey: 'b8287d26a87b590b66877b85e7cf7075',
+        };
+        component.inpAuthConfig = JSON.stringify(component.inpAuthConfig);
     } catch (error) {
       throw new Error('Error Fetching data');
     }
   }
 
   const refreshTokenInterval = 60 * 60 * 1000; // 1 hour
-  fetchData();
+  await fetchData();
   setInterval(fetchData, refreshTokenInterval);
 
   loadScript('https://d16wjdn485ugym.cloudfront.net/dealer-locator/1.0.0/common-dealer-locator.js ');
   loadStylesheet('https://d16wjdn485ugym.cloudfront.net/dealer-locator/1.0.0/common-dealer-locator.css');
 
-  const component = document.createElement('common-dealer-locator');
-  const { apimToken } = localStorage;
-  component.inpAuthConfig = {
-    apimAuthKey: '3Oa87EBtBK9k4QQa87eYDaTB2CcLnbp7aqd00kqH',
-    apimToken,
-    mapMyIndiaToken: 'b8287d26a87b590b66877b85e7cf7075',
-    mayMyIndiaAuthKey: 'b8287d26a87b590b66877b85e7cf7075',
-  };
-
-  // add the required configs
-  component.inpAuthConfig = JSON.stringify(component.inpAuthConfig);
   component.inpMapConfig = '{"mapType":"M2","listPosition":"left", "hideRadiusOptions": true, "hideContinuebutton": true, "hideSearchOption": true}';
   component.inpNearestDealersParams = '{"longitude":77.2194,"latitude":28.633,"radius":5000}';
   component.inpSourceConfig = '{"sourceName":"Adobe_Arena"}';
