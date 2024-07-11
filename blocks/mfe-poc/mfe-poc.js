@@ -48,16 +48,16 @@ export default async function decorate(block) {
         throw new Error('Network response was not ok');
       }
       // Store the access token to localstorage
-        const data = await response.json();
-        localStorage.setItem('apimToken', data);
-        const { apimToken } = localStorage;
-        component.inpAuthConfig = {
-          apimAuthKey: '3Oa87EBtBK9k4QQa87eYDaTB2CcLnbp7aqd00kqH',
-          apimToken,
-          mapMyIndiaToken: 'b8287d26a87b590b66877b85e7cf7075',
-          mayMyIndiaAuthKey: 'b8287d26a87b590b66877b85e7cf7075',
-        };
-        component.inpAuthConfig = JSON.stringify(component.inpAuthConfig);
+      const data = await response.json();
+      localStorage.setItem('apimToken', data);
+      const { apimToken } = localStorage;
+      component.inpAuthConfig = {
+        apimAuthKey: '3Oa87EBtBK9k4QQa87eYDaTB2CcLnbp7aqd00kqH',
+        apimToken,
+        mapMyIndiaToken: 'b8287d26a87b590b66877b85e7cf7075',
+        mayMyIndiaAuthKey: 'b8287d26a87b590b66877b85e7cf7075',
+      };
+      component.inpAuthConfig = JSON.stringify(component.inpAuthConfig);
     } catch (error) {
       throw new Error('Error Fetching data');
     }
