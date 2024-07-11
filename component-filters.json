@@ -44,7 +44,9 @@
       "arena-help-me-select",
       "best-deals",
       "mfe-poc",
-      "car-detail-feature"
+      "car-detail-feature",
+      "video-teaser",
+      "finance-entry-point"
     ]
   },
   {
@@ -98,5 +100,11 @@
   {
     "id": "mfe-poc",
     "components": []
+  },
+  {
+    "id": "finance-entry-point",
+    "components": [
+      "teaser"
+    ]
   }
 ]
