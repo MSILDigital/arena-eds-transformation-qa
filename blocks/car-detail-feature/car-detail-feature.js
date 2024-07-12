@@ -1,24 +1,28 @@
-import ctaUtils from '../../utility/ctaUtils.js';
-import utility from '../../utility/utility.js';
-import { fetchPlaceholders } from '../../scripts/aem.js';
+import ctaUtils from "../../utility/ctaUtils.js";
+import utility from "../../utility/utility.js";
+import { fetchPlaceholders } from "../../scripts/aem.js";
 
 async function fetchCar(domain) {
   const car = await fetch(
-    `${domain}/graphql/execute.json/msil-platform/arenaPerformance?modelId=BZ`,
+    `${domain}/graphql/execute.json/msil-platform/arenaPerformance?modelId=BZ`
   );
   return car.json();
 }
 
 function generateVariantList(carData) {
   if (!carData || !carData.data) {
-    return '';
+    return "";
   }
-  const variantItems = carData.data.carModelList.items.slice(0, 4).map((car) => `
+  const variantItems = carData.data.variantList.items
+    .map(
+      (car) => `
       <li>
         <p>${car.variantName}</p>
         <p>${car.mileage}</p>
       </li>
-    `).join('');
+    `
+    )
+    .join("");
 
   return `<ul>${variantItems}</ul>`;
 }
@@ -34,55 +38,99 @@ export default async function decorate(block) {
     featureTypeEl,
   ] = block.children;
 
-  const image = imageEl?.querySelector('picture');
+  const image = imageEl?.querySelector("picture");
   if (image) {
-    const img = image.querySelector('img');
-    img.removeAttribute('width');
-    img.removeAttribute('height');
+    const img = image.querySelector("img");
+    img.removeAttribute("width");
+    img.removeAttribute("height");
   }
 
-  const title = titleEl?.querySelector(':is(h1,h2,h3,h4,h5,h6)');
-  const description = Array.from(descriptionEl.querySelectorAll('p')).map((p) => p.outerHTML).join('');
-  const cta = ctaUtils.getLink(ctaLinkEl, ctaTextEl, ctaTargetEl, 'button-primary-light');
+  const title = titleEl?.querySelector(":is(h1,h2,h3,h4,h5,h6)");
+  const description = Array.from(descriptionEl.querySelectorAll("p"))
+    .map((p) => p.outerHTML)
+    .join("");
+  const cta = ctaUtils.getLink(
+    ctaLinkEl,
+    ctaTextEl,
+    ctaTargetEl,
+    "button-primary-light"
+  );
   const featureType = featureTypeEl?.textContent?.trim();
 
-  let ctaHtml = '';
+  let ctaHtml = "";
   if (cta) {
     ctaHtml = `
                      <div class="cta__actions">
-                       ${(cta) ? cta.outerHTML : ''}
+                       ${cta ? cta.outerHTML : ""}
                      </div>
                    `;
   }
-  let variantData = '';
+  let variantData = "";
 
   if (featureType) {
     block.classList.add(featureType);
     // Fetch Car Variant for 'feature-performance'
-    if (featureType === 'feature-performance') {
+    if (featureType === "feature-performance") {
       const { publishDomain } = await fetchPlaceholders();
       const carData = await fetchCar(publishDomain);
       variantData = generateVariantList(carData);
     }
   }
 
-  block.innerHTML = '';
+  block.innerHTML = "";
   block.insertAdjacentHTML(
-    'beforeend',
+    "beforeend",
     utility.sanitizeHtml(`
                        <div class="feature__card">
-                           ${(image) ? `<div class="feature__image">${image.outerHTML}</div>` : ''}
-                           ${(variantData) ? '<div class="bottom__image"></div>' : ''}
+                           ${
+                             image
+                               ? `<div class="feature__image">${image.outerHTML}</div>`
+                               : ""
+                           }
+                           ${
+                             variantData
+                               ? '<div class="bottom__image"></div>'
+                               : ""
+                           }
                            <div class="feature__content">
-                           ${(variantData) ? `<div class="feature__variant">${variantData}</div>` : ''}
+                           ${
+                             variantData
+                               ? `<div class="feature__variant">${variantData}</div>`
+                               : ""
+                           }
                                <div class="feature__info">
-                                   ${(title) ? `<div class="feature__title">${title.outerHTML}</div>` : ''}
-                                   ${(description) ? `<div class="feature__description">${description}</div>` : ''}
+                                   ${
+                                     title
+                                       ? `<div class="feature__title">${title.outerHTML}</div>`
+                                       : ""
+                                   }
+                                   ${
+                                     description
+                                       ? `<div class="feature__description">${description}</div>`
+                                       : ""
+                                   }
                                </div>
                                ${ctaHtml}
                            </div>
                        </div>
-                 `),
+                 `)
   );
-  block.classList.add('container');
+  block.classList.add("container");
+
+  const listItems = document.querySelectorAll(
+    ".car-detail-feature.feature-performance .feature__variant ul li"
+  );
+
+  listItems.forEach((li) => {
+    const paragraphs = li.querySelectorAll("p");
+
+    const lastParagraph = paragraphs[paragraphs.length - 1];
+
+    if (lastParagraph && !lastParagraph.querySelector("span")) {
+      const spanElement = document.createElement("span");
+      spanElement.textContent = " km/l";
+
+      lastParagraph.appendChild(spanElement);
+    }
+  });
 }
