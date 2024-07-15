@@ -12,6 +12,7 @@ export default async function decorate(block) {
               Delhi
           </button>
           <div class="geo-location">
+              <div class="location-banner"></div>
               <p class="geo-location__text">${title}</p>
               <div class="detect-location">
                   <p class="find-location__text">${fylText}</p>
