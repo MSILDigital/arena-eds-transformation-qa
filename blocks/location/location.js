@@ -1,4 +1,5 @@
 import { fetchPlaceholders } from '../../scripts/aem.js';
+import utility from '../../utility/utility.js';
 
 export default async function decorate(block) {
   const [titleEl, fylTextEl, dylTextEl] = block.children;
@@ -6,7 +7,7 @@ export default async function decorate(block) {
   const fylText = fylTextEl?.textContent?.trim();
   const dylText = dylTextEl?.textContent?.trim();
 
-  block.innerHTML = `
+  block.innerHTML = utility.sanitizeHtml(`
           <button class="location-btn">
               Delhi
           </button>
@@ -21,7 +22,17 @@ export default async function decorate(block) {
                   </p>
               </div>
           </div>
-      `;
+      `);
+  const { publishDomain, apiKey } = await fetchPlaceholders();
+  const url = `${publishDomain}/content/arena/services/token`;
+  let authorization = null;
+  try {
+    const auth = await fetch(url);
+    authorization = await auth.text();
+  } catch (e) {
+    authorization = ''
+  }
+  let citiesObject;
   function processData(data) {
     const citiesObject = data?.reduce((acc, item) => {
       acc[item.cityDesc] = {
@@ -35,25 +46,7 @@ export default async function decorate(block) {
     }, {});
     return citiesObject;
   }
-  const { publishDomain, apiKey } = await fetchPlaceholders();
-  const url = `${publishDomain}/content/arena/services/token`;
-  const auth = await fetch(url);
-  const authorization = await auth.text();
-  const defaultHeaders = {
-    'x-api-key': apiKey,
-    Authorization: authorization,
-  };
-
-  const urlWithParams = 'https://api.preprod.developersatmarutisuzuki.in/dms/v1/api/common/msil/dms/dealer-only-cities?channel=NRM';
-  const response = await fetch(urlWithParams, { method: 'GET', headers: defaultHeaders });
-  const result = await response.json();
-  const filteredData = result?.data?.filter((obj) => obj.cityDesc !== null);
-  const citiesObject = processData(filteredData);
-  const locationButton = block.querySelector('.location-btn');
-  const geoLocationDiv = block.querySelector('.geo-location');
-  const detectLocationCTA = block.querySelector('.detect-location__cta');
-
-  // Function to calculate distance between two points using Haversine formula
+// Function to calculate distance between two points using Haversine formula
   function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371;
     const dLat = ((lat2 - lat1) * Math.PI) / 180;
@@ -106,7 +99,23 @@ export default async function decorate(block) {
       );
     }
   }
-  locationButton.addEventListener('click', () => {
+
+  const defaultHeaders = {
+    'x-api-key': apiKey,
+    Authorization: authorization,
+  };
+
+  const urlWithParams = 'https://api.preprod.developersatmarutisuzuki.in/dms/v1/api/common/msil/dms/dealer-only-cities?channel=NRM';
+  let result = null;
+  try{
+    const response = await fetch(urlWithParams, { method: 'GET', headers: defaultHeaders });
+    result = await response.json();
+    const filteredData = result?.data?.filter((obj) => obj.cityDesc !== null);
+    citiesObject = processData(filteredData);
+    const locationButton = block.querySelector('.location-btn');
+    const geoLocationDiv = block.querySelector('.geo-location');
+    const detectLocationCTA = block.querySelector('.detect-location__cta');
+    locationButton.addEventListener('click', () => {
     if (
       geoLocationDiv.style.display === 'none'
       || geoLocationDiv.style.display === ''
@@ -116,8 +125,12 @@ export default async function decorate(block) {
       geoLocationDiv.style.display = 'none';
     }
   });
-  detectLocationCTA.addEventListener('click', () => {
+    detectLocationCTA.addEventListener('click', () => {
     geoLocationDiv.style.display = 'none';
     requestLocationPermission();
   });
+  }
+  catch(e){
+    throw new Error('Network response was not ok', e);
+  }
 }
