@@ -203,6 +203,20 @@
   right: 0px;
 }
 
+.container__slider .nav-arrow.next {
+  background-image: url("../../icons/slider-arrow-right-white.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container__slider .nav-arrow.prev {
+  background-image: url("../../icons/slider-arrow-left-white.svg");
+  transform: scaleX(-1);
+  /* Flip horizontally */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 /* Responsive adjustments */
 @media (min-width: 600px) {
   .container__slider .variant__card {
@@ -279,6 +293,33 @@
     content: "";
   }
 
+  .container__slider .nav-arrow.next {
+    background-image: url("../../icons/slider-arrow-blue.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .container__slider .nav-arrow.prev {
+    background-image: url("../../icons/slider-arrow-blue.svg");
+    transform: scaleX(-1);
+    /* Flip horizontally */
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .container__slider .nav-arrow.prev.disabled {
+    background-image: url("../../icons/slider-arrow-left-white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .container__slider .nav-arrow.next.disabled {
+    background-image: url("../../icons/slider-arrow-right-white.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   .container__slider .nav-arrow.next.disabled,
   .container__slider .nav-arrow.prev.disabled {
     background-color: #b8b8b8;
@@ -291,6 +332,31 @@
 @media (max-width: 600px) {
   .container__slider .variant__card {
     flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 999px) {
+  .container__slider .cta__container a {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16.8px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    text-transform: uppercase;
+  }
+
+  .container__slider .nav-arrow.next,
+  .container__slider .nav-arrow.prev {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .container__slider .nav-arrow.next.disabled,
+  .container__slider .nav-arrow.prev.disabled {
+    background-color: #b8b8b8;
+    color: #fff;
+    border-color: #b8b8b8;
   }
 }
 

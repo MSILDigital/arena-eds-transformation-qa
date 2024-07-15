@@ -1,5 +1,12 @@
 const slider = {
-  initSlider(sliderContainer, prevButton, nextButton, boxes) {
+  initSlider(
+    sliderContainer,
+    prevButton,
+    nextButton,
+    boxes,
+    noOfSlideDesktop = 1,
+    noOfSlideMobile = 1
+  ) {
     function calculateVisibleBoxes() {
       const width = window.innerWidth;
       if (width >= 900) {
@@ -21,28 +28,35 @@ const slider = {
       sliderContainer.style.transform = `translateX(${offset}px)`;
     };
 
-    prevButton.addEventListener('click', () => {
-      nextButton.classList.remove('hide');
-      currentIndex = currentIndex > 0 ? currentIndex - 3 : totalBoxes - visibleBoxes;
-      if (currentIndex >= 0) prevButton.classList.add('hide');
+    prevButton.addEventListener("click", () => {
+      nextButton.classList.remove("hide");
+      currentIndex =
+        currentIndex > 0
+          ? currentIndex - noOfSlideDesktop
+          : totalBoxes - visibleBoxes;
+      if (currentIndex < visibleBoxes) prevButton.classList.add("hide");
 
       updateSlider();
     });
 
-    nextButton.addEventListener('click', () => {
-      prevButton.classList.remove('hide');
-      currentIndex = currentIndex < totalBoxes - visibleBoxes ? currentIndex + 3 : 0;
-      if (currentIndex >= totalBoxes - 3) nextButton.classList.add('hide');
+    nextButton.addEventListener("click", () => {
+      prevButton.classList.remove("hide");
+      currentIndex =
+        currentIndex < totalBoxes - visibleBoxes
+          ? currentIndex + noOfSlideDesktop
+          : 0;
+      if (currentIndex >= totalBoxes - visibleBoxes)
+        nextButton.classList.add("hide");
 
       updateSlider();
     });
     // Ensure slider adjusts on window resize
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       visibleBoxes = calculateVisibleBoxes();
-      sliderContainer.style.transition = 'none';
+      sliderContainer.style.transition = "none";
       updateSlider();
       setTimeout(() => {
-        sliderContainer.style.transition = 'transform 0.5s ease-in-out';
+        sliderContainer.style.transition = "transform 0.5s ease-in-out";
       }, 0);
     });
 
@@ -70,11 +84,17 @@ const slider = {
         // Horizontal swipe
         if (diffX > 50) {
           // Swiped left
-          currentIndex = currentIndex < totalBoxes - visibleBoxes ? currentIndex + 1 : 0;
+          currentIndex =
+            currentIndex < totalBoxes - visibleBoxes
+              ? currentIndex + noOfSlideMobile
+              : 0;
           if (currentIndex >= totalBoxes - 2) currentIndex = totalBoxes - 1;
         } else if (diffX < -50) {
           // Swiped right
-          currentIndex = currentIndex > 0 ? currentIndex - 1 : totalBoxes - visibleBoxes;
+          currentIndex =
+            currentIndex > 0
+              ? currentIndex - noOfSlideMobile
+              : totalBoxes - visibleBoxes;
           if (currentIndex === 0) currentIndex = 0;
         }
 
@@ -82,9 +102,9 @@ const slider = {
       }
     };
 
-    sliderContainer.addEventListener('touchstart', handleTouchStart);
-    sliderContainer.addEventListener('touchmove', handleTouchMove);
-    sliderContainer.addEventListener('touchend', handleTouchEnd);
+    sliderContainer.addEventListener("touchstart", handleTouchStart);
+    sliderContainer.addEventListener("touchmove", handleTouchMove);
+    sliderContainer.addEventListener("touchend", handleTouchEnd);
 
     // Initialize slider
     updateSlider();
