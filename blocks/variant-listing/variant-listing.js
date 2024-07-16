@@ -34,7 +34,7 @@ export default async function decorate(block) {
   await fetchCar(graphQlEndpoint, requestOptions)
     .then((response) => {
       itemArray = [...response.data.variantList.items];
-      filterArray = [...itemArray];
+      filterArray = [...itemArray, ...itemArray, ...itemArray];
     })
     .catch(() => {});
 
@@ -103,8 +103,8 @@ export default async function decorate(block) {
       </div>
       <div class="variant-content">
         <div class="button__content">
-            <button class="nav-arrow prev hide">←</button>
-            <button class="nav-arrow next">→</button>
+            <button class="nav-arrow prev hide"></button>
+            <button class="nav-arrow next"></button>
         </div>
       <div class="variant__cards">
           ${createItemList()}
@@ -122,7 +122,7 @@ export default async function decorate(block) {
     });
     this.classList.add('tab__active');
     if (this.textContent === 'ALL') {
-      filterArray = [...itemArray];
+      filterArray = [...itemArray, ...itemArray, ...itemArray];
     } else {
       filterArray = itemArray.filter(
         (element) => this.textContent === element.fuelType,
@@ -132,6 +132,11 @@ export default async function decorate(block) {
     block
       .querySelector('.variant__cards')
       .insertAdjacentHTML('beforeend', utility.sanitizeHtml(createItemList()));
+    const sliderContainer = block.querySelector('.variant__cards');
+    const prevButton = block.querySelector('.prev');
+    const nextButton = block.querySelector('.next');
+    const boxes = block.querySelectorAll('.variant__card');
+    slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 1, 1);
   }
   block.innerHTML = '';
   block.insertAdjacentHTML('beforeend', utility.sanitizeHtml(newHtml));
