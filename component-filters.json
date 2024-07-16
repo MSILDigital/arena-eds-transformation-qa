@@ -48,7 +48,8 @@
       "video-teaser",
       "finance-entry-point",
       "variant-listing",
-      "car-detail-banner"
+      "car-detail-banner",
+      "section-navigator"
     ]
   },
   {
@@ -108,5 +109,9 @@
     "components": [
       "teaser"
     ]
+  },
+  {
+    "id": "section-navigator",
+    "components": []
   }
 ]
