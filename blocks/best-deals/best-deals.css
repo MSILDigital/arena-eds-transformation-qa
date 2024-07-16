@@ -303,7 +303,8 @@ h6 {
     }
 
     .best-deals-wrapper .teaser__cards a {
-        flex: 0 0 33.3333%;
+        flex: 0 0 48%;
+        transform: translateX(-10px);
     }
 
     .best-deals-wrapper .slider-title {
@@ -348,7 +349,7 @@ h6 {
     .best-deals-wrapper .teaser__info .teaser__description p {
         font-size: 1rem;
         line-height: 20px;
-        margin-top: 10px;
+        margin-top: 5px;
     }
 
     .best-deals-wrapper .nav-arrow.prev.hide,
@@ -369,21 +370,30 @@ h6 {
     }
 
     .best-deals-wrapper .nav-arrow.prev {
-        display: block;
+        display: flex;
         height: 60px;
         width: 60px;
         font-size: 25px;
         left: 0;
-        top: 40%
+        top: 40%;
+        justify-content: center;
+        align-items: center;
     }
 
+    .best-deals-wrapper .nav-arrow.prev svg {
+        rotate: 180deg;
+    }
+
+
     .best-deals-wrapper .nav-arrow.next {
-        display: block;
+        display: flex;
         height: 60px;
         width: 60px;
         font-size: 25px;
         right: 0;
-        top: 40%
+        top: 40%;
+        justify-content: center;
+        align-items: center;
     }
 
     .best-deals-wrapper .best-deals-wrapper .best-deals-btn {

@@ -33,8 +33,16 @@ export default function decorate(block) {
           </div>
           <div class="teaser-content">
             <div class="btn-content">
-              <button class="nav-arrow prev">←</button>
-              <button class="nav-arrow next hide">→</button>
+              <button class="nav-arrow prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                  <path d="M17.8198 13.7812H5.1875V12.2187H17.8198L11.8862 6.28516L13 5.1875L20.8125 13L13 20.8125L11.8862 19.7148L17.8198 13.7812Z" fill="#171C8F"/>
+                </svg>
+              </button>
+              <button class="nav-arrow next hide">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                  <path d="M17.8198 13.7812H5.1875V12.2187H17.8198L11.8862 6.28516L13 5.1875L20.8125 13L13 20.8125L11.8862 19.7148L17.8198 13.7812Z" fill="#171C8F"/>
+                </svg>
+              </button>
             </div>
             <div class="teaser__cards">
                 ${teasers.join('')}
@@ -67,5 +75,5 @@ export default function decorate(block) {
   const nextButton = document.querySelector('.prev');
   const prevButton = document.querySelector('.next');
   const boxes = document.querySelectorAll('.teaser__card');
-  slider.initSlider(sliderContainer, prevButton, nextButton, boxes);
+  slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 3, 1);
 }
