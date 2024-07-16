@@ -34,7 +34,7 @@ export default async function decorate(block) {
   await fetchCar(graphQlEndpoint, requestOptions)
     .then((response) => {
       itemArray = [...response.data.variantList.items];
-      filterArray = [...itemArray, ...itemArray, ...itemArray];
+      filterArray = [...itemArray];
     })
     .catch(() => {});
 
@@ -103,8 +103,8 @@ export default async function decorate(block) {
       </div>
       <div class="variant-content">
         <div class="button__content">
-            <button class="nav-arrow prev hide"></button>
-            <button class="nav-arrow next"></button>
+            <button class="nav-arrow prev_variant hide"></button>
+            <button class="nav-arrow next_variant"></button>
         </div>
       <div class="variant__cards">
           ${createItemList()}
@@ -133,16 +133,16 @@ export default async function decorate(block) {
       .querySelector('.variant__cards')
       .insertAdjacentHTML('beforeend', utility.sanitizeHtml(createItemList()));
     const sliderContainer = block.querySelector('.variant__cards');
-    const prevButton = block.querySelector('.prev');
-    const nextButton = block.querySelector('.next');
+    const prevButton = block.querySelector('.prev_variant');
+    const nextButton = block.querySelector('.next_variant');
     const boxes = block.querySelectorAll('.variant__card');
     slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 1, 1);
   }
   block.innerHTML = '';
   block.insertAdjacentHTML('beforeend', utility.sanitizeHtml(newHtml));
   const sliderContainer = block.querySelector('.variant__cards');
-  const prevButton = block.querySelector('.prev');
-  const nextButton = block.querySelector('.next');
+  const prevButton = block.querySelector('.prev_variant');
+  const nextButton = block.querySelector('.next_variant');
   const boxes = block.querySelectorAll('.variant__card');
   slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 1, 1);
   block.querySelectorAll('.tab__Iteam').forEach((element, index) => {
