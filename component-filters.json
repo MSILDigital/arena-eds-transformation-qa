@@ -49,6 +49,7 @@
       "finance-entry-point",
       "variant-listing",
       "car-detail-banner",
+      "brand-header",
       "section-navigator"
     ]
   },
@@ -108,6 +109,12 @@
     "id": "finance-entry-point",
     "components": [
       "teaser"
+    ]
+  },
+  {
+    "id": "brand-header",
+    "components": [
+      "brand-header-item"
     ]
   },
   {
