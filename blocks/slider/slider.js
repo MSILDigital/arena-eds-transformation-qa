@@ -37,5 +37,5 @@ export default function decorate(block) {
   const prevButton = block.querySelector('.prev');
   const nextButton = block.querySelector('.next');
   const boxes = block.querySelectorAll('.teaser__card');
-  slider.initSlider(sliderContainer, prevButton, nextButton, boxes);
+  slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 3, 1);
 }
