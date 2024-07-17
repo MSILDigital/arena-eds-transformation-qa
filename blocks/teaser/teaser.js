@@ -3,7 +3,6 @@ import ctaUtils from '../../utility/ctaUtils.js';
 import utility from '../../utility/utility.js';
 
 export default function decorate(block) {
-  console.log(block);
   function initImage(image, altTextEl) {
     const img = image.querySelector('img');
     img.removeAttribute('width');
@@ -73,5 +72,4 @@ export default function decorate(block) {
     'beforeend',
     utility.sanitizeHtml(newHtml),
   );
-  // teaser.getTeaser(block);
 }
