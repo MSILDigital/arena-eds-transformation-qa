@@ -18,6 +18,7 @@
   line-height: 20px;
   padding-bottom: 16px;
 }
+
 .user__account__list-icon {
   display: flex;
   padding: 4px;
@@ -26,12 +27,13 @@
   border-radius: 12px;
   background: var(--Tertiary-Light-grey, #f2f2f2);
 }
+
 .user__account__list-icon img {
   width: 16px;
   height: 16px;
 }
 
-.user__account > a {
+.user__account>a {
   font-size: 14px;
 }
 
@@ -42,8 +44,12 @@
 .sign-in-wrapper {
   z-index: 999;
   position: absolute;
-  top: var(--nav-height);
-  right: 5px;
+  top: 64px;
+  right: 64px;
+  max-width: 200px;
+  width: 100%;
+  background: #FFF;
+  box-shadow: 0px 0px 4px 0px rgba(154, 154, 154, 0.25);
 }
 
 .user__dropdown {
@@ -57,17 +63,21 @@
   .user__account__list-icon {
     background: none;
   }
+
   .user__account--link {
     font-size: 16px;
   }
+
   .hide-sm {
     display: flex;
   }
+
   .user__account__list-icon img {
     width: 24px;
     height: 24px;
   }
 }
+
 /*.sign-in-teaser{
     display: flex;
     align-items: center;
@@ -80,11 +90,10 @@
 .sign-in-teaser {
   display: flex;
   border-radius: 2px;
-  background: var(
-    --gradient-3,
-    linear-gradient(34deg, #c9d3d7 18.09%, #ebebeb 102.51%, #ebebeb 102.51%)
-  );
+  background: var(--gradient-3,
+      linear-gradient(34deg, #c9d3d7 18.09%, #ebebeb 102.51%, #ebebeb 102.51%));
 }
+
 .sign-in-teaser__desc {
   display: flex;
   width: 186px;
@@ -95,6 +104,7 @@
   flex-grow: 2;
   justify-content: space-around;
 }
+
 .sign-in-teaser__desc-content h4 {
   color: var(--Primary-Main, #18171a);
   font-family: "Fira Sans";
@@ -104,6 +114,7 @@
   line-height: 20px;
   margin: 6px 0;
 }
+
 .sign-in-teaser__desc-content p {
   color: #4a4a4a;
   font-family: "Fira Sans";
@@ -113,6 +124,7 @@
   line-height: 16px;
   margin: 6px 0;
 }
+
 .sign-in-teaser--link {
   color: var(--Primary-Main, #18171a);
   font-family: "Fira Sans";
@@ -126,18 +138,22 @@
   gap: 5px;
   border-bottom: 0.64px solid var(--Primary-Main, #18171a);
 }
+
 .sign-in-teaser--link img {
   height: 16px;
 }
+
 .sign-in-teaser__image {
   clip-path: polygon(0 30px, 20px 0, 100% 0, 100% 100%, 0 100%);
 }
+
 .sign-in-teaser__image img {
   height: 100%;
 }
-.sign-in-teaser--arrow{
-  width:15px;
-  height:15px;
+
+.sign-in-teaser--arrow {
+  width: 15px;
+  height: 15px;
   background-image: url('../../icons/north-east-arrow.svg');
   background-repeat: no-repeat;
   background-size: contain;
@@ -147,5 +163,39 @@
 @media (min-width: 768px) {
   .sign-in-teaser {
     display: none;
+  }
+}
+
+@media (min-width: 999px) {
+  .navbar.navbar-arena .sign-in-wrapper .user__account a {
+    font-family: "Anek Latin";
+    color: #575A5E;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+  }
+
+  .navbar.navbar-arena .sign-in-wrapper .user__dropdown .contact-wrapper .user__contact h4 {
+    color: #575A5E;
+    font-family: "Anek Latin";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 17px;
+  }
+
+  .navbar.navbar-arena .sign-in-wrapper .user__dropdown .contact-wrapper .user__contact .user__contact__icons {
+    gap: 24px;
+  }
+
+  .navbar.navbar-arena .sign-in-wrapper .user__dropdown .contact-wrapper .user__contact .user__contact__icons a {
+    padding: 0;
+  }
+  
+  .navbar.navbar-arena .sign-in-wrapper .user__dropdown .contact-wrapper .user__contact .user__contact__icons a img {
+    height: 16px;
+    width: 16px;
   }
 }
