@@ -50,7 +50,8 @@
       "variant-listing",
       "car-detail-banner",
       "brand-header",
-      "section-navigator"
+      "section-navigator",
+      "dealer-cards"
     ]
   },
   {
@@ -120,5 +121,11 @@
   {
     "id": "section-navigator",
     "components": []
+  },
+  {
+    "id": "dealer-cards",
+    "components": [
+      "teaser"
+    ]
   }
 ]
