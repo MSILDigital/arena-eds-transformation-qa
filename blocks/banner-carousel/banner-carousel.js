@@ -74,42 +74,44 @@ export default async function decorate(block) {
     /* eslint no-underscore-dangle: 0 */
     carContainersWrapper.innerHTML += `
       <div class="car-container">
-          <img
-            src=${carObjectItem?.carImage?._publishUrl || ''}
-            alt=${carObjectItem?.carName || ''}
-            class="sidebar-car--image"
-          />
-          <div class="sidebar">
-            <div class="sidebar_text_container">
-              <div class="text-container">
-                <span>${firstLetterTitle || ''} ${restTitle || ''}</span>
-              </div>
-              <img
-                src=${carObjectItem?.carLogoImage?._publishUrl || ''}
-                alt=${carObjectItem?.carName || ''}
-                class="sidebar-car--logo"
-              />
-              <span><strong>${carObjectItem?.bodyType}</strong> | ${
-  type?.textContent || ''
-}</span>
-              <div class="sidebar--hr"></div>
-              <div class="sidebar--details">
-                <div class="sidebar--details--exshowroom">
-                  <span>Ex. showroom:</span>
-                  <span><strong>${
-  convertToLakh(carObjectItem?.exShowroomPrice) || ''
-} Lakhs</strong></span>
+          <div class="sidebar-container">
+            <img
+              src=${carObjectItem?.carImage?._publishUrl || ''}
+              alt=${carObjectItem?.carName || ''}
+              class="sidebar-car--image"
+            />
+            <div class="sidebar">
+              <div class="sidebar_text_container">
+                <div class="text-container">
+                  <span>${firstLetterTitle || ''} ${restTitle || ''}</span>
                 </div>
-                <div class="sidebar--details--onroad">
-                  <span>Estd. On-road in Gurgaon:</span>
-                  <span><strong>${
-  onRoadPrice?.textContent || ''
-}</strong></span>
+                <img
+                  src=${carObjectItem?.carLogoImage?._publishUrl || ''}
+                  alt=${carObjectItem?.carName || ''}
+                  class="sidebar-car--logo"
+                />
+                <span><strong>${carObjectItem?.bodyType}</strong> | ${
+    type?.textContent || ''
+  }</span>
+                <div class="sidebar--hr"></div>
+                <div class="sidebar--details">
+                  <div class="sidebar--details--exshowroom">
+                    <span>Ex. showroom:</span>
+                    <span><strong>${
+    convertToLakh(carObjectItem?.exShowroomPrice) || ''
+  } Lakhs</strong></span>
+                  </div>
+                  <div class="sidebar--details--onroad">
+                    <span>Estd. On-road in Gurgaon:</span>
+                    <span><strong>${
+    onRoadPrice?.textContent || ''
+  }</strong></span>
+                  </div>
                 </div>
-              </div>
-              <div class="buttons">
-                ${primaryCta ? primaryCta.outerHTML : ''}
-                ${secondaryCta ? secondaryCta.outerHTML : ''}
+                <div class="buttons">
+                  ${primaryCta ? primaryCta.outerHTML : ''}
+                  ${secondaryCta ? secondaryCta.outerHTML : ''}
+                </div>
               </div>
             </div>
           </div>
@@ -216,12 +218,12 @@ export default async function decorate(block) {
       if (i >= index && i < index + cardsPerPage) {
         card.classList.add('show');
         card
-          .querySelector('.sidebar-car--image')
+          .querySelector('.sidebar-container')
           .addEventListener('mouseenter', () => {
             handleMouseEnter(card);
           });
         card
-          .querySelector('.sidebar-car--image')
+          .querySelector('.sidebar-container')
           .addEventListener('mouseleave', () => {
             handleMouseLeave(card);
           });

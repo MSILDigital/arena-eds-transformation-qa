@@ -1,0 +1,22 @@
+nav {
+  position: fixed;
+  z-index: 99999;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+nav .dot {
+  display: block;
+  margin: 10px 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: grey;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: red;
+}
