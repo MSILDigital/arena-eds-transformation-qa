@@ -4,7 +4,7 @@ import { fetchPlaceholders } from '../../scripts/aem.js';
 
 async function fetchCar(domain) {
   const car = await fetch(
-    `${domain}/graphql/execute.json/msil-platform/arenaPerformance?modelId=BZ`,
+    `${domain}/graphql/execute.json/msil-platform/arenaPerformance?modelId=VB`,
   );
   return car.json();
 }
@@ -18,7 +18,7 @@ function generateVariantList(carData) {
       (car) => `
       <li>
         <p>${car.variantName}</p>
-        <p>${car.mileage}</p>
+        <p>${car.mileageValue}</p>
       </li>
     `,
     )
