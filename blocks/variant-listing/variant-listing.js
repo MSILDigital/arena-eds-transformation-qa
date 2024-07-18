@@ -75,7 +75,7 @@ export default async function decorate(block) {
                 <p>${item.variantName}</p>
             </div>
             <div class="variant__description">
-                <p>${item.mileage} Km/L | ${item.highlightFeatures.join(
+                <p>${item.mileageValue} Km/L | ${item.highlightFeatures.join(
   ' | ',
 )}</p>
             </div>
