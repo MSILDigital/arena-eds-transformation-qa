@@ -1,6 +1,20 @@
+html,
+body {
+  height: 100%;
+}
+
+main {
+  display: initial !important;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Anek Latin";
+}
+
+.section.banner-carousel-container,
+.banner-carousel-wrapper,.banner-carousel {
+  height: 100%;
 }
 
 input[type="radio"] {
@@ -17,7 +31,7 @@ input[type="radio"]:checked {
 }
 
 .hero_banner_container_wrapper {
-  height: 100vh;
+  height: 100%;
   position: relative;
   overflow: hidden;
 }
