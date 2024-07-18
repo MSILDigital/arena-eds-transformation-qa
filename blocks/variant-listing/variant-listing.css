@@ -5,6 +5,7 @@
 
 .container__slider {
   position: relative;
+
   /* max-width: 1000px; */
   margin: auto;
   overflow: hidden;
@@ -26,11 +27,11 @@
 
 .container__slider .slider__tabContent .tab__Iteam {
   cursor: pointer;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-weight: 400;
   font-size: 16px;
   line-height: 22.4px;
-  color: #000000;
+  color: #000;
   text-transform: uppercase;
 }
 
@@ -41,18 +42,17 @@
 
 .container__slider .slider__tabContent .tab__Iteam__saperator {
   cursor: pointer;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-weight: 400;
   font-size: 16px;
   line-height: 22.4px;
-  color: #000000;
+  color: #000;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .container__slider .variant__card .variant__title p {
-  font-family: "Anek Latin";
-  font-weight: 800;
+  font-family: var(--primary-font-arena);
   margin: 0;
   margin-top: 10px;
   font-size: 16px;
@@ -71,7 +71,7 @@
 }
 
 .container__slider .variant__card .variant__description p {
-  font-family: Roboto;
+  font-family: var(--body-font-arena);
   font-weight: 600;
   margin: 0;
   padding-bottom: 20px;
@@ -80,12 +80,12 @@
 }
 
 .container__slider .variant__card .variant__price {
-  border: 0.5px solid #000000;
+  border: 0.5px solid #000;
   padding: 12px;
 }
 
 .container__slider .variant__card .variant__price p {
-  font-family: Roboto;
+  font-family: var(--body-font-arena);
   font-weight: 400;
   font-size: 14px;
   line-height: 19.6px;
@@ -94,7 +94,7 @@
 }
 
 .container__slider .variant__card .variant__price p span {
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-weight: 700;
   line-height: 18px;
   font-size: 14px;
@@ -103,6 +103,7 @@
 .container__slider .variant-content {
   position: relative;
   overflow: hidden;
+  padding-top: 35px;
 }
 
 .container__slider .variant__cards {
@@ -151,10 +152,6 @@
   align-items: center;
 }
 
-.container__slider .variant-content {
-  padding-top: 35px;
-}
-
 .container__slider .cta__container a {
   width: fit-content;
 }
@@ -168,7 +165,7 @@
 
 .container__slider .nav-arrow_variant.next_variant,
 .container__slider .nav-arrow_variant.prev_variant {
-  right: 0px;
+  right: 0;
   top: 60%;
   color: #171c8f;
   border: 1px solid var(--blue, #171c8f);
@@ -183,7 +180,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(0 0 0 / 50%);
   color: white;
   border: none;
   padding: 10px;
@@ -197,34 +194,29 @@
   height: 60px;
   width: 60px;
   font-size: 25px;
-}
+  background-image: url("../../icons/slider-arrow-left-white.svg");
+  transform: scaleX(-1);
 
-.container__slider .nav-arrow_variant.next_variant {
-  right: 0px;
+  /* Flip horizontally */
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .container__slider .nav-arrow_variant.next_variant {
   background-image: url("../../icons/slider-arrow-right-white.svg");
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.container__slider .nav-arrow_variant.prev_variant {
-  background-image: url("../../icons/slider-arrow-left-white.svg");
-  transform: scaleX(-1);
-  /* Flip horizontally */
-  background-repeat: no-repeat;
-  background-position: center;
+  right: 0;
 }
 
 /* Responsive adjustments */
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .container__slider .variant__card {
     flex: 0 0 50%;
   }
 }
 
-@media (min-width: 999px) {
+@media (width >= 999px) {
   .container__slider {
     padding-top: 112px;
   }
@@ -258,9 +250,9 @@
     border-bottom: 1px solid;
     border-image-source: linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0) 0%,
-      #000000 50.5%,
-      rgba(0, 0, 0, 0) 100%
+      rgb(0 0 0 / 0%) 0%,
+      #000 50.5%,
+      rgb(0 0 0 / 0%) 100%
     );
     border-image-slice: 1;
   }
@@ -302,6 +294,7 @@
   .container__slider .nav-arrow_variant.prev_variant {
     background-image: url("../../icons/slider-arrow-blue.svg");
     transform: scaleX(-1);
+
     /* Flip horizontally */
     background-repeat: no-repeat;
     background-position: center;
@@ -315,7 +308,6 @@
 
   .container__slider .nav-arrow_variant.next_variant.disabled {
     background-image: url("../../icons/slider-arrow-right-white.svg");
-
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -329,13 +321,13 @@
 }
 
 /* Show 1.5 slides on mobile */
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .container__slider .variant__card {
     flex: 0 0 100%;
   }
 }
 
-@media (max-width: 999px) {
+@media (width <= 999px) {
   .container__slider .cta__container a {
     font-size: 12px;
     font-weight: 600;
@@ -360,7 +352,7 @@
   }
 }
 
-@media (max-width: 999px) {
+@media (width <= 999px) {
   .container__slider .cta__container a {
     font-size: 12px;
     font-weight: 600;
