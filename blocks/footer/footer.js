@@ -105,7 +105,7 @@ export default async function decorate(block) {
     `;
   }
 
-  block.parentElement.classList.add("footer__arena"); 
+  block.parentElement.classList.add('footer__arena');
   // Define the external function for the click event
   function accordionClick() {
     const ulElement = this.parentElement.querySelector('ul');

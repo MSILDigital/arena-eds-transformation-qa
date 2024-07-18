@@ -91,21 +91,21 @@ export default async function decorate(block) {
                   class="sidebar-car--logo"
                 />
                 <span><strong>${carObjectItem?.bodyType}</strong> | ${
-    type?.textContent || ''
-  }</span>
+  type?.textContent || ''
+}</span>
                 <div class="sidebar--hr"></div>
                 <div class="sidebar--details">
                   <div class="sidebar--details--exshowroom">
                     <span>Ex. showroom:</span>
                     <span><strong>${
-    convertToLakh(carObjectItem?.exShowroomPrice) || ''
-  } Lakhs</strong></span>
+  convertToLakh(carObjectItem?.exShowroomPrice) || ''
+} Lakhs</strong></span>
                   </div>
                   <div class="sidebar--details--onroad">
                     <span>Estd. On-road in Gurgaon:</span>
                     <span><strong>${
-    onRoadPrice?.textContent || ''
-  }</strong></span>
+  onRoadPrice?.textContent || ''
+}</strong></span>
                   </div>
                 </div>
                 <div class="buttons">
