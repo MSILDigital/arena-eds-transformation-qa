@@ -15,7 +15,7 @@ export default async function decorate(block) {
   } = await fetchPlaceholders();
   let authorization;
   try {
-    const res = await fetch(`${publishDomain}/content/nexa/services/token`);
+    const res = await fetch(`${publishDomain}/content/arena/services/token`);
     if (res.ok) {
       authorization = await res.text();
     }
