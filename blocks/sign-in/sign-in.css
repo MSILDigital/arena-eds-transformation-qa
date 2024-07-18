@@ -11,7 +11,7 @@
   align-items: center;
   gap: 12px;
   color: var(--Primary-Main, #18171a);
-  font-family: "Fira Sans";
+  font-family: "var(--body-font-arena)";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -23,7 +23,6 @@
   display: flex;
   padding: 4px;
   align-items: center;
-
   border-radius: 12px;
   background: var(--Tertiary-Light-grey, #f2f2f2);
 }
@@ -33,7 +32,7 @@
   height: 16px;
 }
 
-.user__account>a {
+.user__account > a {
   font-size: 14px;
 }
 
@@ -48,7 +47,7 @@
   right: 64px;
   max-width: 200px;
   width: 100%;
-  background: #FFF;
+  background: #fff;
   box-shadow: 0px 0px 4px 0px rgba(154, 154, 154, 0.25);
 }
 
@@ -59,7 +58,7 @@
   padding: 24px;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .user__account__list-icon {
     background: none;
   }
@@ -78,20 +77,13 @@
   }
 }
 
-/*.sign-in-teaser{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-  @media(min-width:768px){
-  display:none;
-  } 
-}*/
 .sign-in-teaser {
   display: flex;
   border-radius: 2px;
-  background: var(--gradient-3,
-      linear-gradient(34deg, #c9d3d7 18.09%, #ebebeb 102.51%, #ebebeb 102.51%));
+  background: var(
+    --gradient-3,
+    linear-gradient(34deg, #c9d3d7 18.09%, #ebebeb 102.51%, #ebebeb 102.51%)
+  );
 }
 
 .sign-in-teaser__desc {
@@ -107,7 +99,7 @@
 
 .sign-in-teaser__desc-content h4 {
   color: var(--Primary-Main, #18171a);
-  font-family: "Fira Sans";
+  font-family: "var(--body-font-arena)";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -117,7 +109,7 @@
 
 .sign-in-teaser__desc-content p {
   color: #4a4a4a;
-  font-family: "Fira Sans";
+  font-family: "var(--body-font-arena)";
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -127,7 +119,7 @@
 
 .sign-in-teaser--link {
   color: var(--Primary-Main, #18171a);
-  font-family: "Fira Sans";
+  font-family: "var(--body-font-arena)";
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -154,13 +146,13 @@
 .sign-in-teaser--arrow {
   width: 15px;
   height: 15px;
-  background-image: url('../../icons/north-east-arrow.svg');
+  background-image: url("../../icons/north-east-arrow.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .sign-in-teaser {
     display: none;
   }
@@ -169,7 +161,7 @@
 @media (min-width: 999px) {
   .navbar.navbar-arena .sign-in-wrapper .user__account a {
     font-family: "Anek Latin";
-    color: #575A5E;
+    color: #575a5e;
     text-align: center;
     font-size: 14px;
     font-style: normal;
@@ -177,8 +169,13 @@
     line-height: 17px;
   }
 
-  .navbar.navbar-arena .sign-in-wrapper .user__dropdown .contact-wrapper .user__contact h4 {
-    color: #575A5E;
+  .navbar.navbar-arena
+    .sign-in-wrapper
+    .user__dropdown
+    .contact-wrapper
+    .user__contact
+    h4 {
+    color: #575a5e;
     font-family: "Anek Latin";
     font-size: 14px;
     font-style: normal;
@@ -186,15 +183,33 @@
     line-height: 17px;
   }
 
-  .navbar.navbar-arena .sign-in-wrapper .user__dropdown .contact-wrapper .user__contact .user__contact__icons {
+  .navbar.navbar-arena
+    .sign-in-wrapper
+    .user__dropdown
+    .contact-wrapper
+    .user__contact
+    .user__contact__icons {
     gap: 24px;
   }
 
-  .navbar.navbar-arena .sign-in-wrapper .user__dropdown .contact-wrapper .user__contact .user__contact__icons a {
+  .navbar.navbar-arena
+    .sign-in-wrapper
+    .user__dropdown
+    .contact-wrapper
+    .user__contact
+    .user__contact__icons
+    a {
     padding: 0;
   }
-  
-  .navbar.navbar-arena .sign-in-wrapper .user__dropdown .contact-wrapper .user__contact .user__contact__icons a img {
+
+  .navbar.navbar-arena
+    .sign-in-wrapper
+    .user__dropdown
+    .contact-wrapper
+    .user__contact
+    .user__contact__icons
+    a
+    img {
     height: 16px;
     width: 16px;
   }

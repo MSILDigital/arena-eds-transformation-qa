@@ -1,7 +1,7 @@
 .helpme-select {
   width: 100%;
   height: auto;
-  background-color: #C8042F;
+  background-color: #c8042f;
   position: relative;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .helpme-select .content__container .left__content .title {
-  color: #FFF;
+  color: #fff;
   font-size: 10px;
   font-style: normal;
   font-weight: 300;
@@ -20,7 +20,7 @@
 }
 
 .helpme-select .content__container .left__content h2 {
-  color: #FFF;
+  color: #fff;
   font-size: 24px;
   font-style: normal;
   font-weight: 800;
@@ -29,7 +29,7 @@
 
 .helpme-select .content__container .left__content .subtitle {
   border-top: 1px solid white;
-  color: #FFF;
+  color: #fff;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -51,6 +51,16 @@
   position: absolute;
   height: 160px;
   width: 300px;
+}
+
+.image-container.active .carLogo {
+  width: 84px;
+  height: 44px;
+  display: block;
+  position: relative;
+  top: 40px;
+  left: 20px;
+  animation: animate-logo 1s linear normal forwards;
 }
 
 .car__carousel .image-container.next .carLogo,
@@ -84,16 +94,6 @@
   width: 100%;
 }
 
-.image-container.active .carLogo {
-  width: 84px;
-  height: 44px;
-  display: block;
-  position: relative;
-  top: 40px;
-  left: 20px;
-  animation: animate-logo 1s linear normal forwards;
-}
-
 .image-container.active .carLogo img {
   height: auto;
   width: 100%;
@@ -103,7 +103,7 @@
   width: 100%;
   min-height: 140px;
   height: auto;
-  background: #FFF;
+  background: #fff;
   position: absolute;
   top: 0;
   display: flex;
@@ -123,7 +123,7 @@
   height: 125px;
   position: absolute;
   bottom: 18%;
-  background-color: #CD1D44;
+  background-color: #cd1d44;
 }
 
 .helpme-select .left__content .button.primary__btn {
@@ -131,7 +131,7 @@
   height: 48px;
   width: 48px;
   padding: inherit;
-  background-color: rgba(255, 255, 255, 0.20);
+  background-color: rgb(255 255 255 / 20%);
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" fill="white" fill-opacity="0.05"/><path d="M11.1075 39L9 36.8925L31.8925 14H18V11H37V30H34V16.1075L11.1075 39Z" fill="white"/></svg>');
 
   &:hover {
@@ -152,7 +152,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.40);
+  background: rgb(255 255 255 / 40%);
 }
 
 .rect-bar1 {
@@ -161,46 +161,40 @@
   position: absolute;
   top: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.40);
+  background: rgb(255 255 255 / 40%);
 }
 
 @keyframes diagonal-move-next {
-
   0% {
-    transform: translate(110px, 345px) scale(0.8)
+    transform: translate(110px, 345px) scale(0.8);
   }
 
   100% {
-    transform: translate(45px, 215px)
+    transform: translate(45px, 215px);
   }
-
 }
 
 @keyframes diagonal-move-prev {
-
   0% {
-    transform: translate(40px, 10px) scale(1.2)
+    transform: translate(40px, 10px) scale(1.2);
   }
 
   100% {
-    transform: translate(110px, 345px) scale(0.8)
+    transform: translate(110px, 345px) scale(0.8);
   }
-
 }
 
 @keyframes diagonal-move-active {
-
   0% {
-    transform: translate(45px, 215px)
+    transform: translate(45px, 215px);
   }
 
   100% {
-    transform: translate(40px, 10px) scale(1.2)
+    transform: translate(40px, 10px) scale(1.2);
   }
 }
 
 @keyframes animate-logo {
-
   0% {
     opacity: 0;
   }
@@ -214,14 +208,13 @@
   }
 }
 
-@media (min-width: 1023px) {
+@media (width >= 1023px) {
   .helpme-select {
     width: 100%;
     min-height: 480px;
     height: auto;
-    background-color: #C8042F;
+    background-color: #c8042f;
   }
-
 
   .helpme-select .rect-box {
     width: 81px;
@@ -229,7 +222,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    background: #D33659;
+    background: #d33659;
   }
 
   .helpme-select .rect-bar1 {
@@ -238,7 +231,7 @@
     position: absolute;
     top: 0;
     right: 43px;
-    background: rgba(255, 255, 255, 0.40);
+    background: rgb(255 255 255 / 40%);
   }
 
   .helpme-select .rect-bar2 {
@@ -247,7 +240,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.20);
+    background: rgb(255 255 255 / 20%);
   }
 
   .vertical__rectangle {
@@ -256,14 +249,14 @@
     position: absolute;
     right: 15%;
     top: 0;
-    background: rgba(255, 255, 255, 0.10);
+    background: rgb(255 255 255 / 10%);
   }
 
   .white-vertical__rectangle {
     width: 231px;
     height: 100%;
     margin-left: 125px;
-    background: #FFF;
+    background: #fff;
     text-align: center;
   }
 
@@ -297,8 +290,8 @@
     line-height: 36px;
     padding-top: 0;
     padding-bottom: 10px;
-    margin-bottom: 8px;
     margin: 0;
+    margin-bottom: 8px;
   }
 
   .helpme-select .content__container .left__content h2.heading2 {
@@ -307,8 +300,10 @@
   }
 
   .image-container.active .carLogo {
+    margin-left: 32%;
     top: auto;
     left: auto;
+
     /* animation: animate-logo 1s linear normal forwards; */
   }
 
@@ -332,7 +327,7 @@
   .helpme-select .right__content .dummy__text {
     position: absolute;
     bottom: 4%;
-    color: #FFF;
+    color: #fff;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -345,61 +340,48 @@
   .image-container.active {
     position: absolute;
     top: auto;
-
-    .carLogo {
-      margin-left: 32%;
-    }
   }
-
 
   .image-container.next {
     position: absolute;
     top: auto;
-
   }
 
   .image-container.prev {
     position: absolute;
   }
 
-
   @keyframes diagonal-move-next {
-
     0% {
-      transform: translate(576px, 246px) scale(1.0)
+      transform: translate(576px, 246px) scale(1);
     }
 
     100% {
-      transform: translate(452px, 70px)
+      transform: translate(452px, 70px);
     }
-
   }
 
   @keyframes diagonal-move-prev {
-
     0% {
-      transform: translate(90px, 178px) scale(2.0);
+      transform: translate(90px, 178px) scale(2);
     }
 
     100% {
-      transform: translate(576px, 246px) scale(1.0);
+      transform: translate(576px, 246px) scale(1);
     }
-
   }
 
   @keyframes diagonal-move-active {
-
     0% {
-      transform: translate(452px, 70px)
+      transform: translate(452px, 70px);
     }
 
     100% {
-      transform: translate(110px, 220px) scale(2.0)
+      transform: translate(110px, 220px) scale(2);
     }
   }
 
   @keyframes animate-logo {
-
     0% {
       opacity: 0;
     }

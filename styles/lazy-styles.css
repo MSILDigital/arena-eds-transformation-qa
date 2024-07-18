@@ -1,4 +1,5 @@
 /* add global styles that can be loaded post LCP here */
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -11,7 +12,7 @@
 
 html {
   line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  text-size-adjust: 100%; /* 2 */
 }
 
 /* Sections
@@ -63,7 +64,7 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace; /* 1 */
+  font-family: monospace, sans-serif; /* 1 */
   font-size: 1em; /* 2 */
 }
 
@@ -106,7 +107,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
+  font-family: monospace, sans-serif; /* 1 */
   font-size: 1em; /* 2 */
 }
 
@@ -199,7 +200,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button;
+  appearance: button;
 }
 
 /**
@@ -291,7 +292,7 @@ textarea {
  */
 
 [type="search"] {
-  -webkit-appearance: textfield; /* 1 */
+  appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
 
@@ -300,7 +301,7 @@ textarea {
  */
 
 [type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 /**
@@ -309,7 +310,7 @@ textarea {
  */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
+  appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
 
@@ -357,12 +358,14 @@ template {
   box-sizing: border-box;
 }
 
-/*----------------------------------------------------------------
+/* ----------------------------------------------------------------
         variables
-      ----------------------------------------------------------------*/
-/*----------------------------------------------------------------
+      ---------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------
         breakpoints
-      ----------------------------------------------------------------*/
+      ---------------------------------------------------------------- */
+
 /* @media (min-width: 999px) {
       .container{width:100%}
 
@@ -377,21 +380,25 @@ template {
       .container{width:1366px}
     } */
 
-/*----------------------------------------------------------------
+/* ----------------------------------------------------------------
         grid alignment
-      ----------------------------------------------------------------*/
-/*----------------------------------------------------------------
+      ---------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------
         column widths
-      ----------------------------------------------------------------*/
-/*----------------------------------------------------------------
+      ---------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------
         column offsets
-      ----------------------------------------------------------------*/
-/*----------------------------------------------------------------
+      ---------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------
         column ordering
-      ----------------------------------------------------------------*/
-/*----------------------------------------------------------------
+      ---------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------
         columns defaults
-      ----------------------------------------------------------------*/
+      ---------------------------------------------------------------- */
 [class*="col-"] {
   flex-basis: 100%;
   max-width: 100%;
@@ -399,9 +406,9 @@ template {
   padding-left: 15px;
 }
 
-/*----------------------------------------------------------------
+/* ----------------------------------------------------------------
         row
-      ----------------------------------------------------------------*/
+      ---------------------------------------------------------------- */
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -411,8 +418,7 @@ template {
 
 .row {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   margin-right: -20px;
   margin-left: -20px;
 }
@@ -421,17 +427,17 @@ template {
   flex-direction: row-reverse;
 }
 
-/*----------------------------------------------------------------
+/* ----------------------------------------------------------------
         css output
-      ----------------------------------------------------------------*/
+      ---------------------------------------------------------------- */
 .col-xs-1 {
-  flex-basis: 8.3333333333%;
-  max-width: 8.3333333333%;
+  flex-basis: 8.3333%;
+  max-width: 8.3333%;
 }
 
 .col-xs-2 {
-  flex-basis: 16.6666666667%;
-  max-width: 16.6666666667%;
+  flex-basis: 16.6667%;
+  max-width: 16.6667%;
 }
 
 .col-xs-3 {
@@ -440,13 +446,13 @@ template {
 }
 
 .col-xs-4 {
-  flex-basis: 33.3333333333%;
-  max-width: 33.3333333333%;
+  flex-basis: 33.3333%;
+  max-width: 33.3333%;
 }
 
 .col-xs-5 {
-  flex-basis: 41.6666666667%;
-  max-width: 41.6666666667%;
+  flex-basis: 41.6667%;
+  max-width: 41.6667%;
 }
 
 .col-xs-6 {
@@ -455,13 +461,13 @@ template {
 }
 
 .col-xs-7 {
-  flex-basis: 58.3333333333%;
-  max-width: 58.3333333333%;
+  flex-basis: 58.3333%;
+  max-width: 58.3333%;
 }
 
 .col-xs-8 {
-  flex-basis: 66.6666666667%;
-  max-width: 66.6666666667%;
+  flex-basis: 66.6667%;
+  max-width: 66.6667%;
 }
 
 .col-xs-9 {
@@ -470,13 +476,13 @@ template {
 }
 
 .col-xs-10 {
-  flex-basis: 83.3333333333%;
-  max-width: 83.3333333333%;
+  flex-basis: 83.3333%;
+  max-width: 83.3333%;
 }
 
 .col-xs-11 {
-  flex-basis: 91.6666666667%;
-  max-width: 91.6666666667%;
+  flex-basis: 91.6667%;
+  max-width: 91.6667%;
 }
 
 .col-xs-12 {
@@ -485,11 +491,11 @@ template {
 }
 
 .col-xs-offset-1 {
-  margin-left: 8.3333333333%;
+  margin-left: 8.3333%;
 }
 
 .col-xs-offset-2 {
-  margin-left: 16.6666666667%;
+  margin-left: 16.6667%;
 }
 
 .col-xs-offset-3 {
@@ -497,11 +503,11 @@ template {
 }
 
 .col-xs-offset-4 {
-  margin-left: 33.3333333333%;
+  margin-left: 33.3333%;
 }
 
 .col-xs-offset-5 {
-  margin-left: 41.6666666667%;
+  margin-left: 41.6667%;
 }
 
 .col-xs-offset-6 {
@@ -509,11 +515,11 @@ template {
 }
 
 .col-xs-offset-7 {
-  margin-left: 58.3333333333%;
+  margin-left: 58.3333%;
 }
 
 .col-xs-offset-8 {
-  margin-left: 66.6666666667%;
+  margin-left: 66.6667%;
 }
 
 .col-xs-offset-9 {
@@ -521,11 +527,11 @@ template {
 }
 
 .col-xs-offset-10 {
-  margin-left: 83.3333333333%;
+  margin-left: 83.3333%;
 }
 
 .col-xs-offset-11 {
-  margin-left: 91.6666666667%;
+  margin-left: 91.6667%;
 }
 
 .col-xs-offset-12 {
@@ -623,7 +629,7 @@ template {
   order: 1;
 }
 
-@media (min-width: 999px) {
+@media (width >= 999px) {
   .container {
     width: 100%;
     padding-right: 32px;
@@ -631,13 +637,13 @@ template {
   }
 
   .col-sm-1 {
-    flex-basis: 8.3333333333%;
-    max-width: 8.3333333333%;
+    flex-basis: 8.3333%;
+    max-width: 8.3333%;
   }
 
   .col-sm-2 {
-    flex-basis: 16.6666666667%;
-    max-width: 16.6666666667%;
+    flex-basis: 16.6667%;
+    max-width: 16.6667%;
   }
 
   .col-sm-3 {
@@ -646,13 +652,13 @@ template {
   }
 
   .col-sm-4 {
-    flex-basis: 33.3333333333%;
-    max-width: 33.3333333333%;
+    flex-basis: 33.3333%;
+    max-width: 33.3333%;
   }
 
   .col-sm-5 {
-    flex-basis: 41.6666666667%;
-    max-width: 41.6666666667%;
+    flex-basis: 41.6667%;
+    max-width: 41.6667%;
   }
 
   .col-sm-6 {
@@ -661,13 +667,13 @@ template {
   }
 
   .col-sm-7 {
-    flex-basis: 58.3333333333%;
-    max-width: 58.3333333333%;
+    flex-basis: 58.3333%;
+    max-width: 58.3333%;
   }
 
   .col-sm-8 {
-    flex-basis: 66.6666666667%;
-    max-width: 66.6666666667%;
+    flex-basis: 66.6667%;
+    max-width: 66.6667%;
   }
 
   .col-sm-9 {
@@ -676,13 +682,13 @@ template {
   }
 
   .col-sm-10 {
-    flex-basis: 83.3333333333%;
-    max-width: 83.3333333333%;
+    flex-basis: 83.3333%;
+    max-width: 83.3333%;
   }
 
   .col-sm-11 {
-    flex-basis: 91.6666666667%;
-    max-width: 91.6666666667%;
+    flex-basis: 91.6667%;
+    max-width: 91.6667%;
   }
 
   .col-sm-12 {
@@ -691,11 +697,11 @@ template {
   }
 
   .col-sm-offset-1 {
-    margin-left: 8.3333333333%;
+    margin-left: 8.3333%;
   }
 
   .col-sm-offset-2 {
-    margin-left: 16.6666666667%;
+    margin-left: 16.6667%;
   }
 
   .col-sm-offset-3 {
@@ -703,11 +709,11 @@ template {
   }
 
   .col-sm-offset-4 {
-    margin-left: 33.3333333333%;
+    margin-left: 33.3333%;
   }
 
   .col-sm-offset-5 {
-    margin-left: 41.6666666667%;
+    margin-left: 41.6667%;
   }
 
   .col-sm-offset-6 {
@@ -715,11 +721,11 @@ template {
   }
 
   .col-sm-offset-7 {
-    margin-left: 58.3333333333%;
+    margin-left: 58.3333%;
   }
 
   .col-sm-offset-8 {
-    margin-left: 66.6666666667%;
+    margin-left: 66.6667%;
   }
 
   .col-sm-offset-9 {
@@ -727,11 +733,11 @@ template {
   }
 
   .col-sm-offset-10 {
-    margin-left: 83.3333333333%;
+    margin-left: 83.3333%;
   }
 
   .col-sm-offset-11 {
-    margin-left: 91.6666666667%;
+    margin-left: 91.6667%;
   }
 
   .col-sm-offset-12 {
@@ -829,7 +835,8 @@ template {
     order: 1;
   }
 }
-@media (min-width: 1024px) {
+
+@media (width >= 1024px) {
   .container {
     width: 1024px;
     padding-right: 48px;
@@ -837,13 +844,13 @@ template {
   }
 
   .col-md-1 {
-    flex-basis: 8.3333333333%;
-    max-width: 8.3333333333%;
+    flex-basis: 8.3333%;
+    max-width: 8.3333%;
   }
 
   .col-md-2 {
-    flex-basis: 16.6666666667%;
-    max-width: 16.6666666667%;
+    flex-basis: 16.6667%;
+    max-width: 16.6667%;
   }
 
   .col-md-3 {
@@ -852,13 +859,13 @@ template {
   }
 
   .col-md-4 {
-    flex-basis: 33.3333333333%;
-    max-width: 33.3333333333%;
+    flex-basis: 33.3333%;
+    max-width: 33.3333%;
   }
 
   .col-md-5 {
-    flex-basis: 41.6666666667%;
-    max-width: 41.6666666667%;
+    flex-basis: 41.6667%;
+    max-width: 41.6667%;
   }
 
   .col-md-6 {
@@ -867,13 +874,13 @@ template {
   }
 
   .col-md-7 {
-    flex-basis: 58.3333333333%;
-    max-width: 58.3333333333%;
+    flex-basis: 58.3333%;
+    max-width: 58.3333%;
   }
 
   .col-md-8 {
-    flex-basis: 66.6666666667%;
-    max-width: 66.6666666667%;
+    flex-basis: 66.6667%;
+    max-width: 66.6667%;
   }
 
   .col-md-9 {
@@ -882,13 +889,13 @@ template {
   }
 
   .col-md-10 {
-    flex-basis: 83.3333333333%;
-    max-width: 83.3333333333%;
+    flex-basis: 83.3333%;
+    max-width: 83.3333%;
   }
 
   .col-md-11 {
-    flex-basis: 91.6666666667%;
-    max-width: 91.6666666667%;
+    flex-basis: 91.6667%;
+    max-width: 91.6667%;
   }
 
   .col-md-12 {
@@ -897,11 +904,11 @@ template {
   }
 
   .col-md-offset-1 {
-    margin-left: 8.3333333333%;
+    margin-left: 8.3333%;
   }
 
   .col-md-offset-2 {
-    margin-left: 16.6666666667%;
+    margin-left: 16.6667%;
   }
 
   .col-md-offset-3 {
@@ -909,11 +916,11 @@ template {
   }
 
   .col-md-offset-4 {
-    margin-left: 33.3333333333%;
+    margin-left: 33.3333%;
   }
 
   .col-md-offset-5 {
-    margin-left: 41.6666666667%;
+    margin-left: 41.6667%;
   }
 
   .col-md-offset-6 {
@@ -921,11 +928,11 @@ template {
   }
 
   .col-md-offset-7 {
-    margin-left: 58.3333333333%;
+    margin-left: 58.3333%;
   }
 
   .col-md-offset-8 {
-    margin-left: 66.6666666667%;
+    margin-left: 66.6667%;
   }
 
   .col-md-offset-9 {
@@ -933,11 +940,11 @@ template {
   }
 
   .col-md-offset-10 {
-    margin-left: 83.3333333333%;
+    margin-left: 83.3333%;
   }
 
   .col-md-offset-11 {
-    margin-left: 91.6666666667%;
+    margin-left: 91.6667%;
   }
 
   .col-md-offset-12 {
@@ -1035,20 +1042,22 @@ template {
     order: 1;
   }
 }
-@media (min-width: 1280px) {
+
+@media (width >= 1280px) {
   .container {
     width: 1280px;
     padding-right: 64px;
     padding-left: 64px;
   }
+
   .col-lg-1 {
-    flex-basis: 8.3333333333%;
-    max-width: 8.3333333333%;
+    flex-basis: 8.3333%;
+    max-width: 8.3333%;
   }
 
   .col-lg-2 {
-    flex-basis: 16.6666666667%;
-    max-width: 16.6666666667%;
+    flex-basis: 16.6667%;
+    max-width: 16.6667%;
   }
 
   .col-lg-3 {
@@ -1057,13 +1066,13 @@ template {
   }
 
   .col-lg-4 {
-    flex-basis: 33.3333333333%;
-    max-width: 33.3333333333%;
+    flex-basis: 33.3333%;
+    max-width: 33.3333%;
   }
 
   .col-lg-5 {
-    flex-basis: 41.6666666667%;
-    max-width: 41.6666666667%;
+    flex-basis: 41.6667%;
+    max-width: 41.6667%;
   }
 
   .col-lg-6 {
@@ -1072,13 +1081,13 @@ template {
   }
 
   .col-lg-7 {
-    flex-basis: 58.3333333333%;
-    max-width: 58.3333333333%;
+    flex-basis: 58.3333%;
+    max-width: 58.3333%;
   }
 
   .col-lg-8 {
-    flex-basis: 66.6666666667%;
-    max-width: 66.6666666667%;
+    flex-basis: 66.6667%;
+    max-width: 66.6667%;
   }
 
   .col-lg-9 {
@@ -1087,13 +1096,13 @@ template {
   }
 
   .col-lg-10 {
-    flex-basis: 83.3333333333%;
-    max-width: 83.3333333333%;
+    flex-basis: 83.3333%;
+    max-width: 83.3333%;
   }
 
   .col-lg-11 {
-    flex-basis: 91.6666666667%;
-    max-width: 91.6666666667%;
+    flex-basis: 91.6667%;
+    max-width: 91.6667%;
   }
 
   .col-lg-12 {
@@ -1102,11 +1111,11 @@ template {
   }
 
   .col-lg-offset-1 {
-    margin-left: 8.3333333333%;
+    margin-left: 8.3333%;
   }
 
   .col-lg-offset-2 {
-    margin-left: 16.6666666667%;
+    margin-left: 16.6667%;
   }
 
   .col-lg-offset-3 {
@@ -1114,11 +1123,11 @@ template {
   }
 
   .col-lg-offset-4 {
-    margin-left: 33.3333333333%;
+    margin-left: 33.3333%;
   }
 
   .col-lg-offset-5 {
-    margin-left: 41.6666666667%;
+    margin-left: 41.6667%;
   }
 
   .col-lg-offset-6 {
@@ -1126,11 +1135,11 @@ template {
   }
 
   .col-lg-offset-7 {
-    margin-left: 58.3333333333%;
+    margin-left: 58.3333%;
   }
 
   .col-lg-offset-8 {
-    margin-left: 66.6666666667%;
+    margin-left: 66.6667%;
   }
 
   .col-lg-offset-9 {
@@ -1138,11 +1147,11 @@ template {
   }
 
   .col-lg-offset-10 {
-    margin-left: 83.3333333333%;
+    margin-left: 83.3333%;
   }
 
   .col-lg-offset-11 {
-    margin-left: 91.6666666667%;
+    margin-left: 91.6667%;
   }
 
   .col-lg-offset-12 {
@@ -1241,20 +1250,21 @@ template {
   }
 }
 
-@media (min-width: 1366px) {
+@media (width >= 1366px) {
   .container {
     width: 1366px;
     padding-right: 64px;
     padding-left: 64px;
   }
+
   .col-xl-1 {
-    flex-basis: 8.3333333333%;
-    max-width: 8.3333333333%;
+    flex-basis: 8.3333%;
+    max-width: 8.3333%;
   }
 
   .col-xl-2 {
-    flex-basis: 16.6666666667%;
-    max-width: 16.6666666667%;
+    flex-basis: 16.6667%;
+    max-width: 16.6667%;
   }
 
   .col-xl-3 {
@@ -1263,13 +1273,13 @@ template {
   }
 
   .col-xl-4 {
-    flex-basis: 33.3333333333%;
-    max-width: 33.3333333333%;
+    flex-basis: 33.3333%;
+    max-width: 33.3333%;
   }
 
   .col-xl-5 {
-    flex-basis: 41.6666666667%;
-    max-width: 41.6666666667%;
+    flex-basis: 41.6667%;
+    max-width: 41.6667%;
   }
 
   .col-xl-6 {
@@ -1278,13 +1288,13 @@ template {
   }
 
   .col-xl-7 {
-    flex-basis: 58.3333333333%;
-    max-width: 58.3333333333%;
+    flex-basis: 58.3333%;
+    max-width: 58.3333%;
   }
 
   .col-xl-8 {
-    flex-basis: 66.6666666667%;
-    max-width: 66.6666666667%;
+    flex-basis: 66.6667%;
+    max-width: 66.6667%;
   }
 
   .col-xl-9 {
@@ -1293,13 +1303,13 @@ template {
   }
 
   .col-xl-10 {
-    flex-basis: 83.3333333333%;
-    max-width: 83.3333333333%;
+    flex-basis: 83.3333%;
+    max-width: 83.3333%;
   }
 
   .col-xl-11 {
-    flex-basis: 91.6666666667%;
-    max-width: 91.6666666667%;
+    flex-basis: 91.6667%;
+    max-width: 91.6667%;
   }
 
   .col-xl-12 {
@@ -1308,11 +1318,11 @@ template {
   }
 
   .col-xl-offset-1 {
-    margin-left: 8.3333333333%;
+    margin-left: 8.3333%;
   }
 
   .col-xl-offset-2 {
-    margin-left: 16.6666666667%;
+    margin-left: 16.6667%;
   }
 
   .col-xl-offset-3 {
@@ -1320,11 +1330,11 @@ template {
   }
 
   .col-xl-offset-4 {
-    margin-left: 33.3333333333%;
+    margin-left: 33.3333%;
   }
 
   .col-xl-offset-5 {
-    margin-left: 41.6666666667%;
+    margin-left: 41.6667%;
   }
 
   .col-xl-offset-6 {
@@ -1332,11 +1342,11 @@ template {
   }
 
   .col-xl-offset-7 {
-    margin-left: 58.3333333333%;
+    margin-left: 58.3333%;
   }
 
   .col-xl-offset-8 {
-    margin-left: 66.6666666667%;
+    margin-left: 66.6667%;
   }
 
   .col-xl-offset-9 {
@@ -1344,11 +1354,11 @@ template {
   }
 
   .col-xl-offset-10 {
-    margin-left: 83.3333333333%;
+    margin-left: 83.3333%;
   }
 
   .col-xl-offset-11 {
-    margin-left: 91.6666666667%;
+    margin-left: 91.6667%;
   }
 
   .col-xl-offset-12 {
