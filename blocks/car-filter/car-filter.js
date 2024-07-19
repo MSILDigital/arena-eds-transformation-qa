@@ -172,7 +172,7 @@ export default async function decorate(block) {
 
               data.data.models.forEach((item) => {
                 const { modelCd } = item;
-                const formattedPrice = priceFormatting(item.lowestExShowroomPrice);
+                const formattedPrice = item.lowestExShowroomPrice;
 
                 storedModelPrices[modelCd] = {
                   price: {
@@ -184,7 +184,7 @@ export default async function decorate(block) {
 
               // Convert to JSON and store in localStorage
               localStorage.setItem('modelPrice', JSON.stringify(storedModelPrices));
-              priceElement.textContent = `${storedModelPrices[modelCode].price[forCode]}`;
+              priceElement.textContent = `${priceFormatting(storedModelPrices[modelCode].price[forCode])}`;
               priceTextElement.textContent = priceText;
             } else {
               const formattedPrice = defaultPrice ? priceFormatting(defaultPrice) : 'Not available';
