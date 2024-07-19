@@ -48,7 +48,7 @@
   max-width: 200px;
   width: 100%;
   background: #fff;
-  box-shadow: 0px 0px 4px 0px rgba(154, 154, 154, 0.25);
+  box-shadow: 0 0 4px 0 rgb(154 154 154 / 25%);
 }
 
 .user__dropdown {
@@ -167,9 +167,9 @@
   }
 }
 
-@media (min-width: 999px) {
+@media (width >= 999px) {
   .navbar.navbar-arena .sign-in-wrapper .user__account a {
-    font-family: "Anek Latin";
+    font-family: var(--primary-font-arena);
     color: #575a5e;
     text-align: center;
     font-size: 14px;
@@ -185,7 +185,7 @@
     .user__contact
     h4 {
     color: #575a5e;
-    font-family: "Anek Latin";
+    font-family: var(--primary-font-arena);
     font-size: 14px;
     font-style: normal;
     font-weight: 600;

@@ -2,9 +2,11 @@ html,
 body {
   height: 100%;
 }
+
 main {
   display: initial !important;
 }
+
 .car-detail-banner-container {
   position: relative;
   height: 110%;
@@ -356,6 +358,7 @@ main {
     margin-top: -50px;
   }
 }
+
 /* @media only screen and (orientation: landscape) {
   .hero__banner {
     height: 700px;
@@ -369,13 +372,15 @@ main {
   }
 } */
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 999px) and (orientation: landscape) {
+@media only screen and (device-width >= 320px) and (device-width <= 999px) and (orientation: landscape) {
   .hero__banner {
     height: 700px;
   }
+
   .car-detail-banner-container {
     height: auto;
   }
+
   .car-detail-banner-wrapper,
   .car-detail-banner {
     height: auto;
