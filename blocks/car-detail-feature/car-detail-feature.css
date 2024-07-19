@@ -2,20 +2,43 @@ html,
 body {
   height: 100%;
 }
+
 main {
   display: initial !important;
 }
+
 .section.car-detail-feature-container {
   position: relative;
   min-height: 100%;
 }
+
 .car-detail-feature-wrapper {
   height: 100%;
   position: absolute;
   inset: 0;
 }
+
 .car-detail-feature.feature-performance.container {
   padding: 48px 20px;
+}
+
+.car-detail-feature-wrapper .feature__image {
+  position: absolute;
+  inset: 0;
+}
+
+.car-detail-feature-wrapper .feature__image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+}
+
+.car-detail-feature-wrapper .car-detail-feature .feature__card {
+  height: 100%;
+  width: 100%;
+  padding: 20px 0 42px;
 }
 
 .car-detail-feature.feature-performance.container
@@ -34,6 +57,84 @@ main {
   position: absolute;
   top: 28%;
   z-index: 3;
+}
+
+.car-detail-feature-wrapper .feature__content {
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.car-detail-feature-wrapper
+  .car-detail-feature.feature-safety
+  .feature__content
+  .feature__info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.car-detail-feature-wrapper
+  .car-detail-feature.feature-interior
+  .feature__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(286deg, rgb(0 0 0 / 0%) 57.65%, #000 92.02%);
+}
+
+.car-detail-feature-wrapper
+  .car-detail-feature.feature-safety
+  .feature__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, #000 -49.24%, rgb(0 0 0 / 0%) 100%);
+}
+
+.car-detail-feature-wrapper
+  .car-detail-feature.feature-suzuki-connect
+  .feature__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(115deg, rgb(0 0 0 / 0%) 49.93%, #000 89.42%);
+}
+
+/* feature-safety card style */
+.car-detail-feature-wrapper
+  .car-detail-feature.feature-safety
+  .feature__content {
+  display: flex;
+}
+
+/* button style override */
+.button-primary-light {
+  background-color: inherit;
+  border: inherit;
+}
+
+.button-primary-light:hover {
+  background-color: inherit;
+  border: inherit;
+  color: var(--secondary-white);
+}
+
+.button-primary-light::before {
+  content: "";
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14.6537 12.0001L10.25 16.4038L10.25 7.59631L14.6537 12.0001Z" fill="white"/></svg>');
 }
 
 .car-detail-feature.feature-performance.container .feature__card {
@@ -64,7 +165,6 @@ main {
   .feature__variant
   ul {
   list-style-type: none;
-  padding: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 0 32px;
@@ -85,7 +185,7 @@ main {
   .feature__variant
   ul
   li:nth-child(odd) {
-  border-right: 1px solid #000000;
+  border-right: 1px solid #000;
 }
 
 .car-detail-feature.feature-performance.container
@@ -94,7 +194,7 @@ main {
   .feature__variant
   ul
   li:nth-child(-n + 2) {
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #000;
 }
 
 .car-detail-feature.feature-performance.container
@@ -132,7 +232,7 @@ main {
   .feature__content
   .cta__actions
   .button-primary-light {
-  color: #000000;
+  color: #000;
   padding-left: 25px;
   font-weight: 600;
 }
@@ -196,20 +296,8 @@ main {
 .car-detail-feature.feature-interior.container,
 .car-detail-feature.feature-safety.container,
 .car-detail-feature.feature-suzuki-connect.container {
-  height: 100%;
-}
-
-.car-detail-feature-wrapper .feature__image {
-  position: absolute;
-  inset: 0;
-}
-
-.car-detail-feature-wrapper .feature__image img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
   position: relative;
+  height: 100vh;
 }
 
 .car-detail-feature-wrapper .car-detail-feature {
@@ -217,26 +305,7 @@ main {
   display: flex;
 }
 
-.car-detail-feature-wrapper .car-detail-feature .feature__card {
-  height: 100%;
-  width: 100%;
-  padding: 20px 0 42px;
-}
-
-.car-detail-feature-wrapper .feature__content {
-  height: 100%;
-
-  position: relative;
-  z-index: 2;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-}
-
-.car-detail-feature-wrapper .feature__content .feature__title h2,
-.car-detail-feature-wrapper .feature__content .feature__title h3,
-.car-detail-feature-wrapper .feature__content .feature__title h4 {
+.car-detail-feature-wrapper .feature__content .feature__title {
   font-size: 24px;
   font-style: normal;
   font-weight: 800;
@@ -244,78 +313,8 @@ main {
   text-transform: uppercase;
 }
 
-/* feature-safety card style */
-.car-detail-feature-wrapper
-  .car-detail-feature.feature-safety
-  .feature__content {
-  display: flex;
-}
-
-.car-detail-feature-wrapper
-  .car-detail-feature.feature-safety
-  .feature__content
-  .feature__info {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.car-detail-feature-wrapper
-  .car-detail-feature.feature-interior
-  .feature__image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(286deg, rgba(0, 0, 0, 0) 57.65%, #000 92.02%);
-}
-
-.car-detail-feature-wrapper
-  .car-detail-feature.feature-safety
-  .feature__image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(180deg, #000 -49.24%, rgba(0, 0, 0, 0) 100%);
-}
-
-.car-detail-feature-wrapper
-  .car-detail-feature.feature-suzuki-connect
-  .feature__image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(115deg, rgba(0, 0, 0, 0) 49.93%, #000 89.42%);
-}
-
-/* button style override */
-.button-primary-light {
-  background-color: inherit;
-  border: inherit;
-}
-
-.button-primary-light:hover {
-  background-color: inherit;
-  border: inherit;
-  color: var(--secondary-white);
-}
-
-.button-primary-light::before {
-  content: "";
-  position: absolute;
-  height: 24px;
-  width: 24px;
-  left: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14.6537 12.0001L10.25 16.4038L10.25 7.59631L14.6537 12.0001Z" fill="white"/></svg>');
-}
-
-@media (min-width: 999px) {
-  .car-detail-feature-wrapper .feature__content .feature__title h2,
-  .car-detail-feature-wrapper .feature__content .feature__title h3,
-  .car-detail-feature-wrapper .feature__content .feature__title h4 {
+@media (width >= 999px) {
+  .car-detail-feature-wrapper .feature__content .feature__title {
     font-size: 40px;
     font-style: normal;
     font-weight: 800;
@@ -392,6 +391,25 @@ main {
     .feature__content {
     padding-top: 50px;
     display: block;
+  }
+
+  .car-detail-feature.feature-performance.container
+    .feature__card
+    .feature__content
+    .feature__variant
+    ul
+    li {
+    border-top: 2px solid #ffd85c;
+  }
+
+  .car-detail-feature.feature-performance.container
+    .feature__card
+    .feature__content
+    .feature__variant
+    ul
+    li
+    p {
+    margin: 0;
   }
 
   .car-detail-feature.feature-performance.container
@@ -480,7 +498,6 @@ main {
     line-height: 48px;
     background: linear-gradient(180deg, #171c8f -37.5%, #1961d3 141.15%);
     background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
@@ -517,25 +534,6 @@ main {
     font-size: 14px;
     font-weight: 300;
     line-height: 20px;
-  }
-
-  .car-detail-feature.feature-performance.container
-    .feature__card
-    .feature__content
-    .feature__variant
-    ul
-    li {
-    border-top: 2px solid #ffd85c;
-  }
-
-  .car-detail-feature.feature-performance.container
-    .feature__card
-    .feature__content
-    .feature__variant
-    ul
-    li
-    p {
-    margin: 0;
   }
 
   .car-detail-feature.feature-performance.container
