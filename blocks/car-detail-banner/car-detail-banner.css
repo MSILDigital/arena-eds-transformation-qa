@@ -221,6 +221,7 @@ main {
   .banner__scrollMoreText {
     display: none;
   }
+
   .banner__carLogoImage {
     grid-area: 1 / 2 / 1 / 2;
     width: 100%;

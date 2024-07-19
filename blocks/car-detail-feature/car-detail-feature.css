@@ -396,7 +396,10 @@ main {
     ul
     <<<<<<<
     HEAD
+    <<<<<<<
+    HEAD
     =======
+    =======>>>>>>>5e10258c3645974a540f341b331b8415af2d79f7
     li {
     border-top: 2px solid #ffd85c;
   }
@@ -415,8 +418,12 @@ main {
     .feature__card
     .feature__content
     .feature__variant
+    <<<<<<<
+    HEAD
     ul>>>>>>>5e10258
     (linting fix)
+    =======
+    ul>>>>>>>5e10258c3645974a540f341b331b8415af2d79f7
     li:nth-child(odd) {
     border-right: none;
   }
@@ -541,29 +548,6 @@ main {
     .feature__content
     .feature__variant
     ul
-    <<<<<<<
-    HEAD
-    li {
-    border-top: 2px solid #ffd85c;
-  }
-
-  .car-detail-feature.feature-performance.container
-    .feature__card
-    .feature__content
-    .feature__variant
-    ul
-    li
-    p {
-    margin: 0;
-  }
-
-  .car-detail-feature.feature-performance.container
-    .feature__card
-    .feature__content
-    .feature__variant
-    ul
-    =======>>>>>>>5e10258
-    (linting fix)
     li
     p:first-child {
     color: #969696;
