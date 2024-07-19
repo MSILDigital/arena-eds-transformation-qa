@@ -1787,5 +1787,29 @@
         "label": "Scroll To Section Class"
       }
     ]
+  },
+  {
+    "id": "image-banner",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "desktopImage",
+        "label": "Desktop Image",
+        "required": true
+      },
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobileImage",
+        "label": "Mobile Image"
+      }
+    ]
   }
 ]
