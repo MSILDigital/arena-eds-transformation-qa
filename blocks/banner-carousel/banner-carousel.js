@@ -1,6 +1,29 @@
 import ctaUtils from '../../utility/ctaUtils.js';
 import { fetchPlaceholders } from '../../scripts/aem.js';
 
+const SVG_IMAGE = {
+  pre_btn: `
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+  <path d="M12.2883 21.25H32.5V18.75H12.2883L21.7821 9.25625L20 7.5L7.5 20L20 32.5L21.7821 30.7437L12.2883 21.25Z" fill="#171C8F"/>
+</svg>
+`,
+  next_btn: `
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+  <path d="M27.7117 21.25H7.5V18.75H27.7117L18.2179 9.25625L20 7.5L32.5 20L20 32.5L18.2179 30.7437L27.7117 21.25Z" fill="#171C8F"/>
+</svg>
+`,
+  title_cover_yellow: `
+<svg xmlns="http://www.w3.org/2000/svg" width="75" height="29" viewBox="0 0 75 29" fill="none">
+  <path d="M74 9.15094V1H1V28H74V24.434" stroke="#FFD85C" stroke-width="2"/>
+</svg>
+`,
+  title_cover_blue: `
+<svg xmlns="http://www.w3.org/2000/svg" width="75" height="29" viewBox="0 0 75 29" fill="none">
+  <path d="M74 9.15094V1H1V28H74V24.434" stroke="#171C8F" stroke-width="2"/>
+</svg>
+`,
+};
+
 async function fetchCar(domain) {
   const car = await fetch(
     `${domain}/graphql/execute.json/msil-platform/arenaBannerList`,
@@ -123,8 +146,8 @@ export default async function decorate(block) {
     <div class="hero_banner_container_wrapper">
       ${bgImg.outerHTML}
       <div class="hero_banner_container">
-        <button class="pre-btn"><img src="../../../icons/arrow_backward.svg" alt="previous" /></button>
-        <button class="nxt-btn"><img src="../../../icons/arrow_forward.svg" alt="next" /></button>
+        <button class="pre-btn">${SVG_IMAGE.pre_btn}</button>
+        <button class="nxt-btn">${SVG_IMAGE.next_btn}</button>
         ${carContainersWrapper.innerHTML}
       </div>
     </div>
@@ -144,22 +167,18 @@ export default async function decorate(block) {
   }
 
   function addImgToTitleDesktop(indexSidebar, sideBarItem) {
-    const img = document.createElement('img');
     switch (indexSidebar) {
       case 0:
         sideBarItem.classList.add('left_sidebar');
-        img.src = '../../../icons/title_cover_blue.svg';
-        sideBarItem.querySelector('.text-container').prepend(img);
+        sideBarItem.querySelector('.text-container').insertAdjacentHTML('afterbegin',SVG_IMAGE.title_cover_blue);
         break;
       case 1:
         sideBarItem.classList.add('mid_sidebar');
-        img.src = '../../../icons/title_cover_yellow.svg';
-        sideBarItem.querySelector('.text-container').prepend(img);
+        sideBarItem.querySelector('.text-container').insertAdjacentHTML('afterbegin',SVG_IMAGE.title_cover_yellow);
         break;
       case 2:
         sideBarItem.classList.add('right_sidebar');
-        img.src = '../../../icons/title_cover_yellow.svg';
-        sideBarItem.querySelector('.text-container').prepend(img);
+        sideBarItem.querySelector('.text-container').insertAdjacentHTML('afterbegin',SVG_IMAGE.title_cover_yellow);
         break;
       default:
         break;

@@ -225,7 +225,7 @@ input[type="radio"]:checked {
   position: relative;
 }
 
-.text-container>img {
+.text-container>svg {
   position: absolute;
   transform: translate(-8px, -4px);
 }
@@ -314,13 +314,13 @@ input[type="radio"]:checked {
     grid-template-columns: 1fr 1.5fr;
   }
 
-  .pre-btn img,
-  .nxt-btn img {
+  .pre-btn svg,
+  .nxt-btn svg {
     opacity: 0.2;
   }
 
-  .pre-btn:hover img,
-  .nxt-btn:hover img {
+  .pre-btn:hover svg,
+  .nxt-btn:hover svg {
     opacity: 1;
   }
 
