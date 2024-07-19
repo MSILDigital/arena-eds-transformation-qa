@@ -22,6 +22,12 @@ export default function decorate(block) {
   block.innerHTML = '';
   block.insertAdjacentHTML('beforeend', utility.sanitizeHtml(newHtml));
 
+  const newDiv = document.createElement('div');
+  newDiv.className = 'bottom-image';
+  const teaserCard = document.querySelector('.teaser__card');
+  const teaserContent = document.querySelector('.teaser__content');
+  teaserCard.insertBefore(newDiv, teaserContent);
+
   const buttons = document.querySelectorAll('.primary__btn');
 
   buttons.forEach((button) => {
