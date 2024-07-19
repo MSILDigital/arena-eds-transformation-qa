@@ -1,5 +1,5 @@
 .location-btn {
-  font-family: "Fira Sans";
+  font-family: "var(--body-font-arena)";
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
@@ -20,7 +20,7 @@
 }
 
 .location-btn:hover {
-  color: #FFFFFF;
+  color: #fff;
   font-weight: 500;
 }
 
@@ -30,7 +30,7 @@
   position: absolute;
   top: var(--nav-height);
   right: 50px;
-  background-color: #FFFFFF;
+  background-color: #fff;
 
   p {
     margin: unset;
@@ -51,7 +51,7 @@
 }
 
 .find-location__text {
-  padding: 16px 12px 16px 0px;
+  padding: 16px 12px 16px 0;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -102,7 +102,7 @@
 .navbar-arena .location-btn {
   color: var(--secondary-gray-800);
   background-color: transparent;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -111,13 +111,13 @@
 
 .navbar-arena .geo-location {
   width: 260px;
-  box-shadow: 0px 0px 4px 0px rgba(154, 154, 154, 0.25);
+  box-shadow: 0 0 4px 0 rgb(154 154 154 / 25%);
   top: calc(var(--nav-height) - 20px);
 }
 
 .navbar-arena .geo-location__text {
   color: var(--primary-blue-900);
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -126,29 +126,29 @@
 }
 
 .navbar-arena .detect-location {
-  padding: 0px 24px 24px;
+  padding: 0 24px 24px;
 }
 
 .navbar-arena .find-location__text {
   color: var(--secondary-gray-800);
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 17px;
-  border: 0.5px solid #B3B3B3;
+  border: 0.5px solid #b3b3b3;
   padding: 8px;
 }
 
 .navbar-arena .detect-location__text {
   color: var(--secondary-gray-800);
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 17px;
   padding: 8px;
-  border: 0.5px solid #B3B3B3;
+  border: 0.5px solid #b3b3b3;
 }
 
 .navbar-arena .location-banner {
