@@ -2,18 +2,22 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
 .container__slider {
   position: relative;
+
   /* max-width: 1000px; */
   margin: auto;
   overflow: hidden;
   width: 100%;
   padding-top: 50px;
 }
+
 .container__slider .teaser__content {
   display: flex;
   flex-direction: column-reverse;
 }
+
 .container__slider .slider-content {
   padding: 20px 0 0 20px;
   display: inline-block;
@@ -24,10 +28,11 @@
   bottom: 0;
   overflow: hidden;
 }
+
 .container__slider .slider-title {
   color: #ffdb68;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Roboto;
+  font-family: var(--body-font-arena);
   font-size: 64px;
   font-style: normal;
   font-weight: 900;
@@ -43,15 +48,17 @@
 .container__slider .teaser__actions {
   margin-top: 7px;
 }
+
 .container__slider .teaser__actions .button.primary__btn {
   width: inherit;
   height: inherit;
   background: none;
 }
+
 .container__slider .teaser__actions a {
   display: inline-block;
   color: #000;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -60,6 +67,7 @@
   position: relative;
   padding-right: 24px;
 }
+
 .container__slider .teaser__card .teaser__actions a::after {
   content: " ";
   position: absolute;
@@ -80,6 +88,7 @@
   bottom: 8px;
   background-size: contain;
 }
+
 .container__slider .teaser__info .teaser__description p {
   color: #000;
   font-size: 10px;
@@ -88,11 +97,13 @@
   line-height: 28px; /* 280% */
   margin: 0;
 }
+
 .container__slider .teaser__cards {
   display: flex;
   transition: transform 0.5s ease-in-out;
   position: relative;
 }
+
 /* .teaser__cards::after {
   content: " ";
   width: 34px;
@@ -124,6 +135,7 @@
   display: block;
   overflow: hidden !important;
 }
+
 .container__slider .teaser__card .teaser__image img {
   width: 100%;
   height: 100%;
@@ -136,6 +148,7 @@
   position: absolute;
   inset: 0;
 }
+
 .container__slider .nav-arrow {
   display: none;
 }
@@ -143,24 +156,28 @@
 /* Zoom effect on hover */
 .container__slider .teaser__card:hover img {
   transform: scale(1.15);
+
   /* transform-origin: 50% 50%; */
 }
+
 .container__slider .teaser__card:hover .teaser__description p::after {
   transform: scale(1.15);
+
   /* transform-origin: 50% 50%; */
 }
 
 /* Responsive adjustments */
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .container__slider .teaser__card {
     flex: 0 0 50%;
   }
 }
 
-@media (min-width: 999px) {
+@media (width >= 999px) {
   .container__slider {
     padding-top: 112px;
   }
+
   .container__slider .teaser__card {
     flex: 0 0 33.3333%;
     overflow: hidden;
@@ -174,15 +191,18 @@
   .container__slider .teaser-content {
     padding-top: 10px;
   }
+
   .container__slider .teaser__actions {
     padding-top: 10px;
   }
+
   .container__slider .teaser__actions a {
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
     line-height: 36px; /* 150% */
   }
+
   .container__slider .teaser__card .teaser__actions a::after {
     margin-left: -24px;
     bottom: 5px;
@@ -190,32 +210,37 @@
     width: 24px;
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M20.772 14.2291L12.1969 22.8042L11.1363 21.7436L19.7113 13.1685L11.6556 13.1685L11.6666 11.6673H22.2732V22.2739L20.772 22.2848L20.772 14.2291Z" fill="black"/></svg>');
   }
+
   .container__slider .teaser__card:hover .teaser__actions a::after {
     height: 42px;
     width: 42px;
     bottom: 8px;
     background-size: contain;
   }
+
   .container__slider .teaser__info .teaser__description p {
     font-size: 16px;
     line-height: 28px; /* 175% */
     margin-top: 10px;
   }
+
   .hide {
     display: none !important;
   }
+
   .container__slider .nav-arrow {
     display: block;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(0 0 0 / 50%);
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
     z-index: 10;
   }
+
   .container__slider .nav-arrow.prev {
     left: 10px;
     top: calc(50% - 40px);
@@ -226,20 +251,17 @@
   }
 
   .container__slider .nav-arrow.next {
-    right: 0px;
     top: calc(50% - 40px);
     background: var(--blue, #171c8f);
     height: 60px;
     width: 60px;
     font-size: 25px;
-  }
-  .container__slider .nav-arrow.next {
     right: 10px;
   }
 }
 
 /* Show 1.5 slides on mobile */
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .container__slider .teaser__card {
     flex: 0 0 66.6666%;
   }
