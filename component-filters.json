@@ -122,5 +122,11 @@
     "components": [
       "teaser"
     ]
+  },
+  {
+    "id": "arena-help-me-select",
+    "components": [
+      "teaser"
+    ]
   }
 ]
