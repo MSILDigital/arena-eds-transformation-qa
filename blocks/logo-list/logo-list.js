@@ -8,12 +8,12 @@ export default async function decorate(block) {
     const cars = result.data.carModelList.items;
     cars.forEach((car) => {
       // eslint-disable-next-line
-        const carDetailsPage = car.carDetailsPagePath._path ? car.carDetailsPagePath._path : '';
+        const carDetailsPage = car?.carDetailsPagePath._path ? car.carDetailsPagePath._path : '';
       // eslint-disable-next-line
-        const carLogoImage = car.carLogoImage._publishUrl ? car.carLogoImage._publishUrl : '';
+        const carLogoImage = car?.carLogoImage._publishUrl ? car.carLogoImage._publishUrl : '';
       let resultString = '';
       if (carDetailsPage.includes(contentPath)) {
-        resultString = carDetailsPage.replace(contentPath, '');
+        resultString = carDetailsPage?.replace(contentPath, '');
       }
       html += `
       <a href="${resultString}">
