@@ -5,8 +5,11 @@
   "description": "Starter project for Adobe Helix",
   "scripts": {
     "lint:js": "eslint . --ext .json,.js",
+    "lint:jsfix": "eslint --fix . --ext .json,.js",
     "lint:css": "stylelint blocks/**/*.css styles/*.css",
-    "lint": "npm run lint:js && npm run lint:css"
+    "lint:cssfix": "stylelint blocks/**/*.css styles/*.css --fix",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:fix": "npm run lint:jsfix && npm run lint:cssfix"
   },
   "repository": {
     "type": "git",
@@ -19,12 +22,15 @@
   },
   "homepage": "https://github.com/adobe/aem-boilerplate#readme",
   "devDependencies": {
-    "@babel/eslint-parser": "7.24.1",
+    "@babel/eslint-parser": "^7.24.1",
     "eslint": "8.57.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-json": "3.1.0",
     "stylelint": "16.6.1",
     "stylelint-config-standard": "36.0.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.24.9"
   }
 }

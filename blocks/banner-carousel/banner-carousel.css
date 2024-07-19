@@ -1,6 +1,21 @@
+html,
+body {
+  height: 100%;
+}
+
+main {
+  display: initial !important;
+}
+
 * {
   box-sizing: border-box;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
+}
+
+.section.banner-carousel-container,
+.banner-carousel-wrapper,
+.banner-carousel {
+  height: 100%;
 }
 
 input[type="radio"] {
@@ -9,20 +24,25 @@ input[type="radio"] {
   background: #9c9c9c;
   width: 10px;
   height: 10px;
-  margin: 0px 2px;
+  margin: 0 2px;
 }
 
 input[type="radio"]:checked {
-  background: #ffffff;
+  background: #fff;
 }
 
 .hero_banner_container_wrapper {
-  height: 100vh;
+  height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.hero_banner_container_wrapper>picture img {
+.text-container > img {
+  position: absolute;
+  transform: translate(-8px, -4px);
+}
+
+.hero_banner_container_wrapper > picture img {
   position: absolute;
   inset: 0;
   object-fit: cover;
@@ -54,12 +74,12 @@ input[type="radio"]:checked {
 
 .pre-btn {
   left: 0;
-  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  background: linear-gradient(270deg, rgb(255 255 255 / 0%) 0%, #fff 100%);
 }
 
 .nxt-btn {
   right: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  background: linear-gradient(90deg, rgb(255 255 255 / 0%) 0%, #fff 100%);
 }
 
 .nxt-btn:disabled,
@@ -72,11 +92,12 @@ input[type="radio"]:checked {
 .sidebar {
   padding: 20px;
   height: 0;
+
   /* width: 75%; */
   transition: all 0.3s linear;
   background-color: #171c8f;
   position: relative;
-  color: #ffffff;
+  color: #fff;
 }
 
 .car-container.highlight .sidebar::after {
@@ -86,7 +107,7 @@ input[type="radio"]:checked {
   top: 28px;
   width: 36px;
   height: 45px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgb(255 255 255 / 20%);
   z-index: 1;
 }
 
@@ -97,7 +118,7 @@ input[type="radio"]:checked {
   bottom: 35%;
   width: 36px;
   height: 45px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgb(255 255 255 / 20%);
   z-index: 1;
 }
 
@@ -159,10 +180,12 @@ input[type="radio"]:checked {
 .sidebar--hr {
   height: 1px;
   width: 80%;
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 0) 0%,
-      #fff 47.52%,
-      rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 0%) 0%,
+    #fff 47.52%,
+    rgb(255 255 255 / 0%) 100%
+  );
   margin: 10px auto;
 }
 
@@ -211,11 +234,6 @@ input[type="radio"]:checked {
   position: relative;
 }
 
-.text-container>img {
-  position: absolute;
-  transform: translate(-8px, -4px);
-}
-
 .highlight-text {
   color: #000;
   padding: 2px 5px;
@@ -224,7 +242,6 @@ input[type="radio"]:checked {
 .buttons {
   display: grid;
   gap: 10px;
-  justify-content: center;
   margin: 0.75rem auto;
   justify-content: center;
   width: 80%;
@@ -239,7 +256,7 @@ input[type="radio"]:checked {
   height: fit-content;
   font-size: 1rem;
   text-wrap: nowrap;
-  color: #171D9B;
+  color: #171d9b;
 }
 
 .buttons a:last-child {
@@ -286,7 +303,7 @@ input[type="radio"]:checked {
   z-index: 9;
 }
 
-@media (min-width: 998px) {
+@media (width >= 998px) {
   .hero_banner_container {
     grid-template-columns: 1fr 1fr 1fr;
   }
