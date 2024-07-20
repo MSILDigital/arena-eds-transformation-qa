@@ -36,7 +36,7 @@ export default async function decorate(block) {
   const authorization = await apiUtils.fetchAuthorisationToken(publishDomain);
   let exShowroomPrices = apiUtils.getLocalStorage('modelPrice');
   if (!exShowroomPrices) {
-    const apiresp = await apiUtils.fetchExShowroomPrices(apiKey, authorization, forCode, '', 'NRM');
+    const apiresp = await apiUtils.fetchExShowroomPrices(apiKey, authorization, forCode, '', 'NRM', '');
     if (apiresp) {
       exShowroomPrices = apiUtils.setLocalStorage(apiresp, forCode, 'modelPrice');
     }
