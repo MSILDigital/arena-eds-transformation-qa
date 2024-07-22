@@ -1582,7 +1582,7 @@
         "multi": false
       },
       {
-        "component": "text-input",
+        "component": "richtext",
         "name": "startingPriceText",
         "value": "",
         "label": "Starting Price Text",
@@ -1593,8 +1593,7 @@
         "name": "testDriveText",
         "value": "",
         "label": "Test Drive Text",
-        "valueType": "string",
-        "description": "Test Drive Text"
+        "valueType": "string"
       },
       {
         "component": "text-input",
