@@ -1,7 +1,7 @@
-import ctaUtils from "../../utility/ctaUtils.js";
-import { fetchPlaceholders } from "../../scripts/aem.js";
-import utility from "../../utility/utility.js";
-import apiUtils from "../../utility/apiUtils.js";
+import ctaUtils from '../../utility/ctaUtils.js';
+import { fetchPlaceholders } from '../../scripts/aem.js';
+import utility from '../../utility/utility.js';
+import apiUtils from '../../utility/apiUtils.js';
 
 const SVG_IMAGE = {
   pre_btn: `
@@ -28,7 +28,7 @@ const SVG_IMAGE = {
 
 async function fetchCar(domain) {
   const car = await fetch(
-    `${domain}/graphql/execute.json/msil-platform/arenaBannerList`
+    `${domain}/graphql/execute.json/msil-platform/arenaBannerList`,
   );
   // eslint-disable-next-line
   return await car.json();
@@ -45,47 +45,47 @@ export default async function decorate(block) {
   let currentIndex = 0;
   let cardsPerPage = isDesktop ? 3 : 1;
   let highlightedSidebar = null;
-  const forCode = "48";
+  const forCode = '48';
 
   const carsObject = carResponse?.data?.carModelList?.items?.reduce(
     (acc, car) => {
       acc[car.modelId] = car;
       return acc;
     },
-    {}
+    {},
   );
 
   const authorization = await apiUtils.fetchAuthorisationToken(publishDomain);
-  let exShowroomPrices = apiUtils.getLocalStorage("modelPrice");
+  let exShowroomPrices = apiUtils.getLocalStorage('modelPrice');
   if (!exShowroomPrices) {
     const apiresp = await apiUtils.fetchExShowroomPrices(
       apiKey,
       authorization,
       forCode,
-      "",
-      "NRM",
-      ""
+      '',
+      'NRM',
+      '',
     );
     if (apiresp) {
       exShowroomPrices = apiUtils.setLocalStorage(
         apiresp,
         forCode,
-        "modelPrice"
+        'modelPrice',
       );
     }
   }
 
   const [bGImgContainer, ...carList] = block.children;
 
-  function updateHtml(bGImgContainer, carList) {
-    const carContainersWrapper = document.createElement("div");
+  function updateHtml(isBGImgContainer, isCarList) {
+    const carContainersWrapper = document.createElement('div');
 
-    const bgImg = bGImgContainer.querySelector("picture");
-    const imgEl = bgImg.querySelector("img");
-    imgEl.setAttribute("width", "100%");
-    imgEl.removeAttribute("height");
+    const bgImg = isBGImgContainer.querySelector('picture');
+    const imgEl = bgImg.querySelector('img');
+    imgEl.setAttribute('width', '100%');
+    imgEl.removeAttribute('height');
 
-    carList.forEach((element) => {
+    isCarList.forEach((element) => {
       const [
         title,
         modelId,
@@ -103,61 +103,62 @@ export default async function decorate(block) {
       const modelCode = carObjectItem?.modelId;
       const exShowroomPrice = exShowroomPrices
         ? priceFormatting(
-            exShowroomPrices[modelCode]?.price[forCode]
-          )?.replaceAll(",", " ")
+          exShowroomPrices[modelCode]?.price[forCode],
+        )?.replaceAll(',', ' ')
         : priceFormatting(carObjectItem?.exShowroomPrice);
-      const [firstLetterTitle, ...rest] = title.textContent.split(" ");
-      const restTitle = rest.join(" ");
+      const [firstLetterTitle, ...rest] = title.textContent.split(' ');
+      const restTitle = rest.join(' ');
 
       const primaryCta = ctaUtils.getLink(
         primaryCtaLinkEl,
         primaryCtaTextEl,
         primaryCtaTargetEl,
-        ""
+        '',
       );
       const secondaryCta = ctaUtils.getLink(
         secondaryCtaLinkEl,
         secondaryCtaTextEl,
         secondaryCtaTargetEl,
-        ""
+        '',
       );
+      /* eslint no-underscore-dangle: 0 */
       carContainersWrapper.innerHTML += `
         <div class="car-container">
           <div class="sidebar-container">
             <img
-              src=${carObjectItem?.carImage?._publishUrl || ""}
-              alt=${carObjectItem?.carName || ""}
+              src=${carObjectItem?.carImage?._publishUrl || ''}
+              alt=${carObjectItem?.carName || ''}
               class="sidebar-car--image"
             />
             <div class="sidebar">
               <div class="sidebar_text_container">
                 <div class="text-container">
-                  <span>${firstLetterTitle || ""} ${restTitle || ""}</span>
+                  <span>${firstLetterTitle || ''} ${restTitle || ''}</span>
                 </div>
                 <img
-                  src=${carObjectItem?.carLogoImage?._publishUrl || ""}
-                  alt=${carObjectItem?.carName || ""}
+                  src=${carObjectItem?.carLogoImage?._publishUrl || ''}
+                  alt=${carObjectItem?.carName || ''}
                   class="sidebar-car--logo"
                 />
                   <span><strong>${carObjectItem?.bodyType}</strong> | ${
-        type?.textContent || ""
-      }</span>
+  type?.textContent || ''
+}</span>
                 <div class="sidebar--hr"></div>
                 <div class="sidebar--details">
                   <div class="sidebar--details--exshowroom">
                     <span>Ex. showroom:</span>
-                      <span><strong>${exShowroomPrice || ""}</strong></span>
+                      <span><strong>${exShowroomPrice || ''}</strong></span>
                   </div>
                   <div class="sidebar--details--onroad">
                     <span>Estd. On-road in Gurgaon:</span>
                       <span><strong>${
-                        onRoadPrice?.textContent || ""
-                      }</strong></span>
+  onRoadPrice?.textContent || ''
+}</strong></span>
                   </div>
                 </div>
                 <div class="buttons">
-                  ${primaryCta ? primaryCta.outerHTML : ""}
-                  ${secondaryCta ? secondaryCta.outerHTML : ""}
+                  ${primaryCta ? primaryCta.outerHTML : ''}
+                  ${secondaryCta ? secondaryCta.outerHTML : ''}
                 </div>
               </div>
             </div>
@@ -181,11 +182,11 @@ export default async function decorate(block) {
   }
 
   function initializeEventListeners() {
-    const nxtBtn = document.querySelector(".nxt-btn");
-    const preBtn = document.querySelector(".pre-btn");
+    const nxtBtn = document.querySelector('.nxt-btn');
+    const preBtn = document.querySelector('.pre-btn');
     preBtn.disabled = true;
 
-    const cards = document.querySelectorAll(".car-container");
+    const cards = document.querySelectorAll('.car-container');
     const cardCount = cards.length;
 
     if (cardCount - cardsPerPage === 0) {
@@ -195,22 +196,22 @@ export default async function decorate(block) {
     function addImgToTitleDesktop(indexSidebar, sideBarItem) {
       switch (indexSidebar) {
         case 0:
-          sideBarItem.classList.add("left_sidebar");
+          sideBarItem.classList.add('left_sidebar');
           sideBarItem
-            .querySelector(".text-container")
-            .insertAdjacentHTML("afterbegin", SVG_IMAGE.title_cover_blue);
+            .querySelector('.text-container')
+            .insertAdjacentHTML('afterbegin', SVG_IMAGE.title_cover_blue);
           break;
         case 1:
-          sideBarItem.classList.add("mid_sidebar");
+          sideBarItem.classList.add('mid_sidebar');
           sideBarItem
-            .querySelector(".text-container")
-            .insertAdjacentHTML("afterbegin", SVG_IMAGE.title_cover_yellow);
+            .querySelector('.text-container')
+            .insertAdjacentHTML('afterbegin', SVG_IMAGE.title_cover_yellow);
           break;
         case 2:
-          sideBarItem.classList.add("right_sidebar");
+          sideBarItem.classList.add('right_sidebar');
           sideBarItem
-            .querySelector(".text-container")
-            .insertAdjacentHTML("afterbegin", SVG_IMAGE.title_cover_yellow);
+            .querySelector('.text-container')
+            .insertAdjacentHTML('afterbegin', SVG_IMAGE.title_cover_yellow);
           break;
         default:
           break;
@@ -219,27 +220,27 @@ export default async function decorate(block) {
 
     function addImgToTitleMobile(sideBarItem) {
       sideBarItem
-        .querySelector(".text-container")
-        .insertAdjacentHTML("afterbegin", SVG_IMAGE.title_cover_yellow);
+        .querySelector('.text-container')
+        .insertAdjacentHTML('afterbegin', SVG_IMAGE.title_cover_yellow);
     }
 
     function handleMouseEnter(event) {
       if (highlightedSidebar) {
-        highlightedSidebar.classList.remove("highlight");
+        highlightedSidebar.classList.remove('highlight');
       }
 
       highlightedSidebar = event;
-      highlightedSidebar.classList.add("highlight");
+      highlightedSidebar.classList.add('highlight');
     }
 
     function handleMouseLeave() {
       if (highlightedSidebar) {
-        highlightedSidebar.classList.remove("highlight");
+        highlightedSidebar.classList.remove('highlight');
       }
       const middleIndex = currentIndex + Math.floor(cardsPerPage / 2);
       if (middleIndex < cards.length) {
         highlightedSidebar = cards[middleIndex];
-        highlightedSidebar.classList.add("highlight");
+        highlightedSidebar.classList.add('highlight');
       }
     }
 
@@ -259,23 +260,23 @@ export default async function decorate(block) {
     function showCards(index) {
       cards.forEach((card, i) => {
         const indexSidebar = i - index;
-        const sideBarItem = card.querySelector(".sidebar");
+        const sideBarItem = card.querySelector('.sidebar');
         if (isDesktop) {
           addImgToTitleDesktop(indexSidebar, sideBarItem);
         } else {
           addImgToTitleMobile(sideBarItem);
         }
-        card.classList.remove("show");
+        card.classList.remove('show');
         if (i >= index && i < index + cardsPerPage) {
-          card.classList.add("show");
+          card.classList.add('show');
           card
-            .querySelector(".sidebar-container")
-            .addEventListener("mouseenter", () => {
+            .querySelector('.sidebar-container')
+            .addEventListener('mouseenter', () => {
               handleMouseEnter(card);
             });
           card
-            .querySelector(".sidebar-container")
-            .addEventListener("mouseleave", () => {
+            .querySelector('.sidebar-container')
+            .addEventListener('mouseleave', () => {
               handleMouseLeave(card);
             });
         }
@@ -283,32 +284,32 @@ export default async function decorate(block) {
 
       const middleIndex = Math.floor(cardsPerPage / 2);
       if (index + middleIndex < cards.length) {
-        cards[index + middleIndex].classList.add("highlight");
+        cards[index + middleIndex].classList.add('highlight');
         highlightedSidebar = cards[index + middleIndex];
       }
     }
 
-    function addBullets(cardCount, cardsPerPage) {
-      const bullets = document.createElement("div");
-      bullets.classList.add("bullets");
-      bullets.id = "bullets";
+    function addBullets(isCardCount, isCardsPerPage) {
+      const bullets = document.createElement('div');
+      bullets.classList.add('bullets');
+      bullets.id = 'bullets';
 
-      for (let i = 0; i < cardCount; i += cardsPerPage) {
+      for (let i = 0; i < isCardCount; i += isCardsPerPage) {
         bullets.innerHTML += `<input id="bullet" type="radio" ${
-          i === 0 ? "checked" : ""
+          i === 0 ? 'checked' : ''
         } />`;
       }
 
       document
-        .querySelector(".hero_banner_container_wrapper")
+        .querySelector('.hero_banner_container_wrapper')
         .appendChild(bullets);
     }
 
-    nxtBtn.addEventListener("click", () => {
+    nxtBtn.addEventListener('click', () => {
       if (currentIndex + cardsPerPage < cards.length) {
         currentIndex += cardsPerPage;
         const pageCount = Math.floor(currentIndex / cardsPerPage);
-        const isBullets = document.querySelector("#bullets").children;
+        const isBullets = document.querySelector('#bullets').children;
         isBullets[pageCount - 1].checked = false;
         isBullets[pageCount].checked = true;
         toggleDisableNxtPrvBtn(currentIndex, cardCount);
@@ -316,11 +317,11 @@ export default async function decorate(block) {
       }
     });
 
-    preBtn.addEventListener("click", () => {
+    preBtn.addEventListener('click', () => {
       if (currentIndex - cardsPerPage >= 0) {
         currentIndex -= cardsPerPage;
         const pageCount = Math.floor(currentIndex / cardsPerPage);
-        const isBullets = document.querySelector("#bullets").children;
+        const isBullets = document.querySelector('#bullets').children;
         isBullets[pageCount + 1].checked = false;
         isBullets[pageCount].checked = true;
         toggleDisableNxtPrvBtn(currentIndex, cardCount);
@@ -343,7 +344,7 @@ export default async function decorate(block) {
     }
   }
 
-  window.addEventListener("resize", handleResize);
+  window.addEventListener('resize', handleResize);
 
   updateHtml(bGImgContainer, carList);
   initializeEventListeners();
