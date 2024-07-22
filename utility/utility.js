@@ -20,8 +20,8 @@ const utility = {
     const clone = node.cloneNode(deep);
     this.copyEventListeners(node, clone);
     if (deep) {
-      const descendants = node.getElementsByTagName('*');
-      const clonedDescendants = clone.getElementsByTagName('*');
+      const descendants = node.getElementsByTagName("*");
+      const clonedDescendants = clone.getElementsByTagName("*");
       for (let i = 0; i < descendants.length; i += 1) {
         this.copyEventListeners(descendants[i], clonedDescendants[i]);
       }
@@ -29,12 +29,12 @@ const utility = {
     return clone;
   },
   mobileLazyLoading(element, imgSelector) {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
     const imgElement = element.querySelector(imgSelector);
     if (isMobile && imgElement) {
-      imgElement.setAttribute('loading', 'lazy');
+      imgElement.setAttribute("loading", "lazy");
     } else if (!isMobile && imgElement) {
-      imgElement.setAttribute('loading', 'eager');
+      imgElement.setAttribute("loading", "eager");
     }
   },
   /**
@@ -52,7 +52,7 @@ const utility = {
   },
   sanitizeHtml(html) {
     const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
+    const doc = parser.parseFromString(html, "text/html");
     return doc.body.innerHTML;
   },
   formatINR(number) {
@@ -76,10 +76,17 @@ const utility = {
       parts.push(rest);
     }
 
-    const formattedRest = parts.reverse().join(',');
+    const formattedRest = parts.reverse().join(",");
     const formattedNumber = `${formattedRest},${lastThree}`;
 
     return formattedNumber;
+  },
+  initImage(image, altTextEl) {
+    const img = image.querySelector("img");
+    img.removeAttribute("width");
+    img.removeAttribute("height");
+    const alt = altTextEl?.textContent?.trim() || "image";
+    img.setAttribute("alt", alt);
   },
 };
 

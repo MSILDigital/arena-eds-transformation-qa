@@ -1037,170 +1037,6 @@
     ]
   },
   {
-    "id": "arena-help-me-select",
-    "fields": [
-      {
-        "component": "tab",
-        "label": "Properties",
-        "name": "col1"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "preTitle",
-        "value": "",
-        "label": "PreTitle"
-      },
-      {
-        "component": "richtext",
-        "name": "rteLhs",
-        "label": "Rich Text LHS",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "rteRhs",
-        "label": "Rich Text RHS",
-        "valueType": "string"
-      },
-      {
-        "component": "text-input",
-        "name": "primaryText",
-        "label": "CTA Text",
-        "valueType": "string"
-      },
-      {
-        "component": "aem-content",
-        "valueType": "string",
-        "name": "primaryLink",
-        "label": "CTA Link"
-      },
-      {
-        "component": "select",
-        "name": "primaryTarget",
-        "value": "",
-        "label": "Open Link in New Page ?",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Yes",
-            "value": "_blank"
-          },
-          {
-            "name": "No",
-            "value": "_self"
-          }
-        ]
-      },
-      {
-        "component": "text",
-        "valueType": "number",
-        "name": "interval",
-        "value": "3",
-        "label": "Spotlight Interval"
-      },
-      {
-        "component": "tab",
-        "label": "Asset 1",
-        "name": "col2"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "logoReference1",
-        "label": "Logo",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "logoAlt1",
-        "value": "Default alt",
-        "label": "Logo Alt Text"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "carReference1",
-        "label": "Car Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "carAlt1",
-        "value": "Default alt",
-        "label": "Car Alt Text"
-      },
-      {
-        "component": "tab",
-        "label": "Asset 2",
-        "name": "col3"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "logoReference2",
-        "label": "Logo",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "logoAlt2",
-        "value": "Default alt",
-        "label": "Logo Alt Text"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "carReference2",
-        "label": "Car Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "carAlt2",
-        "value": "Default alt",
-        "label": "Car Alt Text"
-      },
-      {
-        "component": "tab",
-        "label": "Asset 3",
-        "name": "col4"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "logoReference3",
-        "label": "Logo",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "logoAlt3",
-        "value": "Default alt",
-        "label": "Logo Alt Text"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "carReference3",
-        "label": "Car Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "carAlt3",
-        "value": "Default alt",
-        "label": "Car Alt Text"
-      }
-    ]
-  },
-  {
     "id": "best-deals",
     "fields": [
       {
@@ -1582,7 +1418,7 @@
         "multi": false
       },
       {
-        "component": "text-input",
+        "component": "richtext",
         "name": "startingPriceText",
         "value": "",
         "label": "Starting Price Text",
@@ -1593,8 +1429,7 @@
         "name": "testDriveText",
         "value": "",
         "label": "Test Drive Text",
-        "valueType": "string",
-        "description": "Test Drive Text"
+        "valueType": "string"
       },
       {
         "component": "text-input",

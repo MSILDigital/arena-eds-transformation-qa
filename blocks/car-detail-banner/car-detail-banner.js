@@ -43,7 +43,9 @@ export default async function decorate(block) {
       : utility.formatINR(car?.exShowroomPrice);
     const carImage = publishDomain + car.carImage._dynamicUrl;
     const carLogoImage = car.carLogoImage._publishUrl;
-    const startingPriceText = startingPriceTextEl?.textContent?.trim();
+    const startingPriceText = Array.from(startingPriceTextEl.querySelectorAll('p'))
+      .map((p) => p.outerHTML)
+      .join('');
     const testDriveText = Array.from(testDriveTextEl.querySelectorAll('p'))
       .map((p) => p.outerHTML)
       .join('');
