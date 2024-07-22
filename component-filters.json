@@ -1,9 +1,7 @@
 [
   {
     "id": "main",
-    "components": [
-      "section"
-    ]
+    "components": ["section"]
   },
   {
     "id": "columns",
@@ -11,12 +9,7 @@
   },
   {
     "id": "column",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "title"
-    ]
+    "components": ["text", "image", "button", "title"]
   },
   {
     "id": "section",
@@ -58,63 +51,43 @@
   },
   {
     "id": "cards",
-    "components": [
-      "card"
-    ]
+    "components": ["card"]
   },
   {
     "id": "contact",
-    "components": [
-      "ctaWithIcon"
-    ]
+    "components": ["ctaWithIcon"]
   },
   {
     "id": "sign-in",
-    "components": [
-      "ctaWithIcon"
-    ]
+    "components": ["ctaWithIcon"]
   },
   {
     "id": "banner-carousel",
-    "components": [
-      "banner-carousel-car"
-    ]
+    "components": ["banner-carousel-car"]
   },
   {
     "id": "highlights",
-    "components": [
-      "highlight"
-    ]
+    "components": ["highlight"]
   },
   {
     "id": "finance-options",
-    "components": [
-      "teaser"
-    ]
+    "components": ["teaser"]
   },
   {
     "id": "slider",
-    "components": [
-      "teaser"
-    ]
+    "components": ["teaser"]
   },
   {
     "id": "best-deals",
-    "components": [
-      "teaser"
-    ]
+    "components": ["teaser"]
   },
   {
     "id": "finance-entry-point",
-    "components": [
-      "teaser"
-    ]
+    "components": ["teaser"]
   },
   {
     "id": "brand-header",
-    "components": [
-      "brand-header-item"
-    ]
+    "components": ["brand-header-item"]
   },
   {
     "id": "section-navigator",
@@ -122,9 +95,11 @@
   },
   {
     "id": "dealer-cards",
-    "components": [
-      "teaser"
-    ]
+    "components": ["teaser"]
+  },
+  {
+    "id": "arena-help-me-select",
+    "components": ["teaser"]
   },
   {
     "id": "mfe-poc",
