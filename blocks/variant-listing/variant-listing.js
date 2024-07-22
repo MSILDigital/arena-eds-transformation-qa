@@ -90,6 +90,10 @@ export default async function decorate(block) {
     return itemHtml;
   }
   const newHtml = `
+  <div class="button__content">
+  <button class="nav-arrow_variant prev_variant disabled"></button>
+  <button class="nav-arrow_variant next_variant"></button>
+  </div>
   <div class="container container__slider">
       <div class="slider__tabContent">
         ${tabList
@@ -102,10 +106,7 @@ export default async function decorate(block) {
     .join('')}
       </div>
       <div class="variant-content">
-        <div class="button__content">
-            <button class="nav-arrow_variant prev_variant hide"></button>
-            <button class="nav-arrow_variant next_variant"></button>
-        </div>
+       
       <div class="variant__cards">
           ${createItemList()}
       </div>
@@ -136,7 +137,7 @@ export default async function decorate(block) {
     const prevButton = block.querySelector('.prev_variant');
     const nextButton = block.querySelector('.next_variant');
     const boxes = block.querySelectorAll('.variant__card');
-    slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 1, 1);
+    slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 1, 1, 'disabled');
   }
   block.innerHTML = '';
   block.insertAdjacentHTML('beforeend', utility.sanitizeHtml(newHtml));
@@ -144,7 +145,7 @@ export default async function decorate(block) {
   const prevButton = block.querySelector('.prev_variant');
   const nextButton = block.querySelector('.next_variant');
   const boxes = block.querySelectorAll('.variant__card');
-  slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 1, 1);
+  slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 1, 1, 'disabled');
   block.querySelectorAll('.tab__Iteam').forEach((element, index) => {
     if (index === 0) {
       element.classList.add('tab__active');
