@@ -50,6 +50,13 @@
   bottom: 3px;
 }
 
+.header-wrapper .navbar.navbar-arena.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
 @media (width > 999px) {
   header nav .nav-hamburger {
     display: none;
