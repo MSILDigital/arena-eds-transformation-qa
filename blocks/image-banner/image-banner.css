@@ -1,0 +1,10 @@
+.image-banner-container .image-wrapper img {
+    width: 100%;
+    height: 298px;
+}
+
+@media (width>=999px) {
+    .image-banner-container .image-wrapper img {
+        height: 380px;
+    }
+}

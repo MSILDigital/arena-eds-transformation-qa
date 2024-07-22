@@ -1,10 +1,11 @@
 import { fetchPlaceholders } from '../../scripts/aem.js';
 import ctaUtils from '../../utility/ctaUtils.js';
 import utility from '../../utility/utility.js';
+import apiUtils from '../../utility/apiUtils.js';
 
 export default async function decorate(block) {
   let carObject = null;
-  const { publishDomain } = await fetchPlaceholders();
+  const { publishDomain, apiKey } = await fetchPlaceholders();
   const [
     modelIdEl,
     bgImageEl,
@@ -18,7 +19,7 @@ export default async function decorate(block) {
     secondaryCtaLinkEl,
     secondaryCtaTargetEl,
   ] = block.children;
-
+  const forCode = '48';
   const requestOptions = {
     method: 'GET',
     headers: {
@@ -27,8 +28,19 @@ export default async function decorate(block) {
   };
 
   const modelId = modelIdEl?.textContent?.trim();
+  const authorization = await apiUtils.fetchAuthorisationToken(publishDomain);
+  let exShowroomPrices = apiUtils.getLocalStorage('modelPrice');
+  if (!exShowroomPrices) {
+    const apiresp = await apiUtils.fetchExShowroomPrices(apiKey, authorization, forCode, '', 'NRM', '');
+    if (apiresp) {
+      exShowroomPrices = apiUtils.setLocalStorage(apiresp, forCode, 'modelPrice');
+    }
+  }
   function populateBanner(car) {
     /* eslint no-underscore-dangle: 0 */
+    const exShowroomPrice = exShowroomPrices
+      ? utility.formatINR(exShowroomPrices[modelId].price[forCode])
+      : utility.formatINR(car?.exShowroomPrice);
     const carImage = publishDomain + car.carImage._dynamicUrl;
     const carLogoImage = car.carLogoImage._publishUrl;
     const startingPriceText = startingPriceTextEl?.textContent?.trim();
@@ -87,8 +99,8 @@ export default async function decorate(block) {
     ? `<div class="banner__startingPriceText"><p>${startingPriceText}</p></div>`
     : ''
 }
-                               ${car.exShowroomPrice
-    ? `<div class="banner__exShowroomPrice">${utility.formatINR(car.exShowroomPrice)}</div>`
+                               ${exShowroomPrice
+    ? `<div class="banner__exShowroomPrice">${exShowroomPrice}</div>`
     : ''
 }
                                ${testDriveText

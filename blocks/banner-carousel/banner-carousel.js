@@ -1,5 +1,7 @@
 import ctaUtils from '../../utility/ctaUtils.js';
 import { fetchPlaceholders } from '../../scripts/aem.js';
+import utility from '../../utility/utility.js';
+import apiUtils from '../../utility/apiUtils.js';
 
 async function fetchCar(domain) {
   const car = await fetch(
@@ -9,19 +11,19 @@ async function fetchCar(domain) {
   return await car.json();
 }
 
-function convertToLakh(number) {
-  if (number) return number / 100000;
-  return null;
-}
-
 export default async function decorate(block) {
-  const { publishDomain } = await fetchPlaceholders();
+  function priceFormatting(price) {
+    return utility.formatToLakhs(price);
+  }
+
+  const { publishDomain, apiKey } = await fetchPlaceholders();
   // const publishDomain  = 'https://publish-p135331-e1341966.adobeaemcloud.com/'
   const carResponse = await fetchCar(publishDomain);
   const isDesktop = window.innerWidth > 998;
   let currentIndex = 0;
   const cardsPerPage = isDesktop ? 3 : 1;
   let highlightedSidebar = null;
+  const forCode = '48';
 
   const carsObject = carResponse?.data?.carModelList?.items?.reduce(
     (acc, car) => {
@@ -30,6 +32,15 @@ export default async function decorate(block) {
     },
     {},
   );
+
+  const authorization = await apiUtils.fetchAuthorisationToken(publishDomain);
+  let exShowroomPrices = apiUtils.getLocalStorage('modelPrice');
+  if (!exShowroomPrices) {
+    const apiresp = await apiUtils.fetchExShowroomPrices(apiKey, authorization, forCode, '', 'NRM', '');
+    if (apiresp) {
+      exShowroomPrices = apiUtils.setLocalStorage(apiresp, forCode, 'modelPrice');
+    }
+  }
 
   const carContainersWrapper = document.createElement('div');
 
@@ -55,7 +66,8 @@ export default async function decorate(block) {
     ] = element.children;
 
     const carObjectItem = carsObject[modelId.textContent];
-
+    const modelCode = carObjectItem?.modelId;
+    const exShowroomPrice = exShowroomPrices ? priceFormatting(exShowroomPrices[modelCode].price[forCode]).replaceAll(',', ' ') : priceFormatting(carObjectItem?.exShowroomPrice);
     const [firstLetterTitle, ...rest] = title.textContent.split(' ');
     const restTitle = rest.join(' ');
 
@@ -74,48 +86,48 @@ export default async function decorate(block) {
     /* eslint no-underscore-dangle: 0 */
     carContainersWrapper.innerHTML += `
       <div class="car-container">
-          <div class="sidebar-container">
-            <img
-              src=${carObjectItem?.carImage?._publishUrl || ''}
-              alt=${carObjectItem?.carName || ''}
-              class="sidebar-car--image"
-            />
-            <div class="sidebar">
-              <div class="sidebar_text_container">
-                <div class="text-container">
-                  <span>${firstLetterTitle || ''} ${restTitle || ''}</span>
-                </div>
-                <img
-                  src=${carObjectItem?.carLogoImage?._publishUrl || ''}
-                  alt=${carObjectItem?.carName || ''}
-                  class="sidebar-car--logo"
-                />
+        <div class="sidebar-container">
+          <img
+            src=${carObjectItem?.carImage?._publishUrl || ''}
+            alt=${carObjectItem?.carName || ''}
+            class="sidebar-car--image"
+          />
+          <div class="sidebar">
+            <div class="sidebar_text_container">
+              <div class="text-container">
+                <span>${firstLetterTitle || ''} ${restTitle || ''}</span>
+              </div>
+              <img
+                src=${carObjectItem?.carLogoImage?._publishUrl || ''}
+                alt=${carObjectItem?.carName || ''}
+                class="sidebar-car--logo"
+              />
                 <span><strong>${carObjectItem?.bodyType}</strong> | ${
   type?.textContent || ''
 }</span>
-                <div class="sidebar--hr"></div>
-                <div class="sidebar--details">
-                  <div class="sidebar--details--exshowroom">
-                    <span>Ex. showroom:</span>
+              <div class="sidebar--hr"></div>
+              <div class="sidebar--details">
+                <div class="sidebar--details--exshowroom">
+                  <span>Ex. showroom:</span>
                     <span><strong>${
-  convertToLakh(carObjectItem?.exShowroomPrice) || ''
-} Lakhs</strong></span>
-                  </div>
-                  <div class="sidebar--details--onroad">
-                    <span>Estd. On-road in Gurgaon:</span>
+  exShowroomPrice || ''
+}</strong></span>
+                </div>
+                <div class="sidebar--details--onroad">
+                  <span>Estd. On-road in Gurgaon:</span>
                     <span><strong>${
   onRoadPrice?.textContent || ''
 }</strong></span>
-                  </div>
                 </div>
-                <div class="buttons">
-                  ${primaryCta ? primaryCta.outerHTML : ''}
-                  ${secondaryCta ? secondaryCta.outerHTML : ''}
-                </div>
+              </div>
+              <div class="buttons">
+                ${primaryCta ? primaryCta.outerHTML : ''}
+                ${secondaryCta ? secondaryCta.outerHTML : ''}
               </div>
             </div>
           </div>
         </div>
+      </div>
     `;
   });
 

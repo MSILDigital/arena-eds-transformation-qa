@@ -2,23 +2,28 @@ html,
 body {
   height: 100%;
 }
+
 main {
   display: initial !important;
 }
+
 .car-detail-banner-container {
   position: relative;
   height: 110%;
 }
+
 .car-detail-banner-wrapper {
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
+
 .car-detail-banner {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
+
 .hero__banner {
   width: 100%;
   height: 90%;
@@ -30,18 +35,21 @@ main {
   height: 100%;
   position: relative;
 }
+
 .hero__banner--image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
+
 .banner__content {
   width: 100%;
   height: 100%;
   position: absolute;
   inset: 0;
 }
+
 .banner__content .banner__info {
   position: absolute;
   inset: 0;
@@ -51,10 +59,11 @@ main {
   padding-bottom: 10%;
   color: #fff;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   display: grid;
   align-self: center;
 }
+
 .banner__carDescription {
   font-size: 16px;
   font-style: normal;
@@ -62,12 +71,14 @@ main {
   line-height: normal;
   margin-bottom: 2vh;
 }
+
 .banner__carLogoImage {
   max-width: 320px;
   margin: 0 auto;
   position: relative;
   padding-bottom: 10px;
 }
+
 .banner__carLogoImage::after {
   content: "";
   height: 1px;
@@ -77,42 +88,47 @@ main {
   bottom: 0;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0) 0%,
+    rgb(255 255 255 / 0%) 0%,
     #fff 50%,
-    rgba(255, 255, 255, 0) 100%
+    rgb(255 255 255 / 0%) 100%
   );
 }
+
 .banner__carLogoImage img {
   width: 100%;
 }
+
 .banner__startingPriceText {
   font-size: 12px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
 }
+
 .banner__startingPriceText p {
   margin-bottom: 1vh;
 }
+
 .banner__exShowroomPrice {
   font-size: 32px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
   margin-bottom: 2vh;
 }
+
 .banner__testDriveText {
   font-size: 10px;
   font-style: normal;
   font-weight: 300;
   line-height: 20px;
 }
+
 .banner__testDriveText p {
   margin: 0;
 }
+
 .banner__testDriveText .button-container a.button {
   color: #fff;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 10px;
   font-style: normal;
   font-weight: 700;
@@ -120,13 +136,16 @@ main {
   text-decoration-line: underline;
   text-transform: inherit;
 }
+
 .banner__carImage {
   max-width: 320px;
   margin: 2vh auto;
 }
+
 .banner__carImage img {
   width: 100%;
 }
+
 /* button style override */
 .banner__actions .button-secondary-dark,
 .banner__actions .button-secondary-light {
@@ -135,12 +154,14 @@ main {
   color: #fff;
   padding: 7px 15px 7px 25px;
 }
+
 .banner__actions .button-secondary-dark:hover,
 .banner__actions .button-secondary-light:hover {
   background-color: inherit;
   border: inherit;
   color: var(--secondary-white);
 }
+
 .banner__actions .button-secondary-dark::before,
 .banner__actions .button-secondary-light::before {
   content: "";
@@ -150,6 +171,7 @@ main {
   left: 0;
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14.6537 12.0001L10.25 16.4038L10.25 7.59631L14.6537 12.0001Z" fill="white"/></svg>');
 }
+
 .hero__bottom-gradient {
   height: calc(10% + 90px);
   text-align: center;
@@ -157,7 +179,7 @@ main {
   padding-top: 22px;
   background: linear-gradient(
     179deg,
-    rgba(217, 217, 217, 0) 1.08%,
+    rgb(217 217 217 / 0%) 1.08%,
     #c2c2c2 44.54%,
     #f1f1f1 92.51%
   );
@@ -167,9 +189,10 @@ main {
   display: flex;
   justify-content: center;
 }
+
 .banner__scrollMoreText {
   color: #fff;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
@@ -180,6 +203,7 @@ main {
   align-items: center;
   text-decoration: none;
 }
+
 .banner__scrollMoreText span {
   display: inline-block;
   width: 24px;
@@ -187,39 +211,46 @@ main {
   padding: 5px;
   flex-shrink: 0;
   border: 0.5px solid #fff;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(255 255 255 / 20%);
   backdrop-filter: blur(7.5px);
 }
-@media (min-width: 999px) {
+
+@media (width >= 999px) {
   .banner__carDescription,
   .banner__testDriveText,
   .banner__scrollMoreText {
     display: none;
   }
+
   .hero__banner {
     height: 85%;
   }
+
   .banner__carLogoImage {
     grid-area: 1 / 2 / 1 / 2;
     width: 100%;
     max-width: inherit;
     position: relative;
   }
+
   .banner__carLogoImage img {
     position: absolute;
     left: -10%;
     opacity: 0.5;
     width: 125%;
   }
+
   .banner__carLogoImage::after {
     display: none;
   }
+
   .banner__startingPriceText {
     grid-area: 1 / 1 / 1 / 2;
     grid-row: 1/3;
     align-self: self-end;
     text-align: left;
   }
+
   .banner__exShowroomPrice {
     text-align: left;
     font-size: 40px;
@@ -230,6 +261,7 @@ main {
     margin-bottom: 24px;
     align-self: end;
   }
+
   .banner__exShowroomPrice::after {
     content: "";
     height: 1px;
@@ -239,11 +271,12 @@ main {
     bottom: 0;
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0) 0%,
+      rgb(255 255 255 / 0%) 0%,
       #fff 50%,
-      rgba(255, 255, 255, 0) 100%
+      rgb(255 255 255 / 0%) 100%
     );
   }
+
   .banner__carImage {
     grid-area: 2 / 2 / 4 / 3;
     max-width: inherit;
@@ -253,6 +286,7 @@ main {
     margin: 0;
     position: relative;
   }
+
   .banner__carImage img {
     width: 100%;
     position: relative;
@@ -266,11 +300,13 @@ main {
     height: fit-content;
     align-self: baseline;
   }
+
   .banner__content .banner__info {
     padding-bottom: 10vh;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto;
   }
+
   .banner__actions .button-secondary-dark {
     background-color: var(--secondary-white);
     color: var(--primary-blue-700);
@@ -281,15 +317,18 @@ main {
     font-weight: 600;
     line-height: 24px;
   }
+
   .banner__actions .button-secondary-dark:hover {
     color: var(--secondary-white);
     background-color: var(--primary-blue-700);
     border: 1px solid var(--primary-blue-700);
   }
+
   .banner__actions .button-secondary-dark::before,
   .banner__actions .button-secondary-light::before {
     display: none;
   }
+
   .banner__actions .button-secondary-light {
     background-color: none;
     color: var(--secondary-white);
@@ -300,25 +339,28 @@ main {
     font-weight: 600;
     line-height: 24px;
   }
+
   .banner__actions .button-secondary-light:hover {
     background-color: var(--primary-blue-700);
     border: 1px solid var(--primary-blue-700);
     color: var(--secondary-white);
   }
+
   .hero__bottom-gradient {
     height: calc(15% + 50px);
     padding-bottom: inherit;
     padding-top: inherit;
     background: linear-gradient(
       180deg,
-      rgba(147, 157, 164, 0) 0%,
+      rgb(147 157 164 / 0%) 0%,
       #778590 25.52%,
-      rgba(119, 133, 144, 0.64) 51.77%,
-      rgba(120, 134, 145, 0) 100%
+      rgb(119 133 144 / 64%) 51.77%,
+      rgb(120 134 145 / 0%) 100%
     );
     margin-top: -50px;
   }
 }
+
 /* @media only screen and (orientation: landscape) {
   .hero__banner {
     height: 700px;
@@ -332,13 +374,15 @@ main {
   }
 } */
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 999px) and (orientation: landscape) {
+@media only screen and (device-width >= 320px) and (device-width <= 999px) and (orientation: landscape) {
   .hero__banner {
     height: 700px;
   }
+
   .car-detail-banner-container {
     height: auto;
   }
+
   .car-detail-banner-wrapper,
   .car-detail-banner {
     height: auto;

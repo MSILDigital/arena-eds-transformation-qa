@@ -35,7 +35,7 @@
 }
 
 .finance-entry-point .teaser-content .teaser__cards .teaser__card:not(:last-child) {
-    border-bottom: 0.2px solid #000000;
+    border-bottom: 0.2px solid #000;
 }
 
 .finance-entry-point .teaser-content .teaser__card .teaser__content .teaser__actions a {
@@ -56,7 +56,7 @@
     line-height: 16px;
 }
 
-@media (min-width: 1023px) {
+@media (width >= 1023px) {
     .finance-entry-point .teaser-content .teaser__cards {
         display: flex;
     }
@@ -67,7 +67,7 @@
 
     .finance-entry-point .teaser-content .teaser__cards .teaser__card:not(:last-child) {
         border-bottom: none;
-        border-right: .1px solid #000000;
+        border-right: .1px solid #000;
 
     }
 
