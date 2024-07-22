@@ -45,7 +45,7 @@ const utility = {
       const lakhs = (num / 100000).toFixed(2);
       return `${lakhs} lakhs`;
     }
-    return num.toString();
+    return num?.toString();
   },
   isInternalLink(href) {
     return !/^https?:\/\//i.test(href);

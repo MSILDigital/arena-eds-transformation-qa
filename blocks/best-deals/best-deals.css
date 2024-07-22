@@ -13,7 +13,7 @@
   margin: auto;
   overflow: hidden;
   width: 100%;
-  padding-top: 50px;
+  padding-block: 0;
 }
 
 .best-deals-wrapper {
@@ -21,7 +21,6 @@
   margin: auto;
   overflow: hidden;
   width: 100%;
-  padding-top: 50px;
 }
 
 .best-deals-wrapper .slider-header {
@@ -258,10 +257,6 @@
   .best-deals-container {
     padding-top: 120px;
     padding-bottom: 120px;
-  }
-
-  .best-deals-wrapper {
-    padding-top: 112px;
   }
 
   .best-deals-wrapper .button-primary-light {
