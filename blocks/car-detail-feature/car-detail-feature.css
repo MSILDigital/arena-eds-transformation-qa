@@ -53,12 +53,63 @@ main {
   z-index: 3;
 }
 
+.car-detail-feature-wrapper .feature__content .feature__title h2,
+.car-detail-feature-wrapper .feature__content .feature__title h3,
+.car-detail-feature-wrapper .feature__content .feature__title h4 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+
+.car-detail-feature.feature-performance.container
+  .feature__content
+  .feature__title
+  h2 {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+
+.car-detail-feature.feature-performance.container
+  .feature__content
+  .feature__info
+  .feature__description
+  p {
+  color: #000;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 16px;
+}
+
+.car-detail-feature-wrapper .car-detail-feature .feature__card {
+  height: 100%;
+  width: 100%;
+  padding: 20px 0 42px;
+}
+
+.car-detail-feature-wrapper .feature__content {
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
 .car-detail-feature.feature-performance.container .feature__card {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
+/* feature-safety card style */
 .car-detail-feature-wrapper
   .car-detail-feature.feature-safety
   .feature__content {
@@ -134,40 +185,6 @@ main {
   .feature__content
   .feature__info {
   order: 1;
-}
-
-.car-detail-feature-wrapper .feature__content .feature__title h2,
-.car-detail-feature-wrapper .feature__content .feature__title h3,
-.car-detail-feature-wrapper .feature__content .feature__title h4 {
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 28px;
-  text-transform: uppercase;
-}
-
-.car-detail-feature.feature-performance.container
-  .feature__content
-  .feature__title
-  h2 {
-  color: #000;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 28px;
-  text-transform: uppercase;
-}
-
-.car-detail-feature.feature-performance.container
-  .feature__content
-  .feature__info
-  .feature__description
-  p {
-  color: #000;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 16px;
 }
 
 /* button style override */
@@ -267,8 +284,6 @@ main {
   display: flex;
 }
 
-/* feature-safety card style */
-
 .car-detail-feature-wrapper
   .car-detail-feature.feature-interior
   .feature__image::after {
@@ -322,16 +337,6 @@ main {
     justify-content: inherit;
   }
 
-  .car-detail-feature-wrapper .feature__content {
-    height: 100%;
-    position: relative;
-    z-index: 2;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-  }
-
   .car-detail-feature-wrapper
     .car-detail-feature.feature-suzuki-connect
     .feature__content {
@@ -356,12 +361,6 @@ main {
 
   .car-detail-feature.feature-performance.container {
     padding: 120px 64px;
-  }
-
-  .car-detail-feature-wrapper .car-detail-feature .feature__card {
-    height: 100%;
-    width: 100%;
-    padding: 20px 0 42px;
   }
 
   .car-detail-feature.feature-performance.container .feature__card {
@@ -404,6 +403,16 @@ main {
     ul
     li {
     border-top: 2px solid #ffd85c;
+  }
+
+  .car-detail-feature.feature-performance.container
+    .feature__card
+    .feature__content
+    .feature__variant
+    ul
+    li
+    p {
+    margin: 0;
   }
 
   .car-detail-feature.feature-performance.container
@@ -515,16 +524,6 @@ main {
     position: absolute;
     left: 40%;
     bottom: -20%;
-  }
-
-  .car-detail-feature.feature-performance.container
-    .feature__card
-    .feature__content
-    .feature__variant
-    ul
-    li
-    p {
-    margin: 0;
   }
 
   .car-detail-feature.feature-performance.container
