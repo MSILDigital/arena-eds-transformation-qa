@@ -198,4 +198,17 @@ export default async function decorate(block) {
       }
     });
   }
+
+  const navbar = block?.querySelector('.navbar.navbar-arena');
+  const sticky = navbar?.getBoundingClientRect().top;
+
+  function stickyHandler() {
+    if (window.pageYOffset >= sticky) {
+      navbar?.classList?.add('sticky');
+    } else {
+      navbar?.classList?.remove('sticky');
+    }
+  }
+
+  window.onscroll = stickyHandler;
 }

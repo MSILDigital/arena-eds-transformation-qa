@@ -43,14 +43,17 @@
       "slider",
       "arena-help-me-select",
       "best-deals",
-      "mfe-poc",
       "car-detail-feature",
       "video-teaser",
       "finance-entry-point",
       "variant-listing",
       "car-detail-banner",
       "brand-header",
-      "section-navigator"
+      "section-navigator",
+      "dealer-cards",
+      "image-banner",
+      "logo-list",
+      "mfe-poc"
     ]
   },
   {
@@ -102,10 +105,6 @@
     ]
   },
   {
-    "id": "mfe-poc",
-    "components": []
-  },
-  {
     "id": "finance-entry-point",
     "components": [
       "teaser"
@@ -119,6 +118,16 @@
   },
   {
     "id": "section-navigator",
+    "components": []
+  },
+  {
+    "id": "dealer-cards",
+    "components": [
+      "teaser"
+    ]
+  },
+  {
+    "id": "mfe-poc",
     "components": []
   }
 ]
