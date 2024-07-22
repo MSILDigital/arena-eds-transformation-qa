@@ -34,4 +34,5 @@ export default function decorate(block) {
     button.classList.remove('primary__btn');
     button.classList.add('button-primary-light');
   });
+  block?.classList.add('container');
 }
