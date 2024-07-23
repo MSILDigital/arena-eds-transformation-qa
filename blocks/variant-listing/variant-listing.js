@@ -2,13 +2,14 @@ import { fetchPlaceholders } from '../../scripts/aem.js';
 import utility from '../../utility/utility.js';
 import ctaUtils from '../../utility/ctaUtils.js';
 import slider from '../../utility/sliderUtil.js';
+import apiUtils from '../../utility/apiUtils.js';
 
 export default async function decorate(block) {
   async function fetchCar(endPoint, option) {
     const car = await fetch(endPoint, option);
     return car.json();
   }
-  const { publishDomain } = await fetchPlaceholders();
+  const { publishDomain, apiKey } = await fetchPlaceholders();
   let itemArray = [];
   let filterArray = [];
   let tabList = [];
@@ -22,6 +23,7 @@ export default async function decorate(block) {
     secondaryCtaLinkEl,
     secondaryCtaTargetEl,
   ] = block.children;
+  const forCode = '48';
   const graphQlEndpoint = `${publishDomain}/graphql/execute.json/msil-platform/arenaVariantList;modelId=${
     modelIdEl.querySelector('p').textContent
   }`;
@@ -37,6 +39,15 @@ export default async function decorate(block) {
       filterArray = [...itemArray];
     })
     .catch(() => {});
+  const modelId = modelIdEl.querySelector('p').textContent;
+  const authorization = await apiUtils.fetchAuthorisationToken(publishDomain);
+  let exShowroomPrices = apiUtils.getLocalStorage('varientPrice');
+  if (!exShowroomPrices) {
+    const apiresp = await apiUtils.fetchExShowroomPrices(apiKey, authorization, forCode, modelId, 'NRM', true);
+    if (apiresp) {
+      exShowroomPrices = apiUtils.setLocalStorageVarientList(apiresp, forCode, 'varientPrice');
+    }
+  }
 
   tabList = itemArray.reduce((acc, item) => {
     if (!acc.includes(item.fuelType)) {
@@ -64,6 +75,18 @@ export default async function decorate(block) {
     let itemHtml = '';
     /* eslint no-underscore-dangle: 0 */
     filterArray.forEach((item) => {
+      let exShowroomPrice;
+      try {
+        const varientPrice = Object.values(exShowroomPrices.VBR4BL1).find((color) => color.colorType === 'M')?.price[forCode];
+        if (exShowroomPrices && varientPrice) {
+          exShowroomPrice = utility.formatINR(varientPrice);
+        } else {
+          exShowroomPrice = utility.formatINR(item.exShowroomPrice);
+        }
+      } catch {
+        exShowroomPrice = utility.formatINR(item.exShowroomPrice);
+      }
+
       itemHtml += `<div class="variant__card">
         <div class="variant__image">
             <img alt="${item.variantName}" src="${publishDomain}${
@@ -80,9 +103,9 @@ export default async function decorate(block) {
 )}</p>
             </div>
             <div class="variant__price">
-                <p>${startingPriceText} <span>Rs. ${utility.formatINR(
-  item.exShowroomPrice,
-)}</span></p>
+                <p>${startingPriceText} <span>Rs. ${
+  exShowroomPrice
+}</span></p>
             </div>
         </div>
     </div>`;
@@ -90,6 +113,10 @@ export default async function decorate(block) {
     return itemHtml;
   }
   const newHtml = `
+  <div class="button__content">
+  <button class="nav-arrow_variant prev_variant disabled"></button>
+  <button class="nav-arrow_variant next_variant"></button>
+  </div>
   <div class="container container__slider">
       <div class="slider__tabContent">
         ${tabList
@@ -102,10 +129,7 @@ export default async function decorate(block) {
     .join('')}
       </div>
       <div class="variant-content">
-        <div class="button__content">
-            <button class="nav-arrow_variant prev_variant hide"></button>
-            <button class="nav-arrow_variant next_variant"></button>
-        </div>
+       
       <div class="variant__cards">
           ${createItemList()}
       </div>
@@ -136,7 +160,7 @@ export default async function decorate(block) {
     const prevButton = block.querySelector('.prev_variant');
     const nextButton = block.querySelector('.next_variant');
     const boxes = block.querySelectorAll('.variant__card');
-    slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 1, 1);
+    slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 1, 1, 'disabled');
   }
   block.innerHTML = '';
   block.insertAdjacentHTML('beforeend', utility.sanitizeHtml(newHtml));
@@ -144,7 +168,7 @@ export default async function decorate(block) {
   const prevButton = block.querySelector('.prev_variant');
   const nextButton = block.querySelector('.next_variant');
   const boxes = block.querySelectorAll('.variant__card');
-  slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 1, 1);
+  slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 1, 1, 'disabled');
   block.querySelectorAll('.tab__Iteam').forEach((element, index) => {
     if (index === 0) {
       element.classList.add('tab__active');
