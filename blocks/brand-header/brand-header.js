@@ -37,13 +37,13 @@ export default async function decorate(block) {
     primaryCtaLinkEl,
     primaryCtaTextEl,
     primaryCtaTargetEl,
-    'button-primary-light',
+    '',
   );
   const secondaryCta = ctaUtils.getLink(
     secondaryCtaLinkEl,
     secondaryCtaTextEl,
     secondaryCtaTargetEl,
-    'button-secondary-light',
+    '',
   );
 
   const image = logoImageEl?.querySelector('picture');
@@ -97,12 +97,17 @@ export default async function decorate(block) {
     }
   }
 
-  links.forEach((link) => {
+  links.forEach((link, index) => {
     link.addEventListener('click', activeHandler);
+
+    // Set the first link as active by default
+    if (index === 0) {
+      link.classList.add('active');
+    }
   });
 
-  let sticky; let
-    navbar;
+  let sticky;
+  let navbar;
 
   // sticky brand header
 
