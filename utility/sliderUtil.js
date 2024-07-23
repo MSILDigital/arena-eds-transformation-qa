@@ -6,6 +6,7 @@ const slider = {
     boxes,
     noOfSlideDesktop = 1,
     noOfSlideMobile = 1,
+    hideClass = 'hide',
   ) {
     function calculateVisibleBoxes() {
       const width = window.innerWidth;
@@ -19,6 +20,13 @@ const slider = {
     }
     let visibleBoxes = calculateVisibleBoxes();
     const totalBoxes = boxes.length;
+    if (totalBoxes <= visibleBoxes) {
+      prevButton.classList.add(hideClass);
+      nextButton.classList.add(hideClass);
+    } else {
+      prevButton.classList.remove(hideClass);
+      nextButton.classList.remove(hideClass);
+    }
     let currentIndex = 0;
     // Calculate the number of visible boxes based on the window width
 
@@ -29,21 +37,21 @@ const slider = {
     };
 
     prevButton.addEventListener('click', () => {
-      nextButton.classList.remove('hide');
+      nextButton.classList.remove(hideClass);
       currentIndex = currentIndex > 0
         ? currentIndex - noOfSlideDesktop
         : totalBoxes - visibleBoxes;
-      if (currentIndex < visibleBoxes) prevButton.classList.add('hide');
+      if (currentIndex < visibleBoxes) prevButton.classList.add(hideClass);
 
       updateSlider();
     });
 
     nextButton.addEventListener('click', () => {
-      prevButton.classList.remove('hide');
+      prevButton.classList.remove(hideClass);
       currentIndex = currentIndex < totalBoxes - visibleBoxes
         ? currentIndex + noOfSlideDesktop
         : 0;
-      if (currentIndex >= totalBoxes - visibleBoxes) { nextButton.classList.add('hide'); }
+      if (currentIndex >= totalBoxes - visibleBoxes) { nextButton.classList.add(hideClass); }
 
       updateSlider();
     });
