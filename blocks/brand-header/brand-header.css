@@ -8,8 +8,8 @@
 }
 
 .brand-header__logo {
-    border-bottom: 1px solid #000;
-    border-top: 1px solid #000;
+    border-bottom: 1px solid rgb(0 0 0 / 20%);
+    border-top: 1px solid rgb(0 0 0 / 20%);
 }
 
 .brand-header-wrapper .brand-header .brand-header-container .brand-header__items {
@@ -27,15 +27,11 @@
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     padding: 20px;
-    border-bottom: 1px solid #000;
-    border-top: 1px solid #000;
-    justify-content: space-evenly;
+    border-bottom: 1px solid rgb(0 0 0 / 20%);
+    border-top: 1px solid rgb(0 0 0 / 20%);
+    justify-content: space-between;
     -ms-overflow-style: none;
-
-    /* IE and Edge */
     scrollbar-width: none;
-
-    /* Firefox */
 }
 
 .brand-header-wrapper .brand-header .brand-header-container .brand-header__logo {
@@ -84,7 +80,32 @@
     display: none;
 }
 
-@media (width >= 999px) {
+.brand-header__actions a.button {
+    color: #171D9B;
+    gap: 3.5px;
+    margin: 0;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    text-transform: uppercase;
+    padding: 0 12px;
+}
+
+.brand-header__actions .button::before {
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("../../icons/blue-arrow.svg");
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (width >=999px) {
     .brand-header-wrapper .brand-header .brand-header-container {
         padding: 0 64px;
     }
@@ -105,5 +126,9 @@
         color: #171D9B;
         font-size: 14px;
         font-weight: 700;
+    }
+
+    .brand-header-wrapper .brand-header .brand-header-container .brand-header__content {
+        padding: 20px 0 20px 200px;
     }
 }

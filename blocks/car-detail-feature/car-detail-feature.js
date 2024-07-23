@@ -117,6 +117,9 @@ export default async function decorate(block) {
   );
   block.classList.add('container');
 
+  const pareformanceContainer = document.querySelector('.feature-performance')?.parentElement?.parentElement;
+  pareformanceContainer?.classList.add('feature-performance-section');
+
   const listItems = document.querySelectorAll(
     '.car-detail-feature.feature-performance .feature__variant ul li',
   );
