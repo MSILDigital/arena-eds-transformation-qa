@@ -56,6 +56,9 @@ h4 {
     padding-top: inherit;
     padding-bottom: 120px;
     background-color: inherit;
+    margin-top: -80px;
+    position: relative;
+    z-index: 2;
   }
 
   .video-teaser-container .video-teaser-overlay {
