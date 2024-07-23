@@ -46,7 +46,8 @@
       "dealer-cards",
       "image-banner",
       "logo-list",
-      "mfe-poc"
+      "mfe-poc",
+      "teaser-list"
     ]
   },
   {
@@ -104,5 +105,11 @@
   {
     "id": "mfe-poc",
     "components": []
+  },
+  {
+    "id": "teaser-list",
+    "components": [
+      "teaser"
+    ]
   }
 ]
