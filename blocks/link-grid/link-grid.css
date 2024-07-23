@@ -101,3 +101,24 @@ ul {
     flex: 1 1 55%;
   }
 }
+
+/* arena css start */
+.navbar-arena .link-grid-column h3 {
+  color: var(--secondary-gray-800);
+  font-family: "Anek Latin";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+.navbar-arena .link-grid-column .links-container li a {
+  color: var(--secondary-gray-800) !important;
+  font-family: "Anek Latin";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
+}
+
+/* arena css end */
