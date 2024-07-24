@@ -85,7 +85,7 @@
   color: #575a5e;
   cursor: pointer;
   font-size: 14px;
-  font-family: "var(--body-font-arena)";
+  font-family: var(--body-font-arena);
   height: -webkit-fill-available;
   display: flex;
   align-items: center;
@@ -103,7 +103,7 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
-  font-family: "var(--body-font-arena)";
+  font-family: var(--body-font-arena);
   height: -webkit-fill-available;
   display: flex;
   align-items: center;
@@ -235,7 +235,7 @@ body {
 
 .menu .menu-list li .menu-title {
   font-size: 14px;
-  font-family: "var(--body-font-arena)";
+  font-family: var(--body-font-arena);
 }
 
 .menu-title-clicked {
@@ -299,7 +299,7 @@ body {
 
   .car-text {
     color: #fff;
-    font-family: "var(--body-font-arena)";
+    font-family: var(--body-font-arena);
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -400,7 +400,7 @@ body {
   .panel .teaser__pretitle p,
   .panel .teaser__title h3,
   .panel .teaser__actions a {
-    font-family: "var(--body-font-arena)";
+    font-family: var(--body-font-arena);
   }
 
   .panel .link-grid-column .links-container,
