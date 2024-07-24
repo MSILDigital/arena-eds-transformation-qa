@@ -1250,7 +1250,7 @@ template {
   }
 }
 
-@media (width >= 1366px) {
+@media (width >= 1367px) {
   .container {
     width: 1366px;
     padding-right: 64px;

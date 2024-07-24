@@ -9,7 +9,7 @@ main {
 
 .car-detail-banner-container {
   position: relative;
-  height: 110%;
+  height: 100%;
 }
 
 .car-detail-banner-wrapper {
@@ -55,8 +55,7 @@ main {
   inset: 0;
   z-index: 2;
   text-align: center;
-  padding-top: 6%;
-  padding-bottom: 4%;
+
   color: #fff;
   font-feature-settings: "clig" off, "liga" off;
   font-family: var(--primary-font-arena);
@@ -237,6 +236,7 @@ main {
   .banner__carLogoImage img {
     position: absolute;
     left: -10%;
+    bottom: -100px;
     opacity: 0.5;
     width: 125%;
   }
@@ -304,7 +304,6 @@ main {
   }
 
   .banner__content .banner__info {
-    padding-bottom: 10%;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto;
   }
@@ -378,6 +377,20 @@ main {
     height: auto;
   }
 } */
+@media only screen and (min-height >= 700px) {
+  .hero__banner {
+    height: 700px;
+  }
+
+  .car-detail-banner-container {
+    height: auto;
+  }
+
+  .car-detail-banner-wrapper,
+  .car-detail-banner {
+    height: auto;
+  }
+}
 
 @media only screen and (device-width >= 320px) and (device-width <= 999px) and (orientation: landscape) {
   .hero__banner {
