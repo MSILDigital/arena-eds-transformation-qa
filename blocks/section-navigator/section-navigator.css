@@ -4,13 +4,12 @@ nav {
 
 @media (width >= 999px) {
   nav {
-    display: block;
     position: fixed;
     z-index: 99999;
     top: 50%;
     left: 64px;
     transform: translateY(-50%);
-    opacity: 0;
+    display: none;
   }
 
   nav .dot {

@@ -40,10 +40,10 @@ export default function decorate(block) {
   });
   sections.forEach((section) => {
     section.addEventListener('mouseover', () => {
-      dotsContainer.style.opacity = '1';
+      dotsContainer.style.display = 'block';
     });
     section.addEventListener('mouseout', () => {
-      dotsContainer.style.opacity = '0';
+      dotsContainer.style.display = 'none';
     });
   });
 }
