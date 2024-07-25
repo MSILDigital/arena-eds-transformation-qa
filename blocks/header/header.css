@@ -512,6 +512,13 @@ body {
     background-color: var(--nav-background-color);
   }
 
+  .navbar-arena .desktop-panel.panel.cars {
+    position: fixed;
+    top: var(--nav-height);
+    bottom: 0;
+    height: 100%;
+  }
+
   .arena.panel .link-grid-column .links-container {
     flex-direction: row;
     gap: 56px;
@@ -559,6 +566,14 @@ body {
 
   .navbar-arena .panel .link-grid {
     flex-basis: 100%;
+  }
+
+  .navbar-arena .card-list-teaser {
+    padding-bottom: 40px;
+  }
+
+  .navbar-arena .card-list-teaser .card-list {
+    overflow-y: scroll;
   }
 
   .navbar-arena .panel .links-container {

@@ -370,10 +370,6 @@
 
           .teaser__card {
             background: none;
-
-            .teaser-content {
-              padding: ;
-            }
           }
 
           .teaser__image {
@@ -496,12 +492,18 @@
 
 /* Arena Styles */
 .car-filter-arena {
+  height: 100%;
+  inset: 0;
+  overflow: inherit;
+
   .car-filter {
     padding: 16px 20px;
+    height: calc(100% - 55px);
 
     .filter-cars {
       display: flex;
       flex-direction: column;
+      height: 100%;
     }
 
     .car-filter-list {
@@ -562,12 +564,16 @@
     .card-list-teaser {
       display: flex;
       flex-direction: column;
+      overflow-y: scroll;
+      flex-grow: 1;
+      justify-content: space-between;
 
       .card-list {
         display: flex;
         flex-wrap: wrap;
         padding-top: 12px;
         gap: 12px;
+        overflow-y: scroll;
 
         .card {
           flex-basis: 100%;
@@ -641,6 +647,7 @@
 
       .teaser-list {
         margin-top: 10px;
+        overflow: visible;
 
         .teaser {
           border-radius: 4px 4px 4px 0;
@@ -661,7 +668,7 @@
         }
 
         .teaser__content {
-          padding: 12px 20px;
+          padding: 8px 0 12px;
         }
 
         .teaser__pretitle p,
@@ -704,6 +711,7 @@
           line-height: 24px; /* 133.333% */
           text-transform: capitalize;
           background-color: #171d9b;
+          margin-top: 0;
 
           &::after {
             content: "";
@@ -820,6 +828,12 @@
               margin-left: 2px;
             }
 
+            .teaser__image img {
+              max-width: 100%;
+              clip-path: none;
+              aspect-ratio: 326 / 110;
+            }
+
             &:hover {
               background-color: #171d9b;
 
@@ -838,107 +852,6 @@
               justify-content: space-between;
             }
 
-            .card-description,
-            .card-title {
-              display: none;
-            }
-          }
-        }
-
-        .teaser-list {
-          margin: 0;
-          flex-basis: 20%;
-          min-height: 470px;
-          min-width: 300px;
-
-          .teaser:first-child {
-            clip-path: none;
-
-            .teaser__card {
-              display: flex;
-              flex-direction: column;
-            }
-
-            .teaser__image {
-              display: flex;
-              width: 100%;
-            }
-
-            .teaser__image picture {
-              max-width: 100%;
-              display: flex;
-            }
-
-            .teaser__image img {
-              max-width: 100%;
-              clip-path: none;
-              aspect-ratio: 326 / 110;
-            }
-
-            .teaser__content {
-              padding: 4px 12px 8px;
-              background-color: white;
-            }
-
-            .teaser__pretitle p,
-            .teaser__title h3,
-            .teaser__actions a {
-              font-family: var(--primary-font-arena);
-            }
-
-            .teaser__title h4 {
-              margin: 0 0 4px;
-              color: #1d1d1d;
-              font-feature-settings: "clig" off, "liga" off;
-              font-family: var(--primary-font-arena);
-              font-size: 18px;
-              font-style: normal;
-              font-weight: 500;
-              line-height: normal;
-            }
-
-            .teaser__actions a {
-              color: #575a5e;
-              font-feature-settings: "clig" off, "liga" off;
-              font-family: var(--body-font-arena);
-              font-size: 16px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 28px; /* 175% */
-              text-decoration: none;
-              margin-top: 0;
-            }
-          }
-
-          .teaser:not(:first-child) {
-            background: none;
-            backdrop-filter: blur(0);
-            clip-path: none;
-
-            .teaser__card {
-              background: none;
-            }
-
-            .teaser__content {
-              padding: 16px;
-              background: linear-gradient(
-                228deg,
-                rgb(23 29 155 / 10%) 31.52%,
-                rgb(255 98 0 / 10%) 111.9%
-              );
-            }
-
-            .teaser__title h3 {
-              margin: 0 0 8px;
-              color: #1d1d1d;
-              font-feature-settings: "clig" off, "liga" off;
-              font-family: var(--primary-font-arena);
-              font-size: 24px;
-              font-style: normal;
-              font-weight: 600;
-              line-height: normal;
-            }
-
             .teaser__description p {
               color: #575a5e;
               font-feature-settings: "clig" off, "liga" off;
@@ -949,22 +862,150 @@
               line-height: 17px; /* 121.429% */
             }
 
-            .teaser__actions a {
-              padding: 12px 32px;
-              color: #fff;
-              font-feature-settings: "clig" off, "liga" off;
-              font-family: var(--body-font-arena);
-              font-size: 18px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 24px; /* 133.333% */
-              text-transform: capitalize;
-              background-color: #171d9b;
+            .card-description,
+            .card-title {
+              display: none;
+            }
 
-              &::after {
-                content: "";
-                display: none;
+            .teaser__pretitle p,
+            .teaser__title h3,
+            .teaser__actions a {
+              font-family: var(--primary-font-arena);
+            }
+          }
+        }
+
+        .teaser-list {
+          margin: 0;
+          flex-basis: 20%;
+          min-height: 470px;
+          gap: 15px;
+          min-width: 300px;
+
+          .header-image-teaser {
+            border-radius: 0;
+
+            .container {
+              padding: 0;
+              width: auto;
+            }
+          }
+
+          .teaser .container {
+            padding: 0;
+            width: auto;
+            position: inherit;
+          }
+        }
+
+        .teaser:first-child {
+          clip-path: none;
+          flex-basis: inherit;
+          border-bottom: 1px solid rgb(23 29 155 / 10%);
+
+          &::after {
+            display: none;
+          }
+
+          .teaser__card {
+            display: flex;
+            flex-direction: column;
+            border-radius: 0;
+          }
+
+          .teaser__image {
+            display: flex;
+            width: 100%;
+          }
+
+          .teaser__image picture {
+            max-width: 100%;
+            display: flex;
+          }
+
+          .teaser__content {
+            padding: 4px 12px 8px;
+            background-color: white;
+            position: inherit;
+
+            .teaser__info {
+              .teaser__description p {
+                margin: 0;
               }
+            }
+          }
+
+          .teaser__title h4 {
+            margin: 0 0 4px;
+            color: #1d1d1d;
+            font-feature-settings: "clig" off, "liga" off;
+            font-family: var(--primary-font-arena);
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+
+          .teaser__actions a {
+            color: #575a5e;
+            font-feature-settings: "clig" off, "liga" off;
+            font-family: var(--body-font-arena);
+            font-size: 16px;
+            text-transform: inherit;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28px; /* 175% */
+            text-decoration: none;
+            margin-top: 0;
+            border: none;
+          }
+        }
+
+        .teaser:not(:first-child) {
+          background: none;
+          backdrop-filter: blur(0);
+          clip-path: none;
+
+          .teaser__card {
+            background: none;
+          }
+
+          .teaser__content {
+            position: inherit;
+            padding: 16px;
+            background: linear-gradient(
+              228deg,
+              rgb(23 29 155 / 10%) 31.52%,
+              rgb(255 98 0 / 10%) 111.9%
+            );
+          }
+
+          .teaser__title h3 {
+            margin: 0 0 8px;
+            color: #1d1d1d;
+            font-feature-settings: "clig" off, "liga" off;
+            font-family: var(--primary-font-arena);
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+          }
+
+          .teaser__actions a {
+            padding: 12px 32px;
+            color: #fff;
+            font-feature-settings: "clig" off, "liga" off;
+            font-family: var(--body-font-arena);
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px; /* 133.333% */
+            text-transform: capitalize;
+            background-color: #171d9b;
+
+            &::after {
+              content: "";
+              display: none !important;
             }
           }
         }
