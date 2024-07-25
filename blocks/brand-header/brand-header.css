@@ -85,7 +85,7 @@
     gap: 3.5px;
     margin: 0;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Roboto;
+    font-family: var(--body-font-arena);
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
