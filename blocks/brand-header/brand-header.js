@@ -107,15 +107,18 @@ export default async function decorate(block) {
   });
 
   let sticky;
-  let navbar;
+  let navbar; let
+    mainHeader;
 
   // sticky brand header
 
   function stickyHandler() {
     if (window.pageYOffset >= sticky) {
       navbar?.classList?.add('sticky');
+      mainHeader?.classList?.remove('sticky');
     } else {
       navbar?.classList?.remove('sticky');
+      mainHeader?.classList?.add('sticky');
     }
   }
 
@@ -123,6 +126,8 @@ export default async function decorate(block) {
 
   setTimeout(() => {
     navbar = block?.querySelector('.brand-header-container');
+    mainHeader = document.querySelector('.header-wrapper');
+    mainHeader?.classList?.add('sticky');
     sticky = navbar?.getBoundingClientRect().top;
   }, 3000);
 }

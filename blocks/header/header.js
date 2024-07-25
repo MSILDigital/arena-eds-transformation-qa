@@ -30,9 +30,9 @@ export default async function decorate(block) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
-  Array
-    .from(nav.children)
-    .slice(1, nav.children.length - 1).forEach((el) => {
+  Array.from(nav.children)
+    .slice(1, nav.children.length - 1)
+    .forEach((el) => {
       const heading = el.querySelector('.icontitle :is(h1,h2,h3,h4,h5,h6)');
       const icon = el.querySelector('.icon');
       const iconClicked = el.querySelector('.iconClicked');
@@ -66,9 +66,7 @@ export default async function decorate(block) {
   const logo = nav.querySelector('.logo-wrapper');
   const carIcon = nav.children[1].querySelector('.icon')?.innerHTML;
   const carFilter = nav.querySelector('.car-filter');
-  const userDropDownDiv = nav.querySelector(
-    '.sign-in-wrapper .user__dropdown',
-  );
+  const userDropDownDiv = nav.querySelector('.sign-in-wrapper .user__dropdown');
   const contact = nav.querySelector('.contact-wrapper');
   userDropDownDiv.append(contact);
   const userDropdown = nav.querySelector('.sign-in-wrapper');
@@ -114,7 +112,9 @@ export default async function decorate(block) {
   const navWrapper = document.createElement('div');
   navWrapper.innerHTML = desktopHeader + mobileHeader;
   if (locationHtml) {
-    navWrapper.querySelector('.right').insertAdjacentElement('afterbegin', locationHtml);
+    navWrapper
+      .querySelector('.right')
+      .insertAdjacentElement('afterbegin', locationHtml);
   }
   block.append(navWrapper);
   const navHamburger = document.querySelector('.nav-hamburger');
@@ -198,17 +198,4 @@ export default async function decorate(block) {
       }
     });
   }
-
-  const navbar = block?.querySelector('.navbar.navbar-arena');
-  const sticky = navbar?.getBoundingClientRect().top;
-
-  function stickyHandler() {
-    if (window.pageYOffset >= sticky) {
-      navbar?.classList?.add('sticky');
-    } else {
-      navbar?.classList?.remove('sticky');
-    }
-  }
-
-  window.onscroll = stickyHandler;
 }
