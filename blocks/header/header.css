@@ -50,7 +50,7 @@
   bottom: 3px;
 }
 
-.header-wrapper .navbar.navbar-arena.sticky {
+.header-wrapper.sticky {
   position: fixed;
   top: 0;
   width: 100%;

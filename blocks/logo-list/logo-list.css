@@ -24,10 +24,11 @@
     min-width: 110px;
     width: 100%;
     height: auto;
+    transition: transform 0.3s ease;
 }
 
 .logo-list-container .car-logos.container a img:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 @media (width <=999px) {
