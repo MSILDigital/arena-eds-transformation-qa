@@ -55,7 +55,6 @@ main {
   inset: 0;
   z-index: 2;
   text-align: center;
-
   color: #fff;
   font-feature-settings: "clig" off, "liga" off;
   font-family: var(--primary-font-arena);
@@ -351,16 +350,15 @@ main {
     height: calc(20% + 90px);
     padding-bottom: inherit;
     padding-top: inherit;
-    background: rgb(173, 182, 188);
+    background: rgb(173 182 188);
     background: linear-gradient(
       180deg,
-      rgba(173, 182, 188, 0) 0%,
-      rgba(149, 160, 168, 0.5) 15%,
-      rgba(119, 132, 143, 1) 30%,
-      rgba(173, 182, 188, 1) 65%,
-      rgba(254, 254, 254, 1) 100%
+      rgb(173 182 188 / 0%) 0%,
+      rgb(149 160 168 / 50%) 15%,
+      rgb(119 132 143 / 100%) 30%,
+      rgb(173 182 188 / 100%) 65%,
+      rgb(254 254 254 / 100%) 100%
     );
-
     margin-top: -90px;
   }
 }
@@ -377,7 +375,7 @@ main {
     height: auto;
   }
 } */
-@media only screen and (min-height >= 700px) {
+@media only screen and (height <= 700px) {
   .hero__banner {
     height: 700px;
   }

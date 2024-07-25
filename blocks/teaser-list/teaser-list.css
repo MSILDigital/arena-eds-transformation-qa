@@ -50,7 +50,7 @@
 
 .teaser-list-container .teaser__list-container div:first-child .teaser__card .teaser__content .teaser__pretitle * {
   color: #575A5E;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -60,12 +60,12 @@
 
 .teaser-list-container .teaser__list-container div:first-child .teaser__card .teaser__content .teaser__description * {
   color: #01044B;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 1.625rem;
   font-style: normal;
   font-weight: 500;
   line-height: 1.625rem;
-  margin: 0.5rem 0rem;
+  margin: 0.5rem 0;
 }
 
 .teaser-list-container .teaser__list-container div:first-child .teaser__card .teaser__content .teaser__actions a {
@@ -78,7 +78,7 @@
   gap: 0.625rem;
   background: #171D9B;
   color: #fff;
-  font-family: Roboto;
+  font-family: var(--body-font-arena);
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
@@ -96,7 +96,7 @@
   gap: 0.625rem;
   background: #fff;
   color: #171D9B;
-  font-family: Roboto;
+  font-family: var(--body-font-arena);
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
@@ -106,7 +106,7 @@
 
 .teaser-list-container .teaser__list-container div:last-child .teaser__card .teaser__content .teaser__description * {
   color: #FFF;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 2rem;
   font-style: normal;
   font-weight: 500;
@@ -131,7 +131,6 @@
 }
 
 @media (width >=999px) {
-
   .teaser-list-container {
     padding-top: 8.75rem;
     padding-bottom: 8.75rem;
