@@ -6,4 +6,9 @@
   @media (width >=768px) {
     justify-content: start;
   }
+
+  picture {
+    display: flex;
+    align-items: center;
+  }
 }
