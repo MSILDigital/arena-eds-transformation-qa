@@ -420,6 +420,6 @@ main {
 
 @media (width < 999px) {
   .car-detail-feature.feature-performance.container .feature__content .cta__actions .button-primary-light {
-    color: #000000;
+    color: #000;
   }
 }
