@@ -118,6 +118,7 @@ export default async function decorate(block) {
       .insertAdjacentElement('afterbegin', locationHtml);
   }
   block.append(navWrapper);
+  document.documentElement.classList.remove('no-scroll');
   const navHamburger = document.querySelector('.nav-hamburger');
   const backArrow = document.querySelector('.back-arrow');
   const closeIcon = document.querySelector('.close-icon');
