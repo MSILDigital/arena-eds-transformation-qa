@@ -49,7 +49,7 @@ export default async function decorate(block) {
 
   const carsObject = carResponse?.data?.carModelList?.items?.reduce(
     (acc, car) => {
-      acc[car.modelId] = car;
+      acc[car.modelCd] = car;
       return acc;
     },
     {},
@@ -100,7 +100,7 @@ export default async function decorate(block) {
       ] = element.children;
 
       const carObjectItem = carsObject[modelId.textContent];
-      const modelCode = carObjectItem?.modelId;
+      const modelCode = carObjectItem?.modelCd;
       const exShowroomPrice = exShowroomPrices
         ? priceFormatting(
           exShowroomPrices[modelCode]?.price[forCode],
@@ -127,7 +127,7 @@ export default async function decorate(block) {
           <div class="sidebar-container">
             <img
               src=${carObjectItem?.carImage?._publishUrl || ''}
-              alt=${carObjectItem?.carName || ''}
+              alt=${carObjectItem?.modelDesc || ''}
               class="sidebar-car--image"
             />
             <div class="sidebar">
@@ -137,7 +137,7 @@ export default async function decorate(block) {
                 </div>
                 <img
                   src=${carObjectItem?.carLogoImage?._publishUrl || ''}
-                  alt=${carObjectItem?.carName || ''}
+                  alt=${carObjectItem?.modelDesc || ''}
                   class="sidebar-car--logo"
                 />
                   <span><strong>${carObjectItem?.bodyType}</strong> | ${

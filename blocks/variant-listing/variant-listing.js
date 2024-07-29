@@ -24,7 +24,7 @@ export default async function decorate(block) {
     secondaryCtaTargetEl,
   ] = block.children;
   const forCode = '48';
-  const graphQlEndpoint = `${publishDomain}/graphql/execute.json/msil-platform/arenaVariantList;modelId=${
+  const graphQlEndpoint = `${publishDomain}/graphql/execute.json/msil-platform/arenaVariantList;modelCd=${
     modelIdEl.querySelector('p').textContent
   }`;
   const requestOptions = {
@@ -35,7 +35,7 @@ export default async function decorate(block) {
   };
   await fetchCar(graphQlEndpoint, requestOptions)
     .then((response) => {
-      itemArray = [...response.data.variantList.items];
+      itemArray = [...response.data.carVariantList.items];
       filterArray = [...itemArray];
     })
     .catch(() => {});
@@ -89,16 +89,16 @@ export default async function decorate(block) {
 
       itemHtml += `<div class="variant__card">
         <div class="variant__image">
-            <img alt="${item.variantName}" src="${publishDomain}${
+            <img alt="${item.variantDesc}" src="${publishDomain}${
   item.variantImage._dynamicUrl
 }" />
         </div>
         <div class="variant__content">
             <div class="variant__title">
-                <p>${item.variantName}</p>
+                <p>${item.variantDesc}</p>
             </div>
             <div class="variant__description">
-                <p>${item.mileageValue} Km/L | ${item.highlightFeatures.join(
+                <p>${item.fuelEfficiency} | ${item.highlightFeatures.join(
   ' | ',
 )}</p>
             </div>
