@@ -188,9 +188,10 @@ main {
 }
 
 /* button style override */
-.button-primary-light {
+.button.button-primary-light {
   background-color: inherit;
   border: inherit;
+  padding-left: 25px;
 }
 
 .button-primary-light:hover {
@@ -361,19 +362,19 @@ main {
     align-items: flex-end;
   }
 
-  .button-primary-light {
+  .button.button-primary-light {
     background-color: var(--primary-blue-700);
     color: var(--secondary-white);
     border: 1px solid var(--primary-blue-700);
   }
 
-  .button-primary-light:hover {
+  .button.button-primary-light:hover {
     color: var(--primary-blue-700);
     background-color: var(--secondary-white);
     border: 1px solid var(--primary-blue-700);
   }
 
-  .button-primary-light::before {
+  .button.button-primary-light::before {
     display: none;
   }
 
