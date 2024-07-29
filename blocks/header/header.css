@@ -553,9 +553,11 @@ body {
   padding: 14px 12px;
   color: #575a5e;
 }
+
 .no-scroll {
   overflow: hidden;
 }
+
 @media (width >= 999px) {
   .navbar-arena .panel {
     background-color: #f4f4f4;
