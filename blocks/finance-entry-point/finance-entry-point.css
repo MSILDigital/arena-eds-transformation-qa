@@ -1,9 +1,9 @@
-.finance-entry-point {
+.finance-entry-point-wrapper {
     background: #F7F7F7;
 }
 
 .finance-entry-point .teaser-content .teaser__card {
-    padding: 25px 20px;
+    padding: 40px 20px;
 }
 
 .finance-entry-point .teaser-content .teaser__card .teaser__image {
@@ -35,7 +35,7 @@
 }
 
 .finance-entry-point .teaser-content .teaser__cards .teaser__card:not(:last-child) {
-    border-bottom: 0.2px solid #000;
+    border-bottom: 1px solid rgb(0 0 0 / 20%);
 }
 
 .finance-entry-point .teaser-content .teaser__card .teaser__content .teaser__actions a {
@@ -61,13 +61,15 @@
         display: flex;
     }
 
-    .finance-entry-point .teaser-content .teaser__cards .teaser__card {
-        padding: 45px 64px;
+    .finance-entry-point .teaser-content .teaser__card {
+        padding: 60px 117px 45px 20px;
+        flex: 1;
+        min-width: 0;
     }
 
     .finance-entry-point .teaser-content .teaser__cards .teaser__card:not(:last-child) {
         border-bottom: none;
-        border-right: .1px solid #000;
+        border-right: 1px solid rgb(0 0 0 / 20%);
 
     }
 
@@ -88,5 +90,11 @@
         font-size: 14px;
         font-weight: 300;
         line-height: 20px;
+    }
+}
+
+@media (width <= 999px) {
+    .finance-entry-point.container {
+        padding: 0;
     }
 }

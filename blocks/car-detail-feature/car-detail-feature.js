@@ -116,6 +116,9 @@ export default async function decorate(block) {
                  `),
   );
   block.classList.add('container');
+  if (featureType === 'feature-interior') {
+    block.classList.add('brandlink');
+  }
 
   const pareformanceContainer = document.querySelector('.feature-performance')?.parentElement?.parentElement;
   pareformanceContainer?.classList.add('feature-performance-section');
