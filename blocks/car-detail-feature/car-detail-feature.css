@@ -593,4 +593,8 @@ main {
     .button-primary-light {
     color: #000;
   }
+
+  .car-detail-feature.feature-interior .feature__title h2 {
+    max-width: 224px;
+  }
 }
