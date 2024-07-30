@@ -133,7 +133,7 @@ export default async function decorate(block) {
              `),
     );
   }
-  const graphQlEndpoint = `${publishDomain}/graphql/execute.json/msil-platform/carDetailBanner;modelId=${modelId}`;
+  const graphQlEndpoint = `${publishDomain}/graphql/execute.json/msil-platform/carDetailBanner;modelCd=${modelId}`;
   fetch(graphQlEndpoint, requestOptions)
     .then((response) => response.json())
     .then((result) => {
