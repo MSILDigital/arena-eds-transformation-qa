@@ -242,17 +242,23 @@
   }
 
   .container__slider .nav-arrow.prev {
+    background-image: url("../../icons/slider-arrow-left-white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     left: 10px;
     top: calc(50% - 40px);
-    background: var(--blue, #171c8f);
+    background-color: var(--blue, #171c8f);
     height: 60px;
     width: 60px;
     font-size: 25px;
   }
 
   .container__slider .nav-arrow.next {
+    background-image: url("../../icons/slider-arrow-right-white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     top: calc(50% - 40px);
-    background: var(--blue, #171c8f);
+    background-color: var(--blue, #171c8f);
     height: 60px;
     width: 60px;
     font-size: 25px;

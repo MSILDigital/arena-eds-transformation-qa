@@ -21,8 +21,8 @@ export default function decorate(block) {
             </div>
             <div class="teaser-content">
                 <div class="button__content">
-                <button class="nav-arrow prev hide">←</button>
-                <button class="nav-arrow next">→</button>
+                <button class="nav-arrow prev hide"></button>
+                <button class="nav-arrow next"></button>
                 </div>
                 <div class="teaser__cards">
                      ${teasers.join('')}
@@ -37,5 +37,5 @@ export default function decorate(block) {
   const prevButton = block.querySelector('.prev');
   const nextButton = block.querySelector('.next');
   const boxes = block.querySelectorAll('.teaser__card');
-  slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 3, 1);
+  slider.initSlider(sliderContainer, prevButton, nextButton, boxes, 3, 1, 'hide', 'default', true);
 }

@@ -8,6 +8,7 @@ const slider = {
     noOfSlideMobile = 1,
     hideClass = 'hide',
     type = 'default',
+    blur = false,
   ) {
     function calculateVisibleBoxes() {
       const width = window.innerWidth;
@@ -32,11 +33,22 @@ const slider = {
     }
     let currentIndex = 0;
     // Calculate the number of visible boxes based on the window width
+    const blurCards = () => {
+      boxes.forEach((el, index) => {
+        el.style.opacity = 0.3;
+        if (index >= currentIndex && index <= currentIndex + 2) {
+          el.style.opacity = 1;
+        }
+      });
+    };
 
     const updateSlider = () => {
       const boxWidth = boxes[0].offsetWidth;
       const offset = -currentIndex * boxWidth;
       sliderContainer.style.transform = `translateX(${offset}px)`;
+      if (blur) {
+        blurCards();
+      }
     };
 
     prevButton.addEventListener('click', () => {
