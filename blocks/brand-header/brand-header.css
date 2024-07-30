@@ -2,25 +2,7 @@
     display: flex;
     position: relative;
     overflow: hidden;
-    width: 100%;
     background-color: #fff;
-}
-
-.brand-header__logo {
-    border-bottom: 1px solid rgb(0 0 0 / 20%);
-    border-top: 1px solid rgb(0 0 0 / 20%);
-}
-
-.brand-header-wrapper .brand-header .brand-header-container .brand-header__items {
-    align-items: center;
-}
-
-.brand-header-wrapper .brand-header .brand-header-container .brand-header__items,
-.brand-header-wrapper .brand-header .brand-header-container .brand-header__content {
-    display: flex;
-}
-
-.brand-header-wrapper .brand-header .brand-header-container .brand-header__content {
     width: 100%;
     overflow-x: auto;
     white-space: nowrap;
@@ -31,6 +13,12 @@
     justify-content: space-between;
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+
+.brand-header-wrapper .brand-header .brand-header-container .brand-header__items {
+    align-items: center;
+    display: flex;
 }
 
 .brand-header-wrapper .brand-header .brand-header-container .brand-header__logo {
@@ -75,7 +63,7 @@
     z-index: 1000;
 }
 
-.brand-header-wrapper .brand-header .brand-header-container .brand-header__content::-webkit-scrollbar {
+.brand-header-wrapper .brand-header .brand-header-container::-webkit-scrollbar {
     display: none;
 }
 
@@ -105,6 +93,10 @@
 }
 
 @media (width >=999px) {
+    .brand-header-wrapper .brand-header .brand-header-container.container {
+        justify-content: space-between;
+    }
+
     .brand-header-wrapper .brand-header .brand-header-container .brand-header__logo {
         max-width: 120px;
         height: auto;
@@ -123,7 +115,16 @@
         font-weight: 700;
     }
 
-    .brand-header-wrapper .brand-header .brand-header-container .brand-header__content {
-        padding: 20px 0 20px 200px;
+    .brand-header-wrapper .brand-header .brand-header-container {
+        margin: 0 64px;
+        padding: 20px 0;
+        width: auto;
+    }
+
+    .brand-header-wrapper .brand-header .brand-header-container.sticky {
+        margin: 0;
+        width: 100%;
+        padding-right: 64px;
+        padding-left: 64px;
     }
 }

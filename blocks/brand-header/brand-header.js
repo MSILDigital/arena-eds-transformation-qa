@@ -65,18 +65,18 @@ export default async function decorate(block) {
   block.insertAdjacentHTML(
     'beforeend',
     utility.sanitizeHtml(`
-                   <div class="brand-header-container container">
+                   <div class="brand-header-container">
                        ${
   image
     ? `<div class="brand-header__logo">${image.outerHTML}</div>`
     : ''
 }
-                       <div class="brand-header__content">
+                       
                             <div class="brand-header__items">
                                 ${headerItemsHtml}
                             </div>
                        ${ctaHtml}
-                       </div>
+                      
                    </div>
              `),
   );
