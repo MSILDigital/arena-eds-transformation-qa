@@ -24,11 +24,11 @@ export default function decorate(block) {
 
   const newDiv = document.createElement('div');
   newDiv.className = 'bottom__image';
-  const teaserCard = document.querySelector('.teaser__card');
-  const teaserContent = document.querySelector('.teaser__content');
+  const teaserCard = block?.querySelector('.teaser__card');
+  const teaserContent = block?.querySelector('.teaser__content');
   teaserCard.insertBefore(newDiv, teaserContent);
 
-  const buttons = document.querySelectorAll('.primary__btn');
+  const buttons = block?.querySelectorAll('.primary__btn');
 
   buttons.forEach((button) => {
     button.classList.remove('primary__btn');
