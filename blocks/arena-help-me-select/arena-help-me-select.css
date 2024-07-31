@@ -1,5 +1,5 @@
 .arena-help-me-select-wrapper .arena-help-me-select.container .teaser-content {
-    background: linear-gradient(228deg, rgba(23, 29, 155, 0.10) 31.52%, rgba(255, 98, 0, 0.10) 111.9%);
+    background: linear-gradient(228deg, rgb(23 29 155 / 10%) 31.52%, rgb(255 98 0 / 10%) 111.9%);
 }
 
 .arena-help-me-select-wrapper .arena-help-me-select.container .teaser-content .teaser__title {
@@ -10,8 +10,7 @@
 
 .arena-help-me-select-wrapper .arena-help-me-select.container .teaser-content .teaser__title h2 {
     color: #1D1D1D;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: "Anek Latin";
+    font-family: var(--primary-font-arena);
     font-size: 34px;
     font-style: normal;
     font-weight: 600;
@@ -26,14 +25,13 @@
 
 .arena-help-me-select-wrapper .arena-help-me-select.container .teaser-content .teaser__info .teaser__pretitle p {
     display: flex;
-    padding: 3px 10px 2px 10px;
+    padding: 3px 10px 2px;
     justify-content: center;
     align-items: center;
     gap: 5px;
     color: #FFF;
     text-align: center;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Roboto;
+    font-family: var(--body-font-arena);
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -54,7 +52,7 @@
 
 .arena-help-me-select-wrapper .arena-help-me-select.container .teaser-content .teaser__info .teaser__description p {
     color: #575A5E;
-    font-family: "Anek Latin";
+    font-family: var(--primary-font-arena);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -73,7 +71,6 @@
 }
 
 .arena-help-me-select-wrapper .arena-help-me-select.container .teaser-content .teaser__card .bottom__image {
-    position: absolute;
     background-image: url("/icons/helpselect-ellipse-white.svg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -91,7 +88,7 @@
     position: relative;
 }
 
-@media (min-width: 999px) {
+@media (width >=999px) {
     .arena-help-me-select-wrapper .arena-help-me-select.container .teaser-content .teaser__card {
         flex-direction: row-reverse;
         padding: 82px 0 60px 84px;
@@ -112,7 +109,7 @@
 
     .arena-help-me-select-wrapper .arena-help-me-select.container .teaser-content .teaser__info .teaser__description p {
         color: #575A5E;
-        font-family: "Anek Latin";
+        font-family: var(--primary-font-arena);
         font-size: 20px;
         font-weight: 400;
         line-height: 33px;
@@ -134,7 +131,7 @@
     }
 }
 
-@media (max-width: 999px) {
+@media (width <=999px) {
     .arena-help-me-select-wrapper .arena-help-me-select.container {
         padding: 0;
     }
@@ -148,7 +145,7 @@
     }
 
     .arena-help-me-select-wrapper .arena-help-me-select.container .teaser-content .teaser__content {
-        padding: 58px 20px 0 20px;
+        padding: 58px 20px 0;
     }
 
     .arena-help-me-select-wrapper .arena-help-me-select.container .teaser-content .teaser__actions {

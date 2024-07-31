@@ -9,7 +9,8 @@ main {
 
 .car-detail-banner-container {
   position: relative;
-  height: 110%;
+  height: 100%;
+  margin-top: 60px;
 }
 
 .car-detail-banner-wrapper {
@@ -55,8 +56,6 @@ main {
   inset: 0;
   z-index: 2;
   text-align: center;
-  padding-top: 6%;
-  padding-bottom: 4%;
   color: #fff;
   font-feature-settings: "clig" off, "liga" off;
   font-family: var(--primary-font-arena);
@@ -217,6 +216,10 @@ main {
 }
 
 @media (width >= 999px) {
+  .car-detail-banner-container {
+    margin-top: 80px;
+  }
+
   .banner__carDescription,
   .banner__testDriveText,
   .banner__scrollMoreText {
@@ -237,6 +240,7 @@ main {
   .banner__carLogoImage img {
     position: absolute;
     left: -10%;
+    bottom: -100px;
     opacity: 0.5;
     width: 125%;
   }
@@ -304,7 +308,6 @@ main {
   }
 
   .banner__content .banner__info {
-    padding-bottom: 10%;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto;
   }
@@ -352,16 +355,15 @@ main {
     height: calc(20% + 90px);
     padding-bottom: inherit;
     padding-top: inherit;
-    background: rgb(173, 182, 188);
+    background: rgb(173 182 188);
     background: linear-gradient(
       180deg,
-      rgba(173, 182, 188, 0) 0%,
-      rgba(149, 160, 168, 0.5) 15%,
-      rgba(119, 132, 143, 1) 30%,
-      rgba(173, 182, 188, 1) 65%,
-      rgba(254, 254, 254, 1) 100%
+      rgb(173 182 188 / 0%) 0%,
+      rgb(149 160 168 / 50%) 15%,
+      rgb(119 132 143 / 100%) 30%,
+      rgb(173 182 188 / 100%) 65%,
+      rgb(254 254 254 / 100%) 100%
     );
-
     margin-top: -90px;
   }
 }
@@ -373,6 +375,21 @@ main {
   .car-detail-banner-container {
     height: auto;
   }
+  .car-detail-banner-wrapper,
+  .car-detail-banner {
+    height: auto;
+  }
+} */
+
+/* @media only screen and (height <= 700px) {
+  .hero__banner {
+    height: 700px;
+  }
+
+  .car-detail-banner-container {
+    height: auto;
+  }
+
   .car-detail-banner-wrapper,
   .car-detail-banner {
     height: auto;

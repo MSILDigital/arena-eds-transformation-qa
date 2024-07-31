@@ -4,6 +4,12 @@
   padding-top: 40px;
 }
 
+.cta__container .button-secondary-light:hover {
+  color: var(--secondary-white);
+  background-color: var(--primary-blue-700);
+  border: 1px solid var(--primary-blue-700);
+}
+
 .section.slider-container {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -258,10 +264,12 @@
     font-size: 14px;
     line-height: 19.6px;
     border-bottom: 1px solid;
-    border-image-source: linear-gradient(90deg,
-        rgb(0 0 0 / 0%) 0%,
-        #000 50.5%,
-        rgb(0 0 0 / 0%) 100%);
+    border-image-source: linear-gradient(
+      90deg,
+      rgb(0 0 0 / 0%) 0%,
+      #000 50.5%,
+      rgb(0 0 0 / 0%) 100%
+    );
     border-image-slice: 1;
   }
 

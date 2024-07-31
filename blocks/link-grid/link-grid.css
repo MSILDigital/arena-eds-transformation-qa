@@ -12,7 +12,7 @@
 }
 
 .link-grid-column h3 {
-  font-family: "var(--body-font-arena)", sans-serif;
+  font-family: var(--body-font-arena);
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
@@ -43,7 +43,7 @@
 
 .link-grid-column .links-container li a {
   display: inline-block;
-  font-family: "var(--body-font-arena)", sans-serif;
+  font-family: var(--body-font-arena);
   font-size: 14px;
   font-weight: 400;
   font-style: normal;
@@ -87,13 +87,13 @@ ul {
   color: black;
 }
 
-@media (width >= 768px) {
+@media (width >=768px) {
   .link-grid-column .links-container {
     gap: 8px;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >=1024px) {
   .link-container-section {
     display: flex;
     justify-content: space-between;
@@ -105,7 +105,7 @@ ul {
 /* arena css start */
 .navbar-arena .link-grid-column h3 {
   color: var(--secondary-gray-800);
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -114,7 +114,7 @@ ul {
 
 .navbar-arena .link-grid-column .links-container li a {
   color: var(--secondary-gray-800) !important;
-  font-family: "Anek Latin";
+  font-family: var(--primary-font-arena);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

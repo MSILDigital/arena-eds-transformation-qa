@@ -28,4 +28,7 @@ export default function decorate(block) {
     button.classList.remove('primary__btn');
     button.classList.add('button');
   });
+
+  const financePoint = document?.querySelector('.finance-entry-point');
+  financePoint.classList.add('container');
 }

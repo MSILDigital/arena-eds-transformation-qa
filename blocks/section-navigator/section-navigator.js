@@ -1,4 +1,5 @@
 export default function decorate(block) {
+  let showSectionDot = false;
   const sectionsCount = document.querySelectorAll('.overview-section').length;
 
   const nav = document.createElement('nav');
@@ -25,10 +26,21 @@ export default function decorate(block) {
 
   window.addEventListener('scroll', () => {
     let currentIndex = 0;
+
     sections.forEach((section, index) => {
       const rect = section.getBoundingClientRect();
-      if (rect.top >= 0 && rect.top < window.innerHeight) {
+      if (document.querySelectorAll('.brand-header-container')[1].classList.contains('sticky') && rect.top > 0) {
+        showSectionDot = true;
+        dotsContainer.style.display = 'block';
+      } else {
+        dotsContainer.style.display = 'none';
+        showSectionDot = false;
+      }
+      if ((rect.top - 66 < 0 && rect.bottom >= 0) && ((rect.top + 66) < window.innerHeight)) {
         currentIndex = index;
+      } else if (rect.top < 0) {
+        currentIndex = sections.length - 1;
+        showSectionDot = false;
       }
     });
     activateDot(currentIndex);
@@ -40,10 +52,12 @@ export default function decorate(block) {
   });
   sections.forEach((section) => {
     section.addEventListener('mouseover', () => {
-      dotsContainer.style.opacity = '1';
+      if (showSectionDot) {
+        dotsContainer.style.display = 'block';
+      }
     });
     section.addEventListener('mouseout', () => {
-      dotsContainer.style.opacity = '0';
+      dotsContainer.style.display = 'none';
     });
   });
 }

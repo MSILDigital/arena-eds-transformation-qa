@@ -50,7 +50,7 @@
   bottom: 3px;
 }
 
-.header-wrapper .navbar.navbar-arena.sticky {
+.header-wrapper.sticky {
   position: fixed;
   top: 0;
   width: 100%;
@@ -85,7 +85,7 @@
   color: #575a5e;
   cursor: pointer;
   font-size: 14px;
-  font-family: "var(--body-font-arena)";
+  font-family: var(--body-font-arena);
   height: -webkit-fill-available;
   display: flex;
   align-items: center;
@@ -103,7 +103,7 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
-  font-family: "var(--body-font-arena)";
+  font-family: var(--body-font-arena);
   height: -webkit-fill-available;
   display: flex;
   align-items: center;
@@ -235,7 +235,7 @@ body {
 
 .menu .menu-list li .menu-title {
   font-size: 14px;
-  font-family: "var(--body-font-arena)";
+  font-family: var(--body-font-arena);
 }
 
 .menu-title-clicked {
@@ -299,7 +299,7 @@ body {
 
   .car-text {
     color: #fff;
-    font-family: "var(--body-font-arena)";
+    font-family: var(--body-font-arena);
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -400,7 +400,7 @@ body {
   .panel .teaser__pretitle p,
   .panel .teaser__title h3,
   .panel .teaser__actions a {
-    font-family: "var(--body-font-arena)";
+    font-family: var(--body-font-arena);
   }
 
   .panel .link-grid-column .links-container,
@@ -512,6 +512,13 @@ body {
     background-color: var(--nav-background-color);
   }
 
+  .navbar-arena .desktop-panel.panel.cars {
+    position: fixed;
+    top: var(--nav-height);
+    bottom: 0;
+    height: 100%;
+  }
+
   .arena.panel .link-grid-column .links-container {
     flex-direction: row;
     gap: 56px;
@@ -547,6 +554,10 @@ body {
   color: #575a5e;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 @media (width >= 999px) {
   .navbar-arena .panel {
     background-color: #f4f4f4;
@@ -559,6 +570,14 @@ body {
 
   .navbar-arena .panel .link-grid {
     flex-basis: 100%;
+  }
+
+  .navbar-arena .card-list-teaser {
+    padding-bottom: 40px;
+  }
+
+  .navbar-arena .card-list-teaser .card-list {
+    overflow-y: scroll;
   }
 
   .navbar-arena .panel .links-container {

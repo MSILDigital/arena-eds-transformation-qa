@@ -123,7 +123,7 @@ h6 {
 
 p {
   font-family: var(--body-font-arena);
-  font-size: 12px;
+  font-size: 0.8rem;
   font-style: normal;
   font-weight: 400;
   line-height: 16px; /* 133.333% */
@@ -170,7 +170,7 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"] {
   display: inline-flex;
-  padding: 7px 36px;
+  padding: 0.5rem 0.8rem;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -178,10 +178,10 @@ input[type="reset"] {
 
   /* text-align: center; */
   font-family: var(--body-font-arena);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px; /* 128.571% */
+  line-height: 1.125rem; /* 128.571% */
 
   /* text-transform: uppercase; */
   transition: all 0.3s linear;
@@ -458,6 +458,19 @@ input[type="reset"] {
     font-size: 16px;
     line-height: 24px; /* 133.333% */
   }
+
+  .button,
+a.button,
+button.button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  padding: 0.5rem 1rem;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.1rem; /* 128.571% */
+}
 }
 
 /*
