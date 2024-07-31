@@ -4,7 +4,7 @@ import { fetchPlaceholders } from '../../scripts/aem.js';
 
 async function fetchCar(domain) {
   const car = await fetch(
-    `${domain}/graphql/execute.json/msil-platform/arenaPerformance?modelId=VB`,
+    `${domain}/graphql/execute.json/msil-platform/arenaPerformance?modelCd=VB`,
   );
   return car.json();
 }
@@ -13,12 +13,12 @@ function generateVariantList(carData) {
   if (!carData || !carData.data) {
     return '';
   }
-  const variantItems = carData.data.variantList.items.slice(0, 3)
+  const variantItems = carData.data.carVariantList.items.slice(0, 3)
     .map(
       (car) => `
       <li>
-        <p>${car.variantName}</p>
-        <p>${car.mileageValue}</p>
+        <p>${car.variantDesc}</p>
+        <p>${car.fuelEfficiency}</p>
       </li>
     `,
     )
@@ -116,6 +116,9 @@ export default async function decorate(block) {
                  `),
   );
   block.classList.add('container');
+  if (featureType === 'feature-interior') {
+    block.classList.add('brandlink');
+  }
 
   const pareformanceContainer = document.querySelector('.feature-performance')?.parentElement?.parentElement;
   pareformanceContainer?.classList.add('feature-performance-section');

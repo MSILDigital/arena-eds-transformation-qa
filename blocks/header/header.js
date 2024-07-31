@@ -10,6 +10,7 @@ function toggleMenu() {
 
 function toggleCarMenu() {
   document.getElementById('carFilterMenu').classList.toggle('hidden');
+  document.documentElement.classList.toggle('no-scroll');
 }
 
 function toggleUserDropdown() {
@@ -117,6 +118,7 @@ export default async function decorate(block) {
       .insertAdjacentElement('afterbegin', locationHtml);
   }
   block.append(navWrapper);
+  document.documentElement.classList.remove('no-scroll');
   const navHamburger = document.querySelector('.nav-hamburger');
   const backArrow = document.querySelector('.back-arrow');
   const closeIcon = document.querySelector('.close-icon');
@@ -148,6 +150,23 @@ export default async function decorate(block) {
       'panel',
       el.heading?.split(' ')[0].toLowerCase(),
     );
+
+    linkTitle.addEventListener('mouseenter', () => {
+      document.documentElement.classList.add('no-scroll');
+    });
+
+    linkTitle.addEventListener('mouseleave', () => {
+      document.documentElement.classList.remove('no-scroll');
+    });
+
+    desktopPanel.addEventListener('mouseenter', () => {
+      document.documentElement.classList.add('no-scroll');
+    });
+
+    desktopPanel.addEventListener('mouseleave', () => {
+      document.documentElement.classList.remove('no-scroll');
+    });
+
     if (el.content) desktopPanel.append(el.content);
     if (el.teaser) desktopPanel.append(el.teaser);
     linkEl.append(linkTitle, desktopPanel);

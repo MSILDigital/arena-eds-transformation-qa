@@ -65,28 +65,30 @@ export default async function decorate(block) {
   block.insertAdjacentHTML(
     'beforeend',
     utility.sanitizeHtml(`
-                   <div class="brand-header-container container">
+                   <div class="brand-header-container">
                        ${
   image
     ? `<div class="brand-header__logo">${image.outerHTML}</div>`
     : ''
 }
-                       <div class="brand-header__content">
+                       
                             <div class="brand-header__items">
                                 ${headerItemsHtml}
                             </div>
                        ${ctaHtml}
-                       </div>
+                      
                    </div>
              `),
   );
 
+  const sectionNames = [];
   const links = document.querySelectorAll('.brand-header__title');
 
   function activeHandler() {
     links.forEach((l) => l.classList.remove('active'));
     this.classList.add('active');
     const targetClass = this.getAttribute('name');
+    sectionNames.push(targetClass);
     const targetElement = targetClass
       ? document.querySelector(`.${targetClass}`)
       : null;
@@ -104,11 +106,13 @@ export default async function decorate(block) {
     if (index === 0) {
       link.classList.add('active');
     }
+    sectionNames.push(link.getAttribute('name'));
   });
 
   let sticky;
-  let navbar; let
-    mainHeader;
+  let navbar;
+  let mainHeader; let sections; let
+    currentIndex;
 
   // sticky brand header
 
@@ -122,12 +126,34 @@ export default async function decorate(block) {
     }
   }
 
-  window.onscroll = stickyHandler;
+  function updateActiveLink() {
+    sections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top < window.innerHeight) {
+        currentIndex = index;
+      }
+    });
+  }
+
+  function activateDot() {
+    links.forEach((l) => l.classList.remove('active'));
+    if (links[currentIndex]) {
+      links[currentIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    currentIndex = 0;
+    stickyHandler();
+    updateActiveLink();
+    activateDot();
+  });
 
   setTimeout(() => {
     navbar = block?.querySelector('.brand-header-container');
     mainHeader = document.querySelector('.header-wrapper');
     mainHeader?.classList?.add('sticky');
     sticky = navbar?.getBoundingClientRect().top;
+    sections = document.querySelectorAll('.brandlink');
   }, 3000);
 }
