@@ -188,19 +188,21 @@ main {
 }
 
 /* button style override */
-.button.button-primary-light {
+.car-detail-feature-container .button-primary-light {
   background-color: inherit;
   border: inherit;
-  padding-left: 25px;
+  padding-left: 1.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
-.button-primary-light:hover {
+.car-detail-feature-container .button-primary-light:hover {
   background-color: inherit;
   border: inherit;
   color: var(--secondary-white);
 }
 
-.button-primary-light::before {
+.car-detail-feature-container .button-primary-light::before {
   content: "";
   position: absolute;
   height: 24px;
@@ -362,19 +364,21 @@ main {
     align-items: flex-end;
   }
 
-  .button.button-primary-light {
+  .car-detail-feature-container .button-primary-light {
     background-color: var(--primary-blue-700);
     color: var(--secondary-white);
     border: 1px solid var(--primary-blue-700);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
 
-  .button.button-primary-light:hover {
+  .car-detail-feature-container .button-primary-light:hover {
     color: var(--primary-blue-700);
     background-color: var(--secondary-white);
     border: 1px solid var(--primary-blue-700);
   }
 
-  .button.button-primary-light::before {
+  .car-detail-feature-container .button-primary-light::before {
     display: none;
   }
 
@@ -413,6 +417,17 @@ main {
     .feature__content {
     padding-top: 50px;
     display: block;
+  }
+
+  .car-detail-feature
+    .feature__card
+    .feature__content
+    .feature__info
+    .feature__description
+    p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.3rem;
   }
 
   .car-detail-feature.feature-performance.container
@@ -552,7 +567,7 @@ main {
     p {
     color: #000;
     text-align: center;
-    font-size: 14px;
+    font-size: 0.9rem;
     font-weight: 300;
     line-height: 20px;
   }
