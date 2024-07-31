@@ -11,7 +11,7 @@
   align-items: center;
   gap: 12px;
   color: var(--Primary-Main, #18171a);
-  font-family: "var(--body-font-arena)";
+  font-family: var(--body-font-arena);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -108,7 +108,7 @@
 
 .sign-in-teaser__desc-content h4 {
   color: var(--Primary-Main, #18171a);
-  font-family: "var(--body-font-arena)";
+  font-family: var(--body-font-arena);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -118,7 +118,7 @@
 
 .sign-in-teaser__desc-content p {
   color: #4a4a4a;
-  font-family: "var(--body-font-arena)";
+  font-family: var(--body-font-arena);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -128,7 +128,7 @@
 
 .sign-in-teaser--link {
   color: var(--Primary-Main, #18171a);
-  font-family: "var(--body-font-arena)";
+  font-family: var(--body-font-arena);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
