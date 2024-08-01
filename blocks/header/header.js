@@ -111,7 +111,6 @@ export default async function decorate(block) {
     </div>
   `;
   const navWrapper = document.createElement('div');
-  navWrapper.classList.add('nav-wrapper');
   navWrapper.innerHTML = desktopHeader + mobileHeader;
   if (locationHtml) {
     navWrapper
