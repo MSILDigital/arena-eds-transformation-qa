@@ -30,7 +30,7 @@
 
 .link-grid-column .links-container li {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 0;
 }
 
 .blackGrid .link-grid-column a {
@@ -89,7 +89,7 @@ ul {
 
 @media (width >=768px) {
   .link-grid-column .links-container {
-    gap: 8px;
+    gap: 0;
   }
 }
 
