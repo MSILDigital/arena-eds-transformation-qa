@@ -166,13 +166,20 @@
 
 .container__slider .cta__container a {
   width: fit-content;
+  background-color: inherit;
+}
+
+.container__slider .cta__container a:hover {
+  border: 0;
+  background: none;
+  color: #000;
 }
 
 .container__slider .cta__container a::before {
   content: "\25B6";
   position: absolute;
-  top: 15%;
-  left: 15px;
+  top: 7px;
+  left: 0;
 }
 
 .nav-arrow_variant.next_variant,
@@ -293,7 +300,30 @@
   }
 
   .container__slider .cta__container a {
-    padding: 12px 16px;
+    background-color: var(--primary-blue-700);
+    color: var(--secondary-white);
+    border: 1px solid var(--primary-blue-700);
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .container__slider .cta__container a:hover {
+    color: var(--primary-blue-700);
+    background-color: var(--secondary-white);
+    border: 1px solid var(--primary-blue-700);
+  }
+
+  .container__slider .cta__container a.button-secondary-light {
+    color: var(--primary-blue-700);
+    background-color: var(--secondary-white);
+    border: 1px solid var(--primary-blue-700);
+    text-transform: uppercase;
+  }
+
+  .container__slider .cta__container a.button-secondary-light:hover {
+    color: var(--secondary-white);
+    background-color: var(--primary-blue-700);
+    border: 1px solid var(--primary-blue-700);
     text-transform: uppercase;
   }
 

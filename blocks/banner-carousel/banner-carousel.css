@@ -163,7 +163,7 @@ input[type="radio"]:checked {
 }
 
 .sidebar-car--image {
-  width: 14rem;
+  width: 16rem;
   height: 9rem;
   margin: 20px 0;
   transition: transform 0.3s ease-in-out;
@@ -342,6 +342,7 @@ input[type="radio"]:checked {
 
   .sidebar {
     background-color: transparent;
+    width: 400px;
   }
 
   .buttons {
@@ -381,7 +382,7 @@ input[type="radio"]:checked {
   }
 
   .car-container.highlight .sidebar-car--image {
-    transform: scale(2) translateX(20px) translateY(-5px);
+    transform: scale(2) translateX(40px) translateY(-5px);
   }
 
   .sidebar .sidebar-car--logo {
