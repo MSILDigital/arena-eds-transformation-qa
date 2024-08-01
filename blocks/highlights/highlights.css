@@ -55,7 +55,8 @@
 .highlight__pretitle p {
   font-family: var(--primary-font-arena);
   font-size: 16px;
-  line-height: 20px; /* 125% */
+  line-height: 20px;
+  /* 125% */
   text-transform: capitalize;
   padding-bottom: 8px;
   margin: 0;
@@ -147,7 +148,7 @@
   background: rgb(255 216 92 / 90%);
 }
 
-@media (width >= 999px) {
+@media (width >=999px) {
   .highlights.block {
     flex-direction: row;
   }
@@ -171,7 +172,8 @@
   .highlight__info h4,
   .highlight__pretitle p {
     font-size: 24px;
-    line-height: 32px; /* 125% */
+    line-height: 32px;
+    /* 125% */
     padding-bottom: 20px;
   }
 
@@ -269,5 +271,11 @@
     100% {
       height: 100%;
     }
+  }
+}
+
+@media (width <=999px) {
+  .highlight__info .highlight__description p {
+    max-width: 114px;
   }
 }

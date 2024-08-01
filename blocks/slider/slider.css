@@ -305,6 +305,7 @@
 @media (width <= 600px) {
   .container__slider .teaser__card {
     flex: 0 0 66.6666%;
+    padding: 10px 5px;
   }
 }
 
