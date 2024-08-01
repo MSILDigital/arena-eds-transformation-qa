@@ -338,10 +338,6 @@ body {
 }
 
 @media (width <= 999px) {
-  .navbar {
-    height: 64px;
-  }
-
   .navbar .links,
   .navbar .right {
     display: none;
