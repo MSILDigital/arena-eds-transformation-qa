@@ -2,17 +2,9 @@ import { fetchPlaceholders } from '../../scripts/aem.js';
 import utility from '../../utility/utility.js';
 
 export default async function decorate(block) {
-  const [
-    titleEl,
-    subtitleEl,
-    priceTextEl,
-    selectVariantEl,
-    filterSelectEl,
-  ] = block.children;
+  const [titleEl, subtitleEl, priceTextEl, selectVariantEl, filterSelectEl] = block.children;
 
-  const {
-    publishDomain, apiKey, allFilterText,
-  } = await fetchPlaceholders();
+  const { publishDomain, apiKey, allFilterText } = await fetchPlaceholders();
   let authorization;
   try {
     const res = await fetch(`${publishDomain}/content/arena/services/token`);
@@ -97,15 +89,22 @@ export default async function decorate(block) {
     let unifiedFilterOptions;
 
     if (componentVariation === 'arena-variant') {
-      unifiedFilterOptions = [...new Set(filterTypes.flatMap((type) => filters[type]))];
+      unifiedFilterOptions = [
+        ...new Set(filterTypes.flatMap((type) => filters[type])),
+      ];
     } else {
-      unifiedFilterOptions = [allFilterText,
-        ...new Set(filterTypes.flatMap((type) => filters[type]))];
+      unifiedFilterOptions = [
+        allFilterText,
+        ...new Set(filterTypes.flatMap((type) => filters[type])),
+      ];
     }
 
     function updateFilterStyles() {
       carFiltersContainer.querySelectorAll('.filter').forEach((filter) => {
-        filter.classList.toggle('selected', filter.textContent === selectedFilter);
+        filter.classList.toggle(
+          'selected',
+          filter.textContent === selectedFilter,
+        );
       });
     }
 
@@ -125,11 +124,19 @@ export default async function decorate(block) {
       return localStorage.getItem(key);
     }
 
-    function fetchPrice(modelCode, priceElement, priceTextElement, defaultPrice) {
+    function fetchPrice(
+      modelCode,
+      priceElement,
+      priceTextElement,
+      defaultPrice,
+    ) {
       const storedPrices = getLocalStorage('modelPrice')
-        ? JSON.parse(getLocalStorage('modelPrice')) : {};
+        ? JSON.parse(getLocalStorage('modelPrice'))
+        : {};
       if (storedPrices[modelCode] && storedPrices[modelCode].price[forCode]) {
-        const storedPrice = priceFormatting(storedPrices[modelCode].price[forCode]).replaceAll(',', ' ');
+        const storedPrice = priceFormatting(
+          storedPrices[modelCode].price[forCode],
+        ).replaceAll(',', ' ');
         priceElement.textContent = `${storedPrice}`;
         priceTextElement.textContent = priceText;
       } else {
@@ -141,7 +148,6 @@ export default async function decorate(block) {
         const apiUrl = 'https://api.preprod.developersatmarutisuzuki.in/pricing/v2/common/pricing/ex-showroom-detail';
 
         const params = {
-
           forCode,
           channel,
         };
@@ -152,8 +158,7 @@ export default async function decorate(block) {
         };
 
         const url = new URL(apiUrl);
-        Object.keys(params)
-          .forEach((key) => url.searchParams.append(key, params[key]));
+        Object.keys(params).forEach((key) => url.searchParams.append(key, params[key]));
 
         fetch(url, {
           method: 'GET',
@@ -168,7 +173,7 @@ export default async function decorate(block) {
           .then((data) => {
             if (data.error === false && data.data) {
               const storedModelPrices = {};
-              const timestamp = new Date().getTime() + (1 * 24 * 60 * 60 * 1000); // 1 day from now
+              const timestamp = new Date().getTime() + 1 * 24 * 60 * 60 * 1000; // 1 day from now
 
               data.data.models.forEach((item) => {
                 const { modelCd } = item;
@@ -183,17 +188,26 @@ export default async function decorate(block) {
               });
 
               // Convert to JSON and store in localStorage
-              localStorage.setItem('modelPrice', JSON.stringify(storedModelPrices));
-              priceElement.textContent = `${priceFormatting(storedModelPrices[modelCode].price[forCode])}`;
+              localStorage.setItem(
+                'modelPrice',
+                JSON.stringify(storedModelPrices),
+              );
+              priceElement.textContent = `${priceFormatting(
+                storedModelPrices[modelCode].price[forCode],
+              )}`;
               priceTextElement.textContent = priceText;
             } else {
-              const formattedPrice = defaultPrice ? priceFormatting(defaultPrice) : 'Not available';
+              const formattedPrice = defaultPrice
+                ? priceFormatting(defaultPrice)
+                : 'Not available';
               priceElement.textContent = formattedPrice;
               priceTextElement.textContent = priceText;
             }
           })
           .catch((error) => {
-            const formattedPrice = defaultPrice ? priceFormatting(defaultPrice) : 'Not available';
+            const formattedPrice = defaultPrice
+              ? priceFormatting(defaultPrice)
+              : 'Not available';
             priceElement.textContent = formattedPrice;
             priceTextElement.textContent = priceText;
             throw new Error('Network response was not ok', error);
@@ -207,18 +221,6 @@ export default async function decorate(block) {
       carsToRender.forEach((car) => {
         const card = document.createElement('div');
         card.classList.add('card');
-
-        if (componentVariation === 'arena-variant') {
-          const cardLogoImage = document.createElement('div');
-          cardLogoImage.classList.add('card-logo-image');
-
-          const logoImg = document.createElement('img');
-          // eslint-disable-next-line
-          logoImg.src = car.carLogoImage?._publishUrl;
-          logoImg.alt = car.logoImageAltText;
-          cardLogoImage.appendChild(logoImg);
-          card.appendChild(cardLogoImage);
-        }
 
         const cardImage = document.createElement('div');
         cardImage.classList.add('card-image');
@@ -249,11 +251,43 @@ export default async function decorate(block) {
         priceElement.classList.add('card-price');
         cardContent.appendChild(priceElement);
 
-        fetchPrice(car.modelCd, priceElement, priceTextElement, car.exShowroomPrice);
+        fetchPrice(
+          car.modelCd,
+          priceElement,
+          priceTextElement,
+          car.exShowroomPrice,
+        );
 
         card.appendChild(cardImage);
         card.appendChild(cardContent);
+        if (componentVariation === 'arena-variant') {
+          const cardLogoImage = document.createElement('div');
+          cardLogoImage.classList.add('card-logo-image');
+          // eslint-disable-next-line
+          let logoImgSrc = car.carLogoImage?._publishUrl;
 
+          // eslint-disable-next-line no-inner-declarations
+          async function fetchAndAppendSvg(url) {
+            try {
+              // Fetch the SVG file
+              const response = await fetch(url);
+              const svgText = await response.text();
+              cardLogoImage.innerHTML = svgText;
+              card.insertAdjacentElement('afterBegin', cardLogoImage);
+            } catch (error) {
+              // console.error('Error fetching or parsing the SVG file:', error);
+            }
+          }
+
+          // Call the function to fetch and convert the SVG
+          fetchAndAppendSvg(logoImgSrc);
+          // const logoImg = document.createElement('img');
+          // eslint-disable-next-line
+          // logoImg.src = car.carLogoImage?._publishUrl;
+          // logoImg.alt = car.logoImageAltText;
+          // cardLogoImage.appendChild(logoImg);
+          // card.appendChild(cardLogoImage);
+        }
         carCardsContainer.appendChild(card);
       });
     }
@@ -263,10 +297,11 @@ export default async function decorate(block) {
         if (selectedFilter === allFilterText) {
           return true;
         }
-        return filterTypes.some((type) => (
-          (Array.isArray(car[type]) && car[type].map((opt) => opt).includes(selectedFilter))
-                            || (typeof car[type] === 'string' && car[type] === selectedFilter)
-        ));
+        return filterTypes.some(
+          (type) => (Array.isArray(car[type])
+              && car[type].map((opt) => opt).includes(selectedFilter))
+            || (typeof car[type] === 'string' && car[type] === selectedFilter),
+        );
       });
       renderCards(filteredCars);
     }
