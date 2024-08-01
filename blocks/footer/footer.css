@@ -228,6 +228,7 @@ footer.footer__arena .footer__info-left {
     padding: 20px 0;
     font-style: normal;
     font-weight: 500;
+    line-height: normal;
   }
 
   footer .link-grid-column h3::after {
@@ -418,6 +419,7 @@ footer.footer__arena .footer__info-left {
     flex-wrap: wrap;
     gap: 8px;
     justify-content: inherit;
+    padding-right: 60px;
   }
 
   footer.footer__arena .user__contact__icons a {
@@ -457,5 +459,11 @@ footer.footer__arena .footer__info-left {
     background-image: url("../../icons/call.svg");
     position: absolute;
     left: 0;
+  }
+}
+
+@media (width<= 1280px) {
+  footer.footer__arena .user__contact__icons {
+    padding-right: 0;
   }
 }
