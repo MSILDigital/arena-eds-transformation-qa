@@ -12,7 +12,12 @@ main {
   font-family: var(--primary-font-arena);
 }
 
-.section.banner-carousel-container,
+.section.banner-carousel-container{
+  height: calc(100% - var(--nav-height));
+  min-height: 650px;
+}
+
+
 .banner-carousel-wrapper,
 .banner-carousel {
   height: 100%;
@@ -204,7 +209,7 @@ input[type="radio"]:checked {
 
 .sidebar_text_container span {
   font-size: 0.75rem;
-  font-weight: normal;
+  font-weight: 700;
 }
 
 .sidebar--details--exshowroom span,
@@ -308,6 +313,28 @@ input[type="radio"]:checked {
   z-index: 9;
 }
 
+/* @media (height <= 450px) {
+  .car-container.highlight .sidebar .sidebar_text_container {
+    margin-top: 0;
+  }
+
+  .sidebar-car--logo {
+    height: 35px;
+  }
+}
+
+@media (height <= 650px) {
+  .car-container.highlight .sidebar-car--image {
+    display: none;
+  }
+}
+
+@media (height < 768px) {
+  .car-container.highlight .sidebar-car--image {
+    transform: scale(1.5) translateY(-10px) !important;
+  }
+} */
+
 @media (width >= 998px) {
   .hero_banner_container {
     grid-template-columns: 1fr 1fr 1fr;
@@ -369,7 +396,6 @@ input[type="radio"]:checked {
   .sidebar--details--onroad span,
   .sidebar_text_container span {
     font-size: 0.88rem;
-    font-weight: normal;
   }
 
   .sidebar--details {
