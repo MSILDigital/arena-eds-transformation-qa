@@ -14,7 +14,6 @@
 
 .highlight__card {
   position: relative;
-  cursor: pointer;
   flex-grow: 1;
   background: #f9f9f9;
 }
@@ -77,7 +76,10 @@
   background-color: rgb(0 0 0 / 5%);
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" fill="black" fill-opacity="0.05"/><path d="M11.1075 39L9 36.8925L31.8925 14H18V11H37V30H34V16.1075L11.1075 39Z" fill="%231C1D1F"/></svg>');
 }
-
+.highlight__actions a.button:hover {
+  transform: scale(1.1);
+  transform-origin: bottom left;
+}
 .highlight__bg-color {
   position: absolute;
   inset: 0;
@@ -153,7 +155,7 @@
   }
 
   .highlight__card {
-    padding-top: 95px;
+    padding-top: 70px;
     width: 25%;
   }
 
@@ -173,6 +175,7 @@
     font-size: 24px;
     line-height: 32px; /* 125% */
     padding-bottom: 20px;
+    font-weight: 500;
   }
 
   .highlight__actions {
@@ -180,7 +183,10 @@
     justify-content: end;
     opacity: 0;
   }
-
+  .highlight__actions a.button:hover {
+    transform: scale(1.2);
+    transform-origin: bottom left;
+  }
   .highlight__backgroundImage img {
     opacity: 0;
     transition: all 0.8s linear;
@@ -234,6 +240,9 @@
     width: 67px;
     inset: 50% 0 auto auto;
     transform: inherit;
+  }
+  .highlight__card:hover h4.highlight__title {
+    font-weight: 600;
   }
 
   .highlight__card:hover .highlight__actions {
