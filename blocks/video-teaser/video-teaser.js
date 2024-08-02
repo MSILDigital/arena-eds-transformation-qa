@@ -28,7 +28,7 @@ export default async function decorate(block) {
 
   const html = `
   <div class="video-teaser-container container">
-    <video src="${videoUrl}" class="video-teaser-bg" autoplay loop muted></video>
+    <video src="${videoUrl}" class="video-teaser-bg" preload="none" playsinline loop muted></video>
           <div class="video-teaser-overlay">
               ${title ? title.outerHTML : ''}
               <div class="mute-button"></div>
