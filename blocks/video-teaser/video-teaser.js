@@ -28,7 +28,7 @@ export default async function decorate(block) {
 
   const html = `
   <div class="video-teaser-container container">
-    <video src="${videoUrl}" class="video-teaser-bg" autoplay loop muted></video>
+    <video src="${videoUrl}" class="video-teaser-bg" preload="none" playsinline loop muted></video>
           <div class="video-teaser-overlay">
               ${title ? title.outerHTML : ''}
               <div class="mute-button"></div>
@@ -49,6 +49,16 @@ export default async function decorate(block) {
       video.muted = true;
       muteButton.classList.remove('video-teaser-unmute');
       muteButton.classList.add('video-teaser-mute');
+    }
+  });
+
+  let flag = false;
+  window.addEventListener("scroll", (event) => {
+    if (!flag) {
+      const videoEL = block.querySelector('video');
+      videoEL.removeAttribute('preload');
+      videoEL.setAttribute('autoplay',true);
+      flag = true;
     }
   });
 }
