@@ -227,7 +227,7 @@ export default async function decorate(block) {
 
         const img = document.createElement('img');
         // eslint-disable-next-line
-        img.src = car.carImage?._dynamicUrl;
+        img.src = publishDomain + car.carImage?._dynamicUrl;
         img.alt = car.altText;
         cardImage.appendChild(img);
 
@@ -264,7 +264,7 @@ export default async function decorate(block) {
           const cardLogoImage = document.createElement('div');
           cardLogoImage.classList.add('card-logo-image');
           // eslint-disable-next-line
-          let logoImgSrc = publishDomain + car.carLogoImage?._publishUrl;
+          let logoImgSrc = car.carLogoImage?._publishUrl;
 
           // eslint-disable-next-line no-inner-declarations
           async function fetchAndAppendSvg(url) {
