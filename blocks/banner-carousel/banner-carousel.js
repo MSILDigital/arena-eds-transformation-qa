@@ -40,51 +40,61 @@ function priceFormatting(price) {
 
 export default async function decorate(block) {
   const { publishDomain, apiKey } = await fetchPlaceholders();
-  const carResponse = await fetchCar(publishDomain);
+  let carResponse;
   let isDesktop = window.innerWidth > 998;
   let currentIndex = 0;
   let cardsPerPage = isDesktop ? 3 : 1;
   let highlightedSidebar = null;
   const forCode = '48';
 
-  const carsObject = carResponse?.data?.carModelList?.items?.reduce(
-    (acc, car) => {
-      acc[car.modelCd] = car;
-      return acc;
-    },
-    {},
-  );
 
-  const authorization = await apiUtils.fetchAuthorisationToken(publishDomain);
   let exShowroomPrices = apiUtils.getLocalStorage('modelPrice');
-  if (!exShowroomPrices) {
-    const apiresp = await apiUtils.fetchExShowroomPrices(
-      apiKey,
-      authorization,
-      forCode,
-      '',
-      'NRM',
-      '',
-    );
-    if (apiresp) {
-      exShowroomPrices = apiUtils.setLocalStorage(
-        apiresp,
-        forCode,
-        'modelPrice',
-      );
-    }
-  }
 
   const [bGImgContainer, ...carList] = block.children;
+  const bgImg = bGImgContainer.querySelector('picture');
+  const imgEl = bgImg.querySelector('img');
+  imgEl.setAttribute('width', '100%');
+  imgEl.removeAttribute('height');
 
-  function updateHtml(isBGImgContainer, isCarList) {
+  block.innerHTML = `
+  <div class="hero_banner_container_wrapper">
+    ${bgImg.outerHTML}
+    <div class="hero_banner_container">
+     
+    </div>
+  </div>`
+
+  async function init(isCarList) {
+    if(!carResponse){
+      await fetchCar(publishDomain);
+    }
+    const carsObject = carResponse?.data?.carModelList?.items?.reduce(
+      (acc, car) => {
+        acc[car.modelCd] = car;
+        return acc;
+      },
+      {},
+    );
+    const authorization = await apiUtils.fetchAuthorisationToken(publishDomain);
+    if (!exShowroomPrices) {
+      const apiresp = await apiUtils.fetchExShowroomPrices(
+        apiKey,
+        authorization,
+        forCode,
+        '',
+        'NRM',
+        '',
+      );
+      if (apiresp) {
+        exShowroomPrices = apiUtils.setLocalStorage(
+          apiresp,
+          forCode,
+          'modelPrice',
+        );
+      }
+    }
     const carContainersWrapper = document.createElement('div');
-
-    const bgImg = isBGImgContainer.querySelector('picture');
-    const imgEl = bgImg.querySelector('img');
-    imgEl.setAttribute('width', '100%');
-    imgEl.removeAttribute('height');
-
+    carContainersWrapper.className = 'hero-banner-container'
     isCarList.forEach((element) => {
       const [
         title,
@@ -121,6 +131,8 @@ export default async function decorate(block) {
         secondaryCtaTargetEl,
         '',
       );
+      carContainersWrapper.innerHTML = `<button class="pre-btn">${SVG_IMAGE.pre_btn}</button>
+        <button class="nxt-btn">${SVG_IMAGE.next_btn}</button>`
       /* eslint no-underscore-dangle: 0 */
       carContainersWrapper.innerHTML += `
         <div class="car-container">
@@ -140,9 +152,8 @@ export default async function decorate(block) {
                   alt=${carObjectItem?.modelDesc || ''}
                   class="sidebar-car--logo"
                 />
-                  <span><strong>${carObjectItem?.bodyType}</strong> | ${
-  type?.textContent || ''
-}</span>
+                  <span><strong>${carObjectItem?.bodyType}</strong> | ${type?.textContent || ''
+        }</span>
                 <div class="sidebar--hr"></div>
                 <div class="sidebar--details">
                   <div class="sidebar--details--exshowroom">
@@ -151,9 +162,8 @@ export default async function decorate(block) {
                   </div>
                   <div class="sidebar--details--onroad">
                     <span>Estd. On-road in Gurgaon:</span>
-                      <span><strong>${
-  onRoadPrice?.textContent || ''
-}</strong></span>
+                      <span><strong>${onRoadPrice?.textContent || ''
+        }</strong></span>
                   </div>
                 </div>
                 <div class="buttons">
@@ -166,19 +176,26 @@ export default async function decorate(block) {
         </div>
       `;
     });
+    block.querySelector('.hero_banner_container')?.replace(carContainersWrapper);
+  }
+  function updateHtml(isBGImgContainer, isCarList) {
+
+    const bgImg = isBGImgContainer.querySelector('picture');
+    const imgEl = bgImg.querySelector('img');
+    imgEl.setAttribute('width', '100%');
+    imgEl.removeAttribute('height');
 
     const heroBannerWrapper = `
-      <div class="hero_banner_container_wrapper">
-        ${bgImg.outerHTML}
-        <div class="hero_banner_container">
-          <button class="pre-btn">${SVG_IMAGE.pre_btn}</button>
-          <button class="nxt-btn">${SVG_IMAGE.next_btn}</button>
-          ${carContainersWrapper.innerHTML}
-        </div>
+    <div class="hero_banner_container_wrapper">
+      ${bgImg.outerHTML}
+      <div class="hero_banner_container">
+       
       </div>
-    `;
-
+    </div>
+  `;
+    
     block.innerHTML = heroBannerWrapper;
+    init(isCarList);
   }
 
   function initializeEventListeners() {
@@ -295,9 +312,8 @@ export default async function decorate(block) {
       bullets.id = 'bullets';
 
       for (let i = 0; i < isCardCount; i += isCardsPerPage) {
-        bullets.innerHTML += `<input id="bullet" type="radio" ${
-          i === 0 ? 'checked' : ''
-        } />`;
+        bullets.innerHTML += `<input id="bullet" type="radio" ${i === 0 ? 'checked' : ''
+          } />`;
       }
 
       document
