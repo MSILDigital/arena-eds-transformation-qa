@@ -264,7 +264,7 @@ export default async function decorate(block) {
           const cardLogoImage = document.createElement('div');
           cardLogoImage.classList.add('card-logo-image');
           // eslint-disable-next-line
-          let logoImgSrc = car.carLogoImage?._publishUrl;
+          let logoImgSrc = publishDomain + car.carLogoImage?._publishUrl;
 
           // eslint-disable-next-line no-inner-declarations
           async function fetchAndAppendSvg(url) {
