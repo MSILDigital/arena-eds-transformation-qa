@@ -76,8 +76,9 @@ export default async function decorate(block) {
     /* eslint no-underscore-dangle: 0 */
     filterArray.forEach((item) => {
       let exShowroomPrice;
+      const { variantCd } = item;
       try {
-        const varientPrice = Object.values(exShowroomPrices.VBR4BL1).find((color) => color.colorType === 'M')?.price[forCode];
+        const varientPrice = Object.values(exShowroomPrices[variantCd]).find((color) => color.colorType === 'M')?.price[forCode];
         if (exShowroomPrices && varientPrice) {
           exShowroomPrice = utility.formatINR(varientPrice);
         } else {
