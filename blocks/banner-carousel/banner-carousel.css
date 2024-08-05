@@ -14,7 +14,8 @@ main {
 
 .section.banner-carousel-container{
   height: calc(100% - var(--nav-height));
-  min-height: 650px;
+  min-height: 570px;
+  max-height: 768px;
 }
 
 
@@ -141,6 +142,7 @@ input[type="radio"]:checked {
 
 .car-container.highlight .sidebar {
   height: 100%;
+  min-width: 280px;
 }
 
 .sidebar h2 {
@@ -176,6 +178,8 @@ input[type="radio"]:checked {
 .sidebar-car--logo {
   margin: 15px auto 10px;
   width: 80%;
+  min-width: 200px;
+  max-height: 30px;
 }
 
 .car-container.highlight .sidebar-car--image {
@@ -313,6 +317,11 @@ input[type="radio"]:checked {
   z-index: 9;
 }
 
+.sidebar-container {
+  display: flex;
+  justify-content: center;
+}
+
 /* @media (height <= 450px) {
   .car-container.highlight .sidebar .sidebar_text_container {
     margin-top: 0;
@@ -342,7 +351,6 @@ input[type="radio"]:checked {
 
   .sidebar {
     background-color: transparent;
-    width: 400px;
   }
 
   .buttons {
@@ -381,10 +389,6 @@ input[type="radio"]:checked {
     color: #000;
   }
 
-  .car-container.highlight .sidebar-car--image {
-    transform: scale(2) translateX(40px) translateY(-5px);
-  }
-
   .sidebar .sidebar-car--logo {
     height: 2rem;
   }
@@ -401,5 +405,11 @@ input[type="radio"]:checked {
 
   .sidebar--details {
     gap: 2rem;
+  }
+}
+
+@media (width > 1024px) {
+  .car-container.highlight .sidebar-car--image {
+    transform: scale(1.7) translateY(-5px);
   }
 }
