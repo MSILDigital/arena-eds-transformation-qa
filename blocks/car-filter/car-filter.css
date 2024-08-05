@@ -601,6 +601,7 @@
           filter: none;
           backdrop-filter: blur(0);
           clip-path: none;
+          position: relative;
 
           .card-logo-image {
             display: flex;
@@ -749,7 +750,7 @@
 .navbar-arena {
   @media (width >= 999px) {
     .desktop-panel.panel.cars {
-      height: calc(100% - 80px);
+      height: calc(100vh - 80px);
     }
 
     .filter-cars {

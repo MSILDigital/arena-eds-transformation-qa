@@ -9,8 +9,9 @@ main {
 
 .car-detail-banner-container {
   position: relative;
-  height: 100%;
-  margin-top: 60px;
+  height: calc(100% + 64px);
+
+  /* margin-top: 60px; */
 }
 
 .car-detail-banner-wrapper {
@@ -49,6 +50,7 @@ main {
   height: 100%;
   position: absolute;
   inset: 0;
+  margin-top: 50px;
 }
 
 .banner__content .banner__info {
@@ -217,7 +219,7 @@ main {
 
 @media (width >= 999px) {
   .car-detail-banner-container {
-    margin-top: 80px;
+    height: calc(100% + var(--nav-height));
   }
 
   .banner__carDescription,
@@ -305,6 +307,11 @@ main {
     align-items: end;
     height: fit-content;
     align-self: baseline;
+  }
+
+  .banner__content {
+    margin-top: 80px;
+    height: 100%;
   }
 
   .banner__content .banner__info {
