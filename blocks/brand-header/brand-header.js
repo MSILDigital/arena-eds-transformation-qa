@@ -111,8 +111,9 @@ export default async function decorate(block) {
 
   let sticky;
   let navbar;
-  let mainHeader; let sections; let
-    currentIndex;
+  let mainHeader;
+  let sections;
+  let currentIndex;
 
   // sticky brand header
 
@@ -152,7 +153,7 @@ export default async function decorate(block) {
   setTimeout(() => {
     navbar = block?.querySelector('.brand-header-container');
     mainHeader = document.querySelector('.header-wrapper');
-    mainHeader?.classList?.add('sticky');
+    // mainHeader?.classList?.add('sticky');
     sticky = navbar?.getBoundingClientRect().top;
     sections = document.querySelectorAll('.brandlink');
   }, 3000);
