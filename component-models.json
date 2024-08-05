@@ -673,6 +673,156 @@
         "valueType": "string",
         "name": "searchText",
         "label": "Search Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "clText",
+        "label": "Current Location Text"
+      },
+      {
+        "component": "container",
+        "label": "Popular City 1",
+        "name": "pc1",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text-input",
+            "label": "City 1 Name",
+            "name": "pc1_text",
+            "valueType": "string"
+          },
+          {
+            "component": "reference",
+            "name": "pc1_icon",
+            "value": "",
+            "label": "City 1 Icon",
+            "valueType": "string"
+          },
+          {
+            "component": "text-input",
+            "name": "pc1_iconAlt",
+            "value": "",
+            "label": "City 1 Icon Alt Text",
+            "valueType": "string"
+          },
+          {
+            "component": "text-input",
+            "name": "pc1_forcode",
+            "value": "",
+            "label": "City 1 Code",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Popular City 2",
+        "name": "pc2",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text-input",
+            "label": "City 2 Name",
+            "name": "pc2_text",
+            "valueType": "string"
+          },
+          {
+            "component": "reference",
+            "name": "pc2_icon",
+            "value": "",
+            "label": "City 2 Icon",
+            "valueType": "string"
+          },
+          {
+            "component": "text-input",
+            "name": "pc2_iconAlt",
+            "value": "",
+            "label": "City 2 Icon Alt Text",
+            "valueType": "string"
+          },
+          {
+            "component": "text-input",
+            "name": "pc2_forcode",
+            "value": "",
+            "label": "City 2 Code",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Popular City 3",
+        "name": "pc3",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text-input",
+            "label": "City 3 Name",
+            "name": "pc3_text",
+            "valueType": "string"
+          },
+          {
+            "component": "reference",
+            "name": "pc3_icon",
+            "value": "",
+            "label": "City 3 Icon",
+            "valueType": "string"
+          },
+          {
+            "component": "text-input",
+            "name": "pc3_iconAlt",
+            "value": "",
+            "label": "City 3 Icon Alt Text",
+            "valueType": "string"
+          },
+          {
+            "component": "text-input",
+            "name": "pc3_forcode",
+            "value": "",
+            "label": "City 3 Code",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Popular City 4",
+        "name": "pc4",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text-input",
+            "label": "City 4 Name",
+            "name": "pc4_text",
+            "valueType": "string"
+          },
+          {
+            "component": "reference",
+            "name": "pc4_icon",
+            "value": "",
+            "label": "City 4 Icon",
+            "valueType": "string"
+          },
+          {
+            "component": "text-input",
+            "name": "pc4_iconAlt",
+            "value": "",
+            "label": "City 4 Icon Alt Text",
+            "valueType": "string"
+          },
+          {
+            "component": "text-input",
+            "name": "pc4_forcode",
+            "value": "",
+            "label": "City 4 Code",
+            "valueType": "string"
+          }
+        ]
       }
     ]
   },

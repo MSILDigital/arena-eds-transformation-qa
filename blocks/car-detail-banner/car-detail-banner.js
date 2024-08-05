@@ -28,9 +28,9 @@ export default async function decorate(block) {
   };
 
   const modelId = modelIdEl?.textContent?.trim();
+  const authorization = await apiUtils.fetchAuthorisationToken(publishDomain);
   let exShowroomPrices = apiUtils.getLocalStorage('modelPrice');
   if (!exShowroomPrices) {
-    const authorization = await apiUtils.fetchAuthorisationToken(publishDomain);
     const apiresp = await apiUtils.fetchExShowroomPrices(apiKey, authorization, forCode, '', 'NRM', '');
     if (apiresp) {
       exShowroomPrices = apiUtils.setLocalStorage(apiresp, forCode, 'modelPrice');
@@ -38,15 +38,11 @@ export default async function decorate(block) {
   }
   function populateBanner(car) {
     /* eslint no-underscore-dangle: 0 */
-    let exShowroomPrice;
-    if (exShowroomPrices) {
-      exShowroomPrice = utility.formatINR(exShowroomPrices[modelId].price[forCode]);
-    } else if (car?.exShowroomPrice) {
-      exShowroomPrice = utility.formatINR(car?.exShowroomPrice);
-    }
-    // eslint-disable-next-line
-    const carImage = publishDomain + car?.carImage?._dynamicUrl;
-    const carLogoImage = car?.carLogoImage?._publishUrl;
+    const exShowroomPrice = exShowroomPrices
+      ? utility.formatINR(exShowroomPrices[modelId].price[forCode])
+      : utility.formatINR(car?.exShowroomPrice);
+    const carImage = publishDomain + car.carImage._dynamicUrl;
+    const carLogoImage = car.carLogoImage._publishUrl;
     const startingPriceText = Array.from(startingPriceTextEl.querySelectorAll('p'))
       .map((p) => p.outerHTML)
       .join('');
@@ -82,6 +78,7 @@ export default async function decorate(block) {
                    `;
     }
 
+    block.innerHTML = '';
     block.insertAdjacentHTML(
       'beforeend',
       utility.sanitizeHtml(`
@@ -136,16 +133,12 @@ export default async function decorate(block) {
              `),
     );
   }
-  async function initBanner() {
-    const graphQlEndpoint = `${publishDomain}/graphql/execute.json/msil-platform/carDetailBanner;modelCd=${modelId}`;
-    fetch(graphQlEndpoint, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        carObject = result?.data?.carModelList?.items[0];
-        populateBanner(carObject);
-      })
-      .catch();
-  }
-  block.innerHTML = '';
-  initBanner();
+  const graphQlEndpoint = `${publishDomain}/graphql/execute.json/msil-platform/carDetailBanner;modelCd=${modelId}`;
+  fetch(graphQlEndpoint, requestOptions)
+    .then((response) => response.json())
+    .then((result) => {
+      carObject = result?.data?.carModelList?.items[0];
+      populateBanner(carObject);
+    })
+    .catch();
 }
