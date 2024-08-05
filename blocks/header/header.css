@@ -32,7 +32,7 @@
 .nav-hamburger-icon::after {
   content: "";
   position: absolute;
-  background: currentcolor;
+  background: #171C8F;
   top: 6px;
   width: 24px;
   height: 2px;
@@ -42,7 +42,7 @@
 .nav-hamburger-icon {
   height: 2px;
   border-radius: 2px;
-  background: currentcolor;
+  background: #171C8F;
 }
 
 .nav-hamburger-icon::after {
