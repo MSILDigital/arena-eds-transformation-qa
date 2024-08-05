@@ -53,11 +53,11 @@ export default async function decorate(block) {
   });
 
   let flag = false;
-  window.addEventListener("scroll", (event) => {
+  window.addEventListener('scroll', () => {
     if (!flag) {
       const videoEL = block.querySelector('video');
       videoEL.removeAttribute('preload');
-      videoEL.setAttribute('autoplay',true);
+      videoEL.setAttribute('autoplay', true);
       flag = true;
     }
   });
