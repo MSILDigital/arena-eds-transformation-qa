@@ -37,16 +37,14 @@ export default async function decorate(block) {
     }
   }
   function populateBanner(car) {
-    console.log('Car Ex', car?.exShowroomPrice);
     /* eslint no-underscore-dangle: 0 */
     let exShowroomPrice;
     if (exShowroomPrices) {
       exShowroomPrice = utility.formatINR(exShowroomPrices[modelId].price[forCode]);
-    }
-    else if (car?.exShowroomPrice) {
+    } else if (car?.exShowroomPrice) {
       exShowroomPrice = utility.formatINR(car?.exShowroomPrice);
     }
-
+    // eslint-disable-next-line
     const carImage = publishDomain + car?.carImage?._dynamicUrl;
     const carLogoImage = car?.carLogoImage?._publishUrl;
     const startingPriceText = Array.from(startingPriceTextEl.querySelectorAll('p'))
@@ -84,43 +82,42 @@ export default async function decorate(block) {
                    `;
     }
 
-    block.innerHTML = '';
     block.insertAdjacentHTML(
       'beforeend',
       utility.sanitizeHtml(`
                    <div class="hero__banner">
                        ${image
-          ? `<div class="hero__banner--image">${image.outerHTML}</div>`
-          : ''
-        }
+    ? `<div class="hero__banner--image">${image.outerHTML}</div>`
+    : ''
+}
                        <div class="banner__content">
                            <div class="banner__info container">
                            ${car.carDescription
-          ? `<div class="banner__carDescription">${car.carDescription}</div>`
-          : ''
-        }
+    ? `<div class="banner__carDescription">${car.carDescription}</div>`
+    : ''
+}
                                ${carLogoImage && car.altText
-          ? `<div class="banner__carLogoImage"><img src=${carLogoImage} alt=${car.altText}></div>`
-          : ''
-        }
+    ? `<div class="banner__carLogoImage"><img src=${carLogoImage} alt=${car.altText}></div>`
+    : ''
+}
                                ${startingPriceText
-          ? `<div class="banner__startingPriceText"><p>${startingPriceText}</p></div>`
-          : ''
-        }
+    ? `<div class="banner__startingPriceText"><p>${startingPriceText}</p></div>`
+    : ''
+}
                                ${exShowroomPrice
-          ? `<div class="banner__exShowroomPrice">${exShowroomPrice}</div>`
-          : ''
-        }
+    ? `<div class="banner__exShowroomPrice">${exShowroomPrice}</div>`
+    : ''
+}
                                ${testDriveText
-          ? `<div class="banner__testDriveText">${testDriveText}</div>`
-          : ''
-        }
+    ? `<div class="banner__testDriveText">${testDriveText}</div>`
+    : ''
+}
                                
                                
                                ${carImage && car.altText
-          ? `<div class="banner__carImage"><img src=${carImage} alt=${car.altText}></div>`
-          : ''
-        }
+    ? `<div class="banner__carImage"><img src=${carImage} alt=${car.altText}></div>`
+    : ''
+}
                                
                                ${ctaHtml}
                            </div>
@@ -130,11 +127,11 @@ export default async function decorate(block) {
                    </div>
                    <div class="hero__bottom-gradient">
                     ${scrollMoreText
-          ? `<div class="banner__scrollMoreText"><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+    ? `<div class="banner__scrollMoreText"><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
   <path d="M5.625 8.3135L5.625 2.25H6.375L6.375 8.3135L9.22312 5.46538L9.75 6L6 9.75L2.25 6L2.77688 5.46538L5.625 8.3135Z" fill="white"/>
 </svg></span>${scrollMoreText}</div>`
-          : ''
-        }
+    : ''
+}
                     </div>
              `),
     );
@@ -149,7 +146,6 @@ export default async function decorate(block) {
       })
       .catch();
   }
-  populateBanner({});
+  block.innerHTML = '';
   initBanner();
-
 }
