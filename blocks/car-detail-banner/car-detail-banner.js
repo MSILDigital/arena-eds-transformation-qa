@@ -1,7 +1,7 @@
-import { fetchPlaceholders } from "../../scripts/aem.js";
-import ctaUtils from "../../utility/ctaUtils.js";
-import utility from "../../utility/utility.js";
-import apiUtils from "../../utility/apiUtils.js";
+import { fetchPlaceholders } from '../../scripts/aem.js';
+import ctaUtils from '../../utility/ctaUtils.js';
+import utility from '../../utility/utility.js';
+import apiUtils from '../../utility/apiUtils.js';
 
 export default async function decorate(block) {
   let carObject = null;
@@ -37,135 +37,134 @@ export default async function decorate(block) {
     secondaryCtaTargetEl,
   ];
 
-  elementsToHide.forEach((el) => el?.classList.add("hide"));
-  const image = bgImageEl?.querySelector("picture");
-  const img = image?.querySelector("img");
-  img?.removeAttribute("width");
-  img?.removeAttribute("height");
+  elementsToHide.forEach((el) => el?.classList.add('hide'));
+  const image = bgImageEl?.querySelector('picture');
+  const img = image?.querySelector('img');
+  img?.removeAttribute('width');
+  img?.removeAttribute('height');
   const scrollMoreText = scrollMoreTextEl?.textContent?.trim();
   // Clear block innerHTML to prepare for new content
-  block.innerHTML = "";
+  block.innerHTML = '';
   block.innerHTML = utility.sanitizeHtml(`
     <div class="hero__banner">
       ${
-        image ? `<div class="hero__banner--image">${image.outerHTML}</div>` : ""
-      }
+  image ? `<div class="hero__banner--image">${image.outerHTML}</div>` : ''
+}
       <div class="banner__content">
       </div>
     </div>
     <div class="hero__bottom-gradient">
       ${
-        scrollMoreText
-          ? `<div class="banner__scrollMoreText"><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+  scrollMoreText
+    ? `<div class="banner__scrollMoreText"><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
         <path d="M5.625 8.3135L5.625 2.25H6.375L6.375 8.3135L9.22312 5.46538L9.75 6L6 9.75L2.25 6L2.77688 5.46538L5.625 8.3135Z" fill="white"/>
       </svg></span>${scrollMoreText}</div>`
-          : ""
-      }
+    : ''
+}
     </div>
   `);
   // Fetch the required data
   const modelId = modelIdEl?.textContent?.trim();
   const authorization = await apiUtils.fetchAuthorisationToken(publishDomain);
 
-  let exShowroomPrices = apiUtils.getLocalStorage("modelPrice");
+  let exShowroomPrices = apiUtils.getLocalStorage('modelPrice');
   if (!exShowroomPrices) {
     const apiresp = await apiUtils.fetchExShowroomPrices(
       apiKey,
       authorization,
-      "48",
-      "",
-      "NRM",
-      ""
+      '48',
+      '',
+      'NRM',
+      '',
     );
     if (apiresp) {
-      exShowroomPrices = apiUtils.setLocalStorage(apiresp, "48", "modelPrice");
+      exShowroomPrices = apiUtils.setLocalStorage(apiresp, '48', 'modelPrice');
     }
   }
 
   // Function to populate the banner
   function populateBanner(car) {
     const exShowroomPrice = exShowroomPrices
-      ? utility.formatINR(exShowroomPrices[modelId].price["48"])
+      ? utility.formatINR(exShowroomPrices[modelId].price['48'])
       : utility.formatINR(car?.exShowroomPrice);
     const carImage = publishDomain + car.carImage._dynamicUrl;
     const carLogoImage = car.carLogoImage._publishUrl;
 
-    const startingPriceText = [...startingPriceTextEl.querySelectorAll("p")]
+    const startingPriceText = [...startingPriceTextEl.querySelectorAll('p')]
       .map((p) => p.outerHTML)
-      .join("");
-    const testDriveText = [...testDriveTextEl.querySelectorAll("p")]
+      .join('');
+    const testDriveText = [...testDriveTextEl.querySelectorAll('p')]
       .map((p) => p.outerHTML)
-      .join("");
+      .join('');
 
     const primaryCta = ctaUtils.getLink(
       primaryCtaLinkEl,
       primaryCtaTextEl,
       primaryCtaTargetEl,
-      "button-secondary-dark"
+      'button-secondary-dark',
     );
     const secondaryCta = ctaUtils.getLink(
       secondaryCtaLinkEl,
       secondaryCtaTextEl,
       secondaryCtaTargetEl,
-      "button-secondary-light"
+      'button-secondary-light',
     );
 
-    let ctaHtml = "";
+    let ctaHtml = '';
     if (primaryCta || secondaryCta) {
       ctaHtml = `
         <div class="banner__actions">
-          ${primaryCta ? primaryCta.outerHTML : ""}
-          ${secondaryCta ? secondaryCta.outerHTML : ""}
+          ${primaryCta ? primaryCta.outerHTML : ''}
+          ${secondaryCta ? secondaryCta.outerHTML : ''}
         </div>
       `;
     }
     const bannerContent = `<div class="banner__info container">
     ${
-      car.carDescription
-        ? `<div class="banner__carDescription">${car.carDescription}</div>`
-        : ""
-    }
+  car.carDescription
+    ? `<div class="banner__carDescription">${car.carDescription}</div>`
+    : ''
+}
     ${
-      carLogoImage && car.altText
-        ? `<div class="banner__carLogoImage"><img src="${carLogoImage}" alt="${car.altText}"></div>`
-        : ""
-    }
+  carLogoImage && car.altText
+    ? `<div class="banner__carLogoImage"><img src="${carLogoImage}" alt="${car.altText}"></div>`
+    : ''
+}
     ${
-      startingPriceText
-        ? `<div class="banner__startingPriceText"><p>${startingPriceText}</p></div>`
-        : ""
-    }
+  startingPriceText
+    ? `<div class="banner__startingPriceText"><p>${startingPriceText}</p></div>`
+    : ''
+}
     ${
-      exShowroomPrice
-        ? `<div class="banner__exShowroomPrice">${exShowroomPrice}</div>`
-        : ""
-    }
+  exShowroomPrice
+    ? `<div class="banner__exShowroomPrice">${exShowroomPrice}</div>`
+    : ''
+}
     ${
-      testDriveText
-        ? `<div class="banner__testDriveText">${testDriveText}</div>`
-        : ""
-    }
+  testDriveText
+    ? `<div class="banner__testDriveText">${testDriveText}</div>`
+    : ''
+}
     ${
-      carImage && car.altText
-        ? `<div class="banner__carImage"><img src="${carImage}" alt="${car.altText}"></div>`
-        : ""
-    }
+  carImage && car.altText
+    ? `<div class="banner__carImage"><img src="${carImage}" alt="${car.altText}"></div>`
+    : ''
+}
     ${ctaHtml}
   </div>`;
-    block.querySelector(".banner__content").innerHTML =
-      utility.sanitizeHtml(bannerContent);
+    block.querySelector('.banner__content').innerHTML = utility.sanitizeHtml(bannerContent);
   }
 
   // Fetch car details and populate the banner
   const graphQlEndpoint = `${publishDomain}/graphql/execute.json/msil-platform/carDetailBanner;modelCd=${modelId}`;
   fetch(graphQlEndpoint, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
   })
     .then((response) => response.json())
     .then((result) => {
       carObject = result?.data?.carModelList?.items[0];
       populateBanner(carObject);
     })
-    .catch((error) => console.error("Error fetching car details:", error));
+    .catch((error) => console.error('Error fetching car details:', error));
 }
