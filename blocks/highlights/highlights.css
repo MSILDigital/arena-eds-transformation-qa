@@ -55,6 +55,7 @@
   font-family: var(--primary-font-arena);
   font-size: 16px;
   line-height: 20px;
+
   /* 125% */
   text-transform: capitalize;
   padding-bottom: 8px;
@@ -177,6 +178,7 @@
   .highlight__pretitle p {
     font-size: 24px;
     line-height: 32px;
+
     /* 125% */
     padding-bottom: 20px;
     font-weight: 500;

@@ -7,6 +7,10 @@ main {
   display: initial !important;
 }
 
+.hide {
+  visibility: hidden;
+}
+
 .car-detail-banner-container {
   position: relative;
   height: calc(100% + 64px);
