@@ -22,7 +22,7 @@
 }
 
 .logo-list-container .car-logos.container a img {
-    max-width: 110px;
+    min-width: 110px;
     width: 100%;
     height: auto;
     transition: transform 0.3s ease;
@@ -40,7 +40,6 @@
 
     .logo-list-container .car-logos.container {
         padding: 0;
-        gap: 20px;
     }
 
     .logo-list-container .car-logos.container a img {

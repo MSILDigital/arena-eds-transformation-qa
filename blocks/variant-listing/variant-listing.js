@@ -165,7 +165,8 @@ export default async function decorate(block) {
   }
   block.innerHTML = '';
   block.insertAdjacentHTML('beforeend', utility.sanitizeHtml(newHtml));
-  block.classList.add('brandlink');
+  const listingSection = document.querySelector('.section.variant-listing-container');
+  listingSection?.classList.add('brandlink');
   const sliderContainer = block.querySelector('.variant__cards');
   const prevButton = block.querySelector('.prev_variant');
   const nextButton = block.querySelector('.next_variant');

@@ -99,13 +99,8 @@ export default async function decorate(block) {
     }
   }
 
-  links.forEach((link, index) => {
+  links.forEach((link) => {
     link.addEventListener('click', activeHandler);
-
-    // Set the first link as active by default
-    if (index === 0) {
-      link.classList.add('active');
-    }
     sectionNames.push(link.getAttribute('name'));
   });
 
@@ -113,7 +108,7 @@ export default async function decorate(block) {
   let navbar;
   let mainHeader;
   let sections;
-  let currentIndex;
+  let currentIndex = -1;
 
   // sticky brand header
 
@@ -121,19 +116,33 @@ export default async function decorate(block) {
     if (window.pageYOffset >= sticky) {
       navbar?.classList?.add('sticky');
       mainHeader?.classList?.remove('sticky');
+      currentIndex = 0;
     } else {
       navbar?.classList?.remove('sticky');
       mainHeader?.classList?.add('sticky');
+      currentIndex = undefined;
     }
   }
 
   function updateActiveLink() {
+    let found = false;
     sections.forEach((section, index) => {
       const rect = section.getBoundingClientRect();
-      if (rect.top >= 0 && rect.top < window.innerHeight) {
-        currentIndex = index;
+      const isInViewport = rect.top - 66 < 0 && rect.bottom >= 0
+      && rect.top + 66 < window.innerHeight;
+      if (isInViewport && section.classList.contains('overview-section') && index < 5) {
+        currentIndex = 0;
+        found = true;
+      } else if (isInViewport && !section.classList.contains('overview-section') && index > 4) {
+        if (!found) {
+          currentIndex = index - 4;
+          found = true;
+        }
       }
     });
+    if (!found) {
+      currentIndex = -1;
+    }
   }
 
   function activateDot() {
@@ -150,11 +159,16 @@ export default async function decorate(block) {
     activateDot();
   });
 
+  function addBrandLinkSection() {
+    const overviewSection = document.querySelectorAll('.car-detail-feature-container.overview-section ');
+    overviewSection.forEach((l) => l.classList.add('brandlink'));
+  }
+
   setTimeout(() => {
     navbar = block?.querySelector('.brand-header-container');
     mainHeader = document.querySelector('.header-wrapper');
-    // mainHeader?.classList?.add('sticky');
     sticky = navbar?.getBoundingClientRect().top;
+    addBrandLinkSection();
     sections = document.querySelectorAll('.brandlink');
   }, 3000);
 }
