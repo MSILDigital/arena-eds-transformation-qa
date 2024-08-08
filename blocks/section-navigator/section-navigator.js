@@ -48,6 +48,19 @@ export default function decorate(block) {
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
       sections[index].scrollIntoView({ behavior: 'smooth' });
+      const elementRect = sections[index].getBoundingClientRect();
+
+      // Calculate the current scroll position
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+      // Adjust the scroll position with the desired margin
+
+      window.scrollTo({
+        top: scrollTop + elementRect.top - 60,
+        left: scrollLeft + elementRect.left,
+        behavior: 'smooth',
+      });
     });
   });
   sections.forEach((section) => {

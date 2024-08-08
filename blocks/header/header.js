@@ -6,6 +6,7 @@ const list = [];
 
 function toggleMenu() {
   document.getElementById('menu').classList.toggle('hidden');
+  document.documentElement.classList.toggle('no-scroll');
 }
 
 function toggleCarMenu() {
