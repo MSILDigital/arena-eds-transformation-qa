@@ -70,7 +70,8 @@ export default function decorate(block) {
 
   block.innerHTML = '';
   block.insertAdjacentHTML('beforeend', utility.sanitizeHtml(updatedHtmlString));
-  block.classList.add('brandlink');
+  const bestDealSection = document.querySelector('.section.best-deals-container');
+  bestDealSection?.classList.add('brandlink');
   const sliderContainer = document.querySelector('.teaser__cards');
   const nextButton = document.querySelector('.prev');
   const prevButton = document.querySelector('.next');
