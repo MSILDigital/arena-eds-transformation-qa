@@ -32,7 +32,7 @@
 .nav-hamburger-icon::after {
   content: "";
   position: absolute;
-  background: #171C8F;
+  background: #171c8f;
   top: 6px;
   width: 24px;
   height: 2px;
@@ -42,7 +42,7 @@
 .nav-hamburger-icon {
   height: 2px;
   border-radius: 2px;
-  background: #171C8F;
+  background: #171c8f;
 }
 
 .nav-hamburger-icon::after {
@@ -126,11 +126,6 @@
 .navbar .right > img {
   height: 30px;
   cursor: pointer;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
 }
 
 .menu,

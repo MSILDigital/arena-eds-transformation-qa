@@ -1,9 +1,7 @@
 /* @import url("fonts.css"); */
 
-
-@import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 /* add global styles that can be loaded post LCP here */
 
@@ -17,7 +15,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
- /* html {
+/* html {
   line-height: 1.15; 
   text-size-adjust: 100%; 
 } */
@@ -1464,13 +1462,6 @@ template {
   }
 }
 
-
-
-
-
-
-
-
 /*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -1499,7 +1490,6 @@ template {
  * governing permissions and limitations under the License.
  */
 
-
 :root {
   /* ----------------------
    COLOURS BASE PALETTE
@@ -1518,9 +1508,8 @@ template {
   --primary-blue-700: #171c8f;
   --primary-blue-800: #0a0e6d;
   --primary-blue-900: #01044b;
-  --primary-text: #171D9B;
-  --fill-inside: #171D9B;
-
+  --primary-text: #171d9b;
+  --fill-inside: #171d9b;
 
   /* Gray Secondary Colour */
   --secondary-gray-50: #f4f4f4;
@@ -1534,10 +1523,9 @@ template {
   --secondary-gray-800: #575a5e;
   --secondary-gray-900: #434649;
 
-
   /* Font */
   --primary-font-arena: "Anek Latin", sans-serif;
-  --body-font-arena: : "roboto", sans-serif;
+  --body-font-arena: "roboto", sans-serif;
 
   /* Nexa colors */
   --primary-main: #18171a;
@@ -1936,17 +1924,17 @@ input[type="reset"] {
   }
 
   .button,
-a.button,
-button.button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"] {
-  padding: 0.5rem 1rem;
-  gap: 10px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  line-height: 1.1rem; /* 128.571% */
-}
+  a.button,
+  button.button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    padding: 0.5rem 1rem;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.1rem; /* 128.571% */
+  }
 }
 
 /*
@@ -1975,7 +1963,7 @@ input[type="reset"] {
 body {
   font-size: var(--body-font-size-m);
   margin: 0;
-  font-family: var(--body-font-family);
+  font-family: var(--body-font-arena);
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
