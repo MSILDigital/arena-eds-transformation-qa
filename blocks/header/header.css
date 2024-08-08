@@ -128,11 +128,6 @@
   cursor: pointer;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
 .menu,
 .car-filter-menu {
   width: 100%;
